@@ -14,10 +14,10 @@ export const signup = user => (
   })
 );
 
-export const logout = id => (
+export const logout = () => (
   $.ajax({
     method: 'DELETE',
-    url: `/api/session/${id}`,
+    url: `/api/session`,
   })
 );
 
