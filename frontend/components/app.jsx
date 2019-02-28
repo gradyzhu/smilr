@@ -4,7 +4,7 @@ import GreetingContainer from './greeting_container';
 const App = () => (
   <>
     <h1>React is twerking</h1>
-    <GreetingContainer/>
+    {/* <GreetingContainer/> */}
   </>
 )
 
