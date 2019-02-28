@@ -29,3 +29,4 @@
 bundle.js
 bundle.js.map
 bundle.js*
+yarn.lock
