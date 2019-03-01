@@ -2,8 +2,9 @@ import Greeting from "./greeting";
 import { connect } from 'react-redux';
 
 const mapStateToProps = ({session, entities: {users}}) => {
+  // debugger
   return ({
-    session: users[session.id]
+    currentUser: users[session.id]
   });
 };
 

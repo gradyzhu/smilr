@@ -9,8 +9,10 @@ class ApplicationController < ActionController::Base
   end
 
   def logout
+    # debugger
     current_user.reset_session_token
     session[:session_token] = nil
+    # current_user = nil
   end
   
   def logged_in?
@@ -21,7 +23,7 @@ class ApplicationController < ActionController::Base
     @current_user ||= User.find_by_session_token(session[:session_token])
   end
 
-  def ensure_login
-    redirect_to new_session_url unless logged_in?
-  end
+  # def ensure_login
+  #   redirect_to new_session_url unless logged_in?
+  # end
 end

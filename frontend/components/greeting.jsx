@@ -2,24 +2,29 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Greeting = ({currentUser, logout}) => {
-  const personalGreeting = () => (
+  // debugger
+  const personalGreeting = () => {
+    // debugger
+    return (
     <div>
-      <h2>You're logged in, son. (Greetings Container)</h2>
+      <h2>You've made it.</h2>
       <button onClick={logout}>Logout</button>
     </div>
-  );
+  )};
   
   const sessionLinks = () => (
     <nav>
-      <h2>You're not logged in. (Greetings Container)</h2>
-      <Link to='/login'>Login</Link>
-      &nbsp;
-      <Link to='/signup'>Sign Up</Link>
+      <div>
+        <div>
+          <Link to='/login' className="login-link">Login</Link>
+          <Link to='/signup' className="signup-link">Sign Up</Link>
+        </div>
+      </div>
+      <h2>You're NOT logged in fool</h2>
     </nav>
   );
-
+  // debugger
   return currentUser ? personalGreeting() : sessionLinks();
-  // return personalGreeting();
 };
 
 export default Greeting;
