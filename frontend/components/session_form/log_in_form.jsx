@@ -9,6 +9,7 @@ class LogInForm extends React.Component {
       password: '',
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDemo = this.handleDemo.bind(this);
   }
 
   update(field) {
@@ -21,6 +22,24 @@ class LogInForm extends React.Component {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.processForm(user);
+  }
+
+  handleDemo(e) {
+    e.preventDefault();
+    const user = {
+      username: "demo_user", 
+      email: "demo_user@gmail.com", 
+      password: "password"
+    };
+
+    setInterval(callback, 10000 );
+    this.props.processForm(user);
+
+
+  }
+
+  componentWillUnmount() {
+    this.props.clearErrors();
   }
 
   render() {
@@ -56,7 +75,11 @@ class LogInForm extends React.Component {
                   <input 
                     type="submit" 
                     value={this.props.formType}
-                    className="form-submit-button" />
+                    className="form-submit-button"/>
+                  <button
+                    type="submit" 
+                    onClick={this.handleDemo}
+                    className="form-submit-button">Demo</button>
                 </div>
                 <h2 className="form-h2">Not a member?&nbsp;
                   <Link to='/signup' className="form-sign-up-link">Sign up here</Link>
