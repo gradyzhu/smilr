@@ -36,10 +36,9 @@ class User < ApplicationRecord
 
   # associations uncomment later
   # has_many :albums
+  
+  has_many :photos
 
-  # has_many :photos,
-  # through: :albums,
-  # source: :photos
 
   # has_many :comments,
   # through: :photos,
