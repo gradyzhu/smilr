@@ -4,7 +4,14 @@
     window.currentUser = <%= render(
       "api/users/user.json.jbuilder",
       user: current_user
-    ).html_safe %></script>
+    ).html_safe %>
+  </script>
 <% end %>
 
+<script type="text/javascript">
+  window.images = {
+    logo: "<%= asset_path("smilr.png") %>"
+  }
+</script>
+ 
 <main id="root"></main>

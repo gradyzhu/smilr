@@ -2,9 +2,149 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.session-wrap {
+  position: absolute;
+  width: auto;
+  height: auto;
+  top: 35px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+}
 
-.login-link, .signup-link {
-  font-family: helvetica;
+.session-forms, .form-section, .form-input, .form-submit-button, .form-h1, .form-h2, .form-sign-up-link, .dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.session-forms {
+
+}
+
+.session-forms-container {
+  margin-bottom: 50px;
+  margin-left: 25px;
+  margin-right: 25px;
+  padding: 25px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: white;
+  border-radius: 6px;
+  box-shadow: 0px 2px 10px -4px black; ;
+}
+
+.form-input {
+  border: 1px solid #A7A7A7;
+  font-size: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
+  width: 250px;
+  height: 56px;
+  margin-bottom: 15px;
+}
+
+.form-submit-button {
+  background-color: #128fdc;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border-style: none;
+  width: 290px;
+  height: 40px;
+  margin-top: 15px;
+  margin-bottom: 25px;
+}
+
+.form-input, .form-submit-button {
+  border-radius: 4px;
+  transition: ease .3s;
+}
+
+.form-input::placeholder {
+  position: relative;
+  color: #C3C3C3;
+  top: 0px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: auto;
+  height: auto;
+}
+
+.form-input:focus {
+  outline-color: #008ED9;
+  box-shadow: inset 0px 0px 0px 1.5px #008ED9;
+  outline: none;
+  border: 1px solid #008ED9;
+}
+
+.form-input:focus::placeholder {
+  color: #008ED9;
+  transition: ease .2s;
+  width: 50%;
+  font-size: 11px;
+  top: -12px;
+}
+
+.form-submit-button:focus {
+  outline: none;
+}
+
+.form-submit-button:hover {
+  background-color: #1397E8;
+  transition: ease .3s;
+  cursor: pointer;
+}
+
+.form-submit-button:active {
+  background-color: #0E76B4;
+  cursor: pointer;
+}
+
+.form-h1, .form-h2, .form-sign-up-link, .login-errors{
+  font-family: helvetica neue;
+  letter-spacing: 0.3px;
+}
+.form-h1{
+  color: #343434;
+  font-size: 22px;
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.form-h2, .form-sign-up-link {
+  font-size: 13px;
+}
+
+// dots
+
+.dots{
+  margin-bottom: 10px;
+}
+.dot-1 {
+  color: #0063DC;
+  font-size: 25px;
+}
+
+.dot-2 {
+  color: #FF0084;
+  font-size: 25px;
+  margin-left: -1px;
+}
+
+.form-sign-up-link {
+  color: #008ED9;
   text-decoration: none;
-  
+}
+
+// errors
+
+.login-errors {
+  height: 10px;
+  color: #E4262A;
+  font-size: 12px;
+  letter-spacing: 0.5px;
 }

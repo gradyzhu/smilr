@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class LogInForm extends React.Component {
   constructor(props) {
@@ -25,26 +26,46 @@ class LogInForm extends React.Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
-          <br/>
-          <div>
-            <label>Username:
-              <input type="text"
-                value={this.state.username}
-                onChange={this.update('username')}
-              />
-            </label>
-            <br/>
-            <label>Password:
-              <input type="password"
-                value={this.state.password}
-                onChange={this.update('password')}
-              />
-            </label>
-            <br/>
-            <input type="submit" value={this.props.formType} />
+        <div className="session-wrap">
+          <div className="session-forms">
+            <div className="session-forms-container">
+              <form onSubmit={this.handleSubmit}>
+                <div>
+                  <div className="dots">
+                    <h1 className="dot-1">●</h1>
+                    <h1 className="dot-2">●</h1>
+                  </div>
+                  <h1 className="form-h1">Login to Smilr</h1>
+                  <label>
+                    <input type="text"
+                      value={this.state.username}
+                      onChange={this.update('username')}
+                      className="form-input"
+                      placeholder="Username"
+                    />
+                  </label>
+                  <label>
+                    <input type="password"
+                      value={this.state.password}
+                      onChange={this.update('password')}
+                      className="form-input"
+                      placeholder="Password"
+                    />
+                  </label>
+                  <div className="login-errors"><h1>{this.props.errors[0]}</h1></div>
+                  <input 
+                    type="submit" 
+                    value={this.props.formType}
+                    className="form-submit-button" />
+                </div>
+                <h2 className="form-h2">Not a member?&nbsp;
+                  <Link to='/signup' className="form-sign-up-link">Sign up here</Link>
+                </h2>
+              </form>
+            </div>
           </div>
-        </form>
+        </div>
+        <div className="log-in-bg"></div>
       </div>
     );
   }

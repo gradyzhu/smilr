@@ -9,8 +9,6 @@ import { logout } from './actions/session_actions';
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
-  // console.log(window.currentUser);
-  // debugger
   if (window.currentUser) {
     const { currentUser } = window;
     const { id } = currentUser;
@@ -23,17 +21,17 @@ document.addEventListener("DOMContentLoaded", () => {
       session: { id }
     };
     store = configureStore(preloadedState);
-    delete window.currentUser;
+    delete window.currentUser; 
   } else {
     store = configureStore();
   }
 
   const root = document.getElementById('root');
 
-  // window.login = login;
-  // window.signup = signup;
-  // window.logout = logout; 
-  // window.getState = store.getState;
-  // window.dispatch = store.dispatch;
+  window.login = login;
+  window.signup = signup;
+  window.logout = logout; 
+  window.getState = store.getState;
+  window.dispatch = store.dispatch;
   ReactDOM.render(<Root store={store}/>, root);
 });

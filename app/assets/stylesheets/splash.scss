@@ -1,0 +1,57 @@
+.center {
+  position: absolute;
+  width: auto;
+  height: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.splash-content-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.main-text {
+  font-size: 60px;
+  margin-bottom: 20px;
+}
+.sub-text {
+  font-size: 20px;
+  margin-bottom: 40px;
+}
+
+.main-text, .sub-text {
+  font-family: helvetica neue;
+  color: white;
+  letter-spacing: 1px;
+}
+
+.splash-sign-up-button {
+  font-family: helvetica neue;
+  padding: 18px;
+  padding-left: 40px;
+  padding-right: 40px;
+  background-color: white;
+  border-radius: 3px;
+  color: black;
+  text-decoration: none;
+  font-size: 20x;
+  font-weight: bold;
+  letter-spacing: 0.5px;
+}
+
+.splash-sign-up-button:active {
+  background-color: #ECECEC;
+  transition: ease .2s;
+}
+
+.splash-sign-up-button:hover {
+  box-shadow: 0px 0px 20px -2px white;
+  transition: ease .3s;
+}
