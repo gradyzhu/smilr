@@ -35,7 +35,6 @@ export const deletePhoto = id => (
   })
 );
 
-
 window.fetchPhotos = fetchPhotos;
 window.fetchPhoto = fetchPhoto;
 window.createPhoto = createPhoto;

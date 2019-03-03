@@ -1,10 +1,10 @@
 import * as ApiUtil from '../util/photos_api_util';
-import { receiveErrors } from './session_actions';
-
 
 export const RECEIVE_PHOTOS = 'RECEIVE_PHOTOS';
 export const RECEIVE_PHOTO = 'RECEIVE_PHOTO';
 export const DELETE_PHOTO = 'DELETE_PHOTO';
+export const RECEIVE_PHOTO_ERRORS = "RECEIVE_PHOTO_ERRORS";
+export const REMOVE_PHOTO_ERRORS = 'REMOVE_PHOTO_ERRORS';
 
 const receivePhotos = photos => {
   return ({
@@ -26,6 +26,15 @@ const removePhoto = photo => {
     photoId: photo.id
   });
 };
+
+export const receiveErrors = errors => ({
+  type: RECEIVE_PHOTO_ERRORS,
+  errors
+});
+
+export const clearErrors = () => ({
+  type: REMOVE_PHOTO_ERRORS,
+});
 
 export const fetchPhotos = () => dispatch => (
   ApiUtil.fetchPhotos().then(photos => (
@@ -66,3 +75,9 @@ export const deletePhoto = id => dispatch => (
       dispatch(receiveErrors(err.responseJSON))
     ))
 );
+
+window.fetchPhotos = fetchPhotos;
+window.fetchPhoto = fetchPhoto;
+window.createPhoto = createPhoto;
+window.updatePhoto = updatePhoto;
+window.deletePhoto = deletePhoto;
