@@ -32,10 +32,7 @@ class LogInForm extends React.Component {
       password: "password"
     };
 
-    setInterval(callback, 10000 );
     this.props.processForm(user);
-
-
   }
 
   componentWillUnmount() {

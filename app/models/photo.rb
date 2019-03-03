@@ -7,5 +7,6 @@ class Photo < ApplicationRecord
   # belongs_to :albums,
   #   class_name: :Album,
   #   foreign_key: :album_id
-
+  
+  has_one_attached :image
 end
