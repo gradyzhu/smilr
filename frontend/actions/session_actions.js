@@ -14,7 +14,7 @@ const logoutCurrentUser = () => ({
   type: LOGOUT_CURRENT_USER,
 });
 
-const receiveErrors = errors => ({
+export const receiveErrors = errors => ({
   type: RECEIVE_SESSION_ERRORS,
   errors
 });
@@ -42,3 +42,8 @@ export const signup = user => dispatch => (
 export const logout = () => dispatch => (
   ApiUtil.logout().then(user => dispatch(logoutCurrentUser()))
 );
+
+
+window.login = login;
+window.signup = signup;
+window.logout = logout; 
