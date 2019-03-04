@@ -1,22 +1,17 @@
-import PhotoIndexItem from "./photos_index_item";
+import PhotosIndex from './photos_index';
 import { connect } from 'react-redux';
-import { 
-  updatePhoto,
-  deletePhoto,
-  fetchPhoto,
-} from "../actions/photos_actions";
+import { fetchPhotos } from '../actions/photos_actions';
 
-const mapStateToProps = ({session, entities: {users}}) => {
-  return ({
-    currentUser: users[session.id]
-  });
+const mapStateToProps = ({entities: {photos}}) => {
+  return {
+    photos: Object.values(photos)
+  };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return ({
-    logout: () => dispatch(logout())
+    fetchPhotos: () => dispatch(fetchPhotos())
   });
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Greeting);
-
+export default connect(mapStateToProps, mapDispatchToProps)(PhotosIndex);

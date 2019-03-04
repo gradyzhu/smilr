@@ -1,6 +1,4 @@
 
-json.photos do
-  @photos.each do |photo|
-    json.partial! "api/photos/photo", photo: photo
-  end
+@photos.each do |photo|
+  json.partial! "api/photos/show", photo: photo
 end

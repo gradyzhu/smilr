@@ -11,8 +11,10 @@ import Splash from './splash';
 import SignUpFormContainer from './session_form/sign_up_form_container';
 import LogInFormContainer from './session_form/log_in_form_container';
 import Footer from './footer';
+import PhotosIndexContainer from "./photos_index_container";
+import PhotoShowContainer from "./photo_show_container";
 
-import {AuthRoute} from '../util/route_util';
+import { AuthRoute } from '../util/route_util';
 
 const App = () => (
   <>
@@ -21,6 +23,8 @@ const App = () => (
     </header>
     <section>
       <Switch>
+        <AuthRoute exact path="/photos/:id" component={PhotoShowContainer} />
+        <AuthRoute exact path="/photos" component={PhotosIndexContainer} />
         <AuthRoute exact path="/login" component={LogInFormContainer} />
         <AuthRoute exact path="/signup" component={SignUpFormContainer} />
         <Redirect to="/"/>

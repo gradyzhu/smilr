@@ -12,7 +12,7 @@ class Api::PhotosController < ApplicationController
   def show 
     @photo = Photo.find(params[:id])
     if @photo
-      render "api/photos/show"
+      render "api/photos/_show"
     else
       render json: ["no photo that id"]
     end
@@ -29,7 +29,6 @@ class Api::PhotosController < ApplicationController
   end 
 
   def destroy 
-    debugger
     @photo = Photo.find(params[:id])
     if @photo.destroy
       render "api/photos/show"
