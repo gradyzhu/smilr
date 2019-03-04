@@ -13,9 +13,20 @@ class PhotoShow extends React.Component {
     if (this.props.photo !== undefined) {
       return(
         <>
-          <div>{this.props.photo.title}</div>
-          <div>{this.props.photo.description}</div>
-          <img src={this.props.photo.imageUrl}/>
+          <div className="photo-show-container">
+            <div className="photo-show-image-container">
+              <div className="photo-show-image-wrap">
+                <img 
+                src={this.props.photo.imageUrl}
+                className="show-image"/>
+              </div>
+            </div>
+            <div className="photo-show-image-details">
+              <div>{this.props.photo.title}</div>
+              <div>{this.props.photo.description}</div>
+              <p1>comments here</p1>
+            </div>
+          </div>
         </>
       )
     } else {
