@@ -27,8 +27,8 @@ class LogInForm extends React.Component {
   handleDemo(e) {
     e.preventDefault();
     const user = {
-      username: "jason", 
-      email: "jacegamer@gmail.com", 
+      username: "josh", 
+      email: "josh@gmail.com", 
       password: "password"
     };
 
