@@ -14,7 +14,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return ({
-    action: (photo) => dispatch(createPhoto(photo)),
+    createPhoto: (photo) => dispatch(createPhoto(photo)),
   });
 };
 

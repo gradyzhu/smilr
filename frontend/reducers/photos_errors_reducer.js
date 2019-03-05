@@ -15,6 +15,7 @@ const sessionErrorsReducer = (oldState = {}, action) => {
     case RECEIVE_PHOTO:
       return clear;
     case RECEIVE_PHOTO_ERRORS:
+      debugger
       return action.errors;
     case REMOVE_PHOTO_ERRORS:
       return clear;

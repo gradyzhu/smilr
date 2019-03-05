@@ -20,9 +20,10 @@ class Api::PhotosController < ApplicationController
 
   def create 
     @photo = Photo.new(photo_params)
+    @photo.user_id = current_user.id
 
     if @photo.save    
-      render "api/photos/show"
+      render "api/photos/_show"
     else
       render json: ["error"], status: 422
     end
@@ -31,7 +32,7 @@ class Api::PhotosController < ApplicationController
   def destroy 
     @photo = Photo.find(params[:id])
     if @photo.destroy
-      render "api/photos/show"
+      render "api/photos/_show"
     else
       render json: ["photo not destroyed"], status: 401
     end
@@ -40,14 +41,14 @@ class Api::PhotosController < ApplicationController
   def update 
     @photo = Photo.find(params[:id])
     if @photo.update(photo_params)
-      render "api/photos/show"
+      render "api/photos/_show"
     else
       render json: ["photo not updated"]
     end
   end
 
   def photo_params
-    params.require(:photo).permit(:user_id, :title, :description, :album_id, :date_taken)
+    params.require(:photo).permit(:title, :description, :album_id, :date_taken, :image)
   end
 
 end

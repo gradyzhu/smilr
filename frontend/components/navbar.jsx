@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link, Redirect, withRouter } from 'react-router-dom';
 
-
-
 const Greeting = ({currentUser, logout}) => {
 
   // const handleSubmit = (e) {

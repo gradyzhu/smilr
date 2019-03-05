@@ -3,21 +3,30 @@ import React from'react';
 class PhotoForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this.props.photo;
+
+    let photo = this.props.photo;
+    this.state = {
+      title: photo.title,
+      description: photo.description,
+      photoFile: null
+    };
+
     this.handleSubmit = this.handleSubmit.bind(this);
-  }
-  
-  componentDidMount() {
-    // this.props.fetchPhoto();
+    this.handleFile = this.handleFile.bind(this);
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    this.setState({
-      title: "",
-      description: "",
-      date_taken: ""
-    });
+    const formData = new FormData();
+    formData.append('photo[title]', this.state.title);
+    formData.append('photo[description]', this.state.description);
+    formData.append('photo[image]', this.state.photoFile);
+    
+    this.props.createPhoto(formData);
+  }
+
+  handleFile(e) {
+    this.setState({photoFile: e.currentTarget.files[0]});
   }
 
   handleInput(field) {
@@ -43,9 +52,10 @@ class PhotoForm extends React.Component {
             onChange={this.handleInput("description")}
           />
         </label>
-        <button>
-          Upload
-        </button>
+        <input 
+          type="file"
+          onChange={this.handleFile} />
+        <button>Upload</button>
       </form>
     )
   }
