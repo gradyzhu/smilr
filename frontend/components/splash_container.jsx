@@ -1,10 +1,11 @@
-import PhotosIndex from './photos_index';
+import PhotosIndex from './photos/photos_index';
 import { connect } from 'react-redux';
 import { fetchPhotos } from '../actions/photos_actions';
 
-const mapStateToProps = ({entities: {photos}}) => {
+const mapStateToProps = ({session, entities: {photos}}) => {
   return {
-    photos: Object.values(photos)
+    photos: Object.values(photos),
+    loggedIn: Boolean(session.id)
   };
 };
 
@@ -15,3 +16,5 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(PhotosIndex);
+
+

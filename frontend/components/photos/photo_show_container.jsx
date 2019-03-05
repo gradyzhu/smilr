@@ -5,7 +5,7 @@ import {
   fetchPhoto,
   updatePhoto,
   deletePhoto
- } from '../actions/photos_actions';
+ } from '../../actions/photos_actions';
 
 const mapStateToProps = ({entities: {photos}}, ownProps) => {
   let photoId = ownProps.match.params.id;

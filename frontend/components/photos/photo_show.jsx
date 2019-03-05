@@ -24,7 +24,7 @@ class PhotoShow extends React.Component {
             <div className="photo-show-image-details">
               <div>{this.props.photo.title}</div>
               <div>{this.props.photo.description}</div>
-              <p1>comments here</p1>
+              <h1>comments here</h1>
             </div>
           </div>
         </>

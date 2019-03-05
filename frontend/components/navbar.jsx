@@ -1,7 +1,15 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect, withRouter } from 'react-router-dom';
+
+
 
 const Greeting = ({currentUser, logout}) => {
+
+  // const handleSubmit = (e) {
+  //   logout();
+  //   withRouter();
+  // }
+
   const personalGreeting = () => {
     return (
     <div>
@@ -32,6 +40,7 @@ const Greeting = ({currentUser, logout}) => {
       </div>
     </nav>
   );
+
   return currentUser ? personalGreeting() : sessionLinks();
 };
 
