@@ -35,13 +35,23 @@ ul {
 // }
 
 .photo-show-container {
+  position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 0px;
+    margin-left: 0px;
+    width: 100%;
+    height: 100%;
   background-color: rgb(30, 30, 30);
   // height: 700px;
-  flex-direction: column;
+  // margin: 0 auto;
+
 }
 
 .photo-show-image-details {
+  margin: 0;
   height: 500px;
+  width: 100%;
   background-color: black;
 }
 
