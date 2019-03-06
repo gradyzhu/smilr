@@ -13,7 +13,7 @@ import LogInFormContainer from './session_form/log_in_form_container';
 import PhotosIndexContainer from "./photos/photos_index_container";
 import PhotoShowContainer from "./photos/photo_show_container";
 import UploadFormContainer from "./photos/upload_form_container";
-import EditFormContainer from "./photos/edit_form_container";
+import EditFormContainer from "./photos/edit_photo_form_container";
 import Footer from './footer';
 
 import SplashRoute from './splash_auth_route';
@@ -21,8 +21,8 @@ import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = () => (
   <>
-    <header className="nav-bar">
-      {/* <NavBar /> */}
+    <header>
+      <NavBar />
     </header>
     <section>
       <Switch>
@@ -36,7 +36,6 @@ const App = () => (
       </Switch>
     </section>
     <section>
-      <Footer />
     </section>
 
   </>

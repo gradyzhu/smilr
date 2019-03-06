@@ -1,30 +1,25 @@
 
 .footer-wrap {
-  position: absolute;
-  width: 100%;
-  height: 50px;
-  top: -1;
+  position: relative;
+  overflow: hidden;
   bottom: 0;
-  left: 0;
-  right: 0;
-  display: flex;
-  align-items: flex-end;
+  display: block;
+  width: 100%;
 }
 .footer {
-  flex-direction: row;
-  align-items: flex-end;
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  width: 100%;
-  background-color: #000000;
   height: 50px;
+  width: 100%;
   color: #979797;
+  background-color: #000000;
   font-family: helvetica neue;
   font-size: 12px;
-
 }
-.test {
+
+.footer-spread {
   width: 80%;
   display: flex;
   justify-content: space-evenly;

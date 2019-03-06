@@ -8,15 +8,16 @@ const Greeting = ({currentUser, logout}) => {
   //   withRouter();
   // }
 
-  const personalGreeting = () => {
+  const loggedInNav = () => {
     return (
     <div>
-      <div>
-        <div className="navbar-container">
+      <div className="nav-bar-logged-in">
+        <div className="navbar-container-logged-in">
         <div className="navbar-left">
           <Link to="/" className="logo">smilr</Link>
         </div>
-          <div className="navbar-right">
+          <div className="navbar-right-logged-in">
+            <Link to="/upload" className="hover"><i className="fas fa-cloud-upload-alt"></i></Link>
             <button className="sign-out-link" onClick={logout}>Logout</button>
           </div>
         </div>
@@ -24,22 +25,24 @@ const Greeting = ({currentUser, logout}) => {
     </div>
   )};
 
-  const sessionLinks = () => (
-    <nav>
-      <div className="navbar-container">
-        <div className="navbar-left">
-          {/* <img src={window.images.logo} /> */}
-          <Link to="/" className="logo">smilr</Link>
+  const loggedOutNav = () => (
+    <div>
+      <nav className="nav-bar-logged-out">
+        <div className="navbar-container-logged-out">
+          <div className="navbar-left">
+            {/* <img src={window.images.logo} /> */}
+            <Link to="/" className="logo">smilr</Link>
+          </div>
+          <div className="navbar-right-logged-out">
+            <Link to='/login' className="login-link">Log In</Link>
+            <Link to='/signup' className="signup-link">Sign Up</Link>
+          </div>
         </div>
-        <div className="navbar-right">
-          <Link to='/login' className="login-link">Log In</Link>
-          <Link to='/signup' className="signup-link">Sign Up</Link>
-        </div>
-      </div>
-    </nav>
+      </nav>
+    </div>
   );
 
-  return currentUser ? personalGreeting() : sessionLinks();
+  return currentUser ? loggedInNav() : loggedOutNav();
 };
 
 export default Greeting;

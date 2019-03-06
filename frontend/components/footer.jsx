@@ -6,7 +6,7 @@ const Footer = () => {
     <>
     <div className="footer-wrap">
       <div className="footer">
-        <div className="test">
+        <div className="footer-spread">
           <div>About</div>
           <div>Jobs</div>
           <div>Blog</div>

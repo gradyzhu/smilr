@@ -1,0 +1,34 @@
+//photo show css
+
+.photo-show-image-container {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  color: white;
+}
+
+.photo-show-container {
+  width: 100%;
+  background-color: #202023;
+}
+
+.photo-show-image-container {
+  height: 600px;
+}
+.photo-show-image-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+}
+
+.show-image {
+  // width: 100%;
+  height: 500px;
+}
+
+.photo-show-image-details {
+  height: auto;
+  background-color: #F3F5F6;
+}

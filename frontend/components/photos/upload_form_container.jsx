@@ -1,4 +1,4 @@
-import PhotoForm from './photo_form';
+import UploadForm from './upload_form';
 import { connect } from 'react-redux';
 import { createPhoto } from '../../actions/photos_actions';
 
@@ -18,4 +18,4 @@ const mapDispatchToProps = (dispatch) => {
   });
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(PhotoForm);
+export default connect(mapStateToProps, mapDispatchToProps)(UploadForm);

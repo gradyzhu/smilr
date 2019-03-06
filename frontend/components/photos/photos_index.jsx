@@ -1,5 +1,6 @@
 import React from 'react';
 import PhotosIndexItem from './photos_index_item';
+import Footer from '../footer';
 import { Link } from 'react-router-dom';
 
 class PhotosIndex extends React.Component {
@@ -14,24 +15,32 @@ class PhotosIndex extends React.Component {
 
     let photos = this.props.photos.map(photo => {
       return (
-      <div>
-        <PhotosIndexItem 
-          key={photo.id} 
-          photo={photo.imageUrl}
-          photoId={photo.id}
-          className="photos-grid"/>
-      </div>
+        <div>
+          <PhotosIndexItem 
+            key={photo.id} 
+            photo={photo.imageUrl}
+            photoId={photo.id}
+            photoTitle={photo.title}
+            photoDescription={photo.description}
+            // username={}
+            className="photos-grid"/>
+        </div>
     )});
-
-    // let photos = this.props.photos;
 
     return (
       <>
+        <div className="options-bar-wrap">
+          <div className="options-bar">
+            <Link to="/">Explore</Link>
+            <Link to="/">Trending (Coming Soon)</Link>
+          </div>
+        </div>
         <div className="tester">
           <ul className="test-center">
             <div className="row">{photos}</div>
           </ul>
         </div>
+        <Footer />
       </>
     ) 
   }

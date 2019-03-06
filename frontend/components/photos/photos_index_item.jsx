@@ -5,7 +5,11 @@ const PhotosIndexItem = (props) => {
   return (
     <>
       <Link to={`/photos/${props.photoId}`}>
-        <img src={props.photo} className="image"/>
+        <div>
+          <p>{props.photoTitle}</p>
+          <p>{props.photoDescription}</p>
+          <img src={props.photo} className="image"/>
+        </div>
       </Link>
     </>
   )
