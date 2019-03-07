@@ -46,7 +46,7 @@ class LogInForm extends React.Component {
           <div className="session-forms">
             <div className="session-forms-container">
               <form onSubmit={this.handleSubmit}>
-                <div className="login-flex">
+                <div className="col-flex">
                   <div className="dots">
                     <h1 className="dot-1">●</h1>
                     <h1 className="dot-2">●</h1>

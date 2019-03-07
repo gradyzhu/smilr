@@ -2,9 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Root from './components/root';
 import configureStore from './store/store';
-import {fetchPhotos} from './actions/photos_actions';
-import * as PhotosUtil from './util/photos_api_util';
-import * as PhotosActions from './actions/photos_actions';
+import * as AlbumAjax from "./util/albums_api_util";
+import * as ApiActions from "./actions/albums_actions";
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
@@ -29,6 +28,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
   window.getState = store.getState;
   window.dispatch = store.dispatch;
-  // window.fetchPhotos = PhotosActions.fetchPhotos;
   ReactDOM.render(<Root store={store}/>, root);
 });

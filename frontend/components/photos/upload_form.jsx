@@ -67,11 +67,13 @@ class UploadForm extends React.Component {
             </div>
           </div>
           <Footer />
+          <div className="upload-bg"></div>
         </div>
 
       )
     } else {
       return (
+        <>
         <form onSubmit={this.handleSubmit}>
           <div className="preview-page">
             <div className="preview-columns">
@@ -119,6 +121,8 @@ class UploadForm extends React.Component {
             </div>
           </div>
         </form>
+        <div className="upload-bg"></div>
+        </>
       )
     }
   }

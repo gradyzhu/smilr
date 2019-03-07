@@ -12,6 +12,7 @@ const Navbar = ({currentUser, logout}) => {
           <Link to="/" className="logo">smilr</Link>
         </div>
           <div className="navbar-right-logged-in">
+            {/* <h1 className="greeting-text">Welcome, {currentUser.username}! </h1> */}
             <Link to="/upload" className="hover"><i className="fas fa-cloud-upload-alt"></i></Link>
             <button className="sign-out-link" onClick={logout}>Logout</button>
           </div>
@@ -36,23 +37,6 @@ const Navbar = ({currentUser, logout}) => {
       </nav>
     </div>
   );
-
-  // const loggedOutBrowsingNav = () => (
-  //   <div>
-  //     <nav className="nav-bar-logged-out">
-  //       <div className="navbar-container-logged-out">
-  //         <div className="navbar-left">
-  //           {/* <img src={window.images.logo} /> */}
-  //           <Link to="/" className="logo">smilr</Link>
-  //         </div>
-  //         <div className="navbar-right-logged-out">
-  //           <Link to='/login' className="login-link">Log In</Link>
-  //           <Link to='/signup' className="signup-link">Sign Up</Link>
-  //         </div>
-  //       </div>
-  //     </nav>
-  //   </div>
-  // );
 
   return currentUser ? loggedInNav() : loggedOutNav();
 };

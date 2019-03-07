@@ -41,6 +41,10 @@
 
 .navbar-right-logged-in {
   display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  // background-color: blue;
 }
 
 .navbar-right-logged-in, .navbar-right-logged-out {
@@ -88,6 +92,7 @@
   font-weight: 500;
   font-size: 13px;
   cursor: pointer;
+  border-style: none;
 }
 
 .logo {
@@ -123,4 +128,13 @@
   display: flex;
   justify-content: center;
   width: 1
+}
+
+
+.greeting-text {
+  font-weight: 100;
+  font-size: 15px;
+  font-family: helvetica;
+  color: white;
+  margin-right: 15px;
 }

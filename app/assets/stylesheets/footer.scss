@@ -11,7 +11,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  height: 50px;
+  height: 60px;
   width: 100%;
   color: #979797;
   background-color: #000000;
@@ -22,5 +22,18 @@
 .footer-spread {
   width: 80%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
 }
+
+.footer-text {
+  margin-left: 20px;
+  font-size: 25px;
+  transition: ease .3s;
+  cursor: pointer;
+  color: #979797;
+}
+
+.footer-text:hover {
+  color: white;
+}
+

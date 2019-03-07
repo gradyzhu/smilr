@@ -29,7 +29,6 @@ class PhotosIndex extends React.Component {
 
     let shuffle = (photos) => {
       var currentIndex = photos.length, temporaryValue, randomIndex;
-
       while (0 !== currentIndex) {
     
         randomIndex = Math.floor(Math.random() * currentIndex);
@@ -39,21 +38,29 @@ class PhotosIndex extends React.Component {
         photos[currentIndex] = photos[randomIndex];
         photos[randomIndex] = temporaryValue;
       }
-    
       return photos;
     }
 
     return (
       <>
-        <div className="options-bar-wrap">
-          <div className="options-bar">
-            <Link to="/">Explore</Link>
-            <Link to="/">Trending (Coming Soon)</Link>
+        <div className="index-flex-center-col">
+          <div className="options-bar-container index-flex-center-col">
+            <div className="options-bar index-flex-center-row">
+              <div className="option-tab index-flex-center-row">
+                <Link to="/" className='options-tabs-font-style'>Explore</Link>
+              </div>
+              <div className="option-tab index-flex-center-row">
+                <Link to="/" className='options-tabs-font-style'>Trending</Link>
+              </div>
+            </div>
           </div>
-        </div>
-        <div className="tester">
-          <ul className="test-center">
-            <div className="replace-later">{shuffle(photos)}</div>
+          <div className="index-page-header-container index-flex-center-col">
+            <div className="index-page-header index-flex-left">
+              <h1 className="options-font-style">Explore</h1>  
+            </div>
+          </div>
+          <ul className="index-ul-container index-items-flex">
+            <div className="index-li-flex">{shuffle(photos)}</div>
           </ul>
         </div>
         <Footer />

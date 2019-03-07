@@ -1,37 +1,113 @@
 
-.image {
-  max-height: 300px;
-  width: auto;
-  margin-bottom: 5px;
-  margin-left: 2.5px;
-  margin-right: 2.5px;
-  padding: 0;
+
+.index-flex-left {
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
 }
 
-ul {
-  padding: 0;
-  margin: 0;
-}
-
-.tester {
+.index-flex-center-col {
+  width: 100%;
   display: flex;
   justify-content: center;
   align-content: center;
   align-items: center;
+  flex-direction: column;
+  background-color: #F3F5F6;
+}
+
+.index-flex-center-row {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+.options-tabs-font-style {
+  font-family: helvetica neue;
+  font-size: 16px;
+  font-weight: 400;
+  text-decoration: none;
+  color: black;
+  padding: 0px 25px;
+}
+
+.options-font-style {
+  font-family: helvetica;
+  font-size: 24px;
+  font-weight: 300;
+  text-decoration: none;
+  color: #202023;
+}
+
+.options-bar-container {
+  width: 100%;
+  height: 60px;
+  background-color: white;
+  border-bottom: 1px solid #DCDCDC;
+}
+
+.options-bar {
+  width: 1400px;
+  height: 60px;
+  // background-color: blue;
+}
+
+.option-tab {
+  width: auto;
+  height: 60px;
+  transition: ease .5s;
+  border-bottom: 1px solid #DCDCDC;
+  // background-color: blue;
+}
+
+.option-tab:hover {
+  box-shadow: inset 0px -3px 0px 0px #128fdc;
+  // border-bottom: 5px solid #128fdc;
+}
+
+.index-page-header-container {
+  width: 100%;
+  height: 50px;
+  margin-top: 20px;
+  background-color: #F3F5F6;
   // background-color: purple;
 }
 
-.test-center{
+.index-page-header {
   width: 1400px;
-  // background-color: green;
+  height: 50px;
+  // background-color: yellow;
 }
 
-.replace-later {
+.index-ul-container {
+  width: 1400px;
+  margin-bottom: 60px;
+  // background-color: purple;
+}
+
+.index-li-flex {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-content: flex-start;
   flex-wrap: wrap;
-  // align-items: center;
+  align-items: center;
+}
+
+.image {
+  max-height: 300px;
+  width: auto;
+  padding: 0;
 }
 
 
+@media (max-width: 1200px) {
+  .index-ul-container {
+    width: 900px;
+  }
+
+  .index-page-header {
+    width: 900px
+  }
+}

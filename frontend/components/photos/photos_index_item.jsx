@@ -4,11 +4,19 @@ import { Link } from 'react-router-dom';
 const PhotosIndexItem = (props) => {
   return (
     <>
-      <Link className="image-container" to={`/photos/${props.photoId}`}>
-        {/* <p>{props.photoTitle}</p>
-        <p>{props.photoDescription}</p> */}
-        <img src={props.photo} className="image"/>
-      </Link>
+      <div className="photo-container">
+        <Link to={`/photos/${props.photoId}`}>
+          <div className="overlay">
+            <div className="overlay-50">
+              <div className="flex-col-end">
+                <div className="details-title">{props.photoTitle}</div>
+                <div className="details-username">by {props.photoDescription}</div>
+              </div>
+            </div>
+          </div>
+          <img src={props.photo} className="image"/>
+        </Link>
+      </div>
     </>
   )
 }

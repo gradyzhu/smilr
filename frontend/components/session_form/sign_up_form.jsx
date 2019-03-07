@@ -35,7 +35,7 @@ class SignUpForm extends React.Component {
       <div className="session-wrap">
         <div className="session-forms">
           <div className="session-forms-container">
-            <form onSubmit={this.handleSubmit}>
+            <form className="col-flex" onSubmit={this.handleSubmit}>
               <div className="dots">
                 <h1 className="dot-1">●</h1>
                 <h1 className="dot-2">●</h1>
@@ -51,7 +51,7 @@ class SignUpForm extends React.Component {
                 <input className="form-input" type="password" value={this.state.password} onChange={this.update("password")} placeholder="Password"/>
               </label>
               <div className="login-errors"><h1>{this.props.errors[0]}</h1></div>
-              <input className="form-submit-button" type="submit" value={this.props.formType}/>
+              <input className="sign-up-custom blue-button" type="submit" value={this.props.formType}/>
               <h2 className="form-h2">Already a member?&nbsp;
               <Link to='/login' className="form-sign-up-link">Login here</Link>
               </h2>
