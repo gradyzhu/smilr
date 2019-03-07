@@ -8,9 +8,12 @@
 require "open-uri"
 
 ActiveRecord::Base.transaction do
-  # user = User.create!({username: "", email: "", password: ""})
+  User.destroy_all
+  Photo.destroy_all
+
   josh = User.create!(username: "josh", email: "josh@gmail.com", password: "password")
   juice = User.create!(username: "juice", email: "stephens@gmail.com", password: "password")
+
 
   # photo = Photo.create!({user_id: , title: "", description: "", album_id: , date_taken: ""})
   josh_photo_1 = Photo.create!(user_id: josh.id, title: "josh_photo_1", description: "description")

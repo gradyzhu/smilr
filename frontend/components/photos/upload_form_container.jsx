@@ -2,7 +2,7 @@ import UploadForm from './upload_form';
 import { connect } from 'react-redux';
 import { createPhoto } from '../../actions/photos_actions';
 
-const mapStateToProps = (state) => {
+const mapStateToProps = (state, ownProps) => {
   return ({
     photo: {
       title: "",

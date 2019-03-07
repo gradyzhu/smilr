@@ -25,7 +25,7 @@ class UploadForm extends React.Component {
       if (this.state.photoFile) {
         formData.append('photo[image]', this.state.photoFile);
       }
-    this.props.createPhoto(formData).then(photo => this.props.history.push(`/photos/${photo.id}`));
+    this.props.createPhoto(formData).then(res => this.props.history.push(`/photos/${res.photo.id}`));
   }
 
   handleFile(e) {
@@ -76,27 +76,41 @@ class UploadForm extends React.Component {
           <div className="preview-page">
             <div className="preview-columns">
               <div className="upload-column">
-                <div className="photo-details">
-                  <label>
-                    <input 
-                      type="text" 
-                      placeholder="title" 
-                      value={this.state.title}
-                      onChange={this.handleInput("title")}
-                      className="upload-title"/>
-                  </label>
-                  <label>
-                    <textarea 
-                      type="text" placeholder="description"
-                      value={this.state.description} 
-                      onChange={this.handleInput("description")}
-                      className="upload-des"/>
-                  </label>
-                  <button 
-                    className="blue-button2 upload-button-custom">Upload
-                  </button>
+                {/* <div className="photo-details-row">
+                  <div className="photo-details-row-flex">
+                  <h1 className="photo-upload-text">Upload Photo</h1>
+                  </div>
+                </div> */}
+                <div className="photo-details-row">
+                  <div className="photo-details-row-flex">
+                    <div className="photo-details">
+                      {/* <h1 className="photo-upload-text">Title / Description</h1> */}
+                      <label>
+                        <input 
+                          type="text" 
+                          placeholder="title" 
+                          value={this.state.title}
+                          onChange={this.handleInput("title")}
+                          className="upload-title"/>
+                      </label>
+                      <label>
+                        <textarea 
+                          type="text" placeholder="description"
+                          value={this.state.description} 
+                          onChange={this.handleInput("description")}
+                          className="upload-des"/>
+                      </label>
+                      <button 
+                        className="blue-button2 upload-button-custom">Upload
+                      </button>
+                    </div>
+                  </div>
                 </div>
-                <div className="photo-tags"></div>
+                {/* <div className="photo-details-row">
+                  <div className="photo-details-row-flex">
+                    <h1 className="photo-upload-text">Tags</h1>
+                  </div>
+                </div> */}
               </div>
               <div className="preview-column">
                 {preview}

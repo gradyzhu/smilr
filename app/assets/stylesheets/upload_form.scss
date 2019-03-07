@@ -9,6 +9,7 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
   color: white;
   background-color: #202023;
 }
@@ -17,12 +18,27 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  align-content: center;
   flex-direction: column;
+  background-color: #212121;
+  outline: 2px dashed rgb(84, 84, 84);
+  outline-radius: 5px;
+  height: 250px;
+  width: 250px;
+  transition: ease .3s;
+}
+
+
+.upload-button-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
 }
 
 .upload-button {
   border-style: dashed;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
   font-size: 16px;
   font-family: helvetica neue;
   border-radius: 5px; 
@@ -42,18 +58,11 @@
 }
 
 .upload-text{
+  color: gray;
   font-size: 20px;
-  font-weight: 300;
-  letter-spacing: 1px;
-  margin-bottom: 28px;
+  font-weight: 350;
+  letter-spacing: 0px;
 }
-
-// .photo-tags {
-//   width: 100%;
-//   height: 50px;
-//   background-color: purple;
-// }
-
 
 .u-flex-center {
   display: flex;
@@ -89,8 +98,9 @@
   width: 300px;
   height: 600px;
   background-color: #2A2A2A;
-  box-shadow: inset 0 0 0 1px rgb(60, 60, 60);
-  margin-right: 10px;
+  outline: 2px dashed rgb(84, 84, 84);
+  margin-right: 15px;
+  // box-shadow: inset 0 0 0 1px rgb(60, 60, 60);
 }
 
 .preview-column {
@@ -100,8 +110,9 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  box-shadow: inset 0 0 0 1px rgb(60, 60, 60);
-  // background-color: orange;
+  outline: 2px dashed rgb(84, 84, 84);
+  // box-shadow: inset 0 0 0 1px rgb(60, 60, 60);
+  background-color: #2A2A2A;
 }
 
 .preview-image {
@@ -145,7 +156,6 @@
   width: 200px;
   height: 20px;
   font-size: 14px;
-  margin-top: 5px;
 }
 
 .upload-button-custom {
@@ -165,6 +175,20 @@
   flex-direction: column;
 }
 
+.photo-details-row {
+  display: block;
+  width: 100%;
+}
+
+.photo-details-row-flex {
+  width: 100%;
+  height: 50px;
+  // background-color: purple;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
 .preview-text{
   margin-top: 25px;
   font-size: 12px;
@@ -192,4 +216,11 @@
 
 .blue-button2:active {
   background-color: #0E76B4;
+}
+
+.photo-upload-text{
+  font-family: helvetica neue;
+  color: #747474;
+  font-size: 18px;
+  vertical-align: baseline;
 }
