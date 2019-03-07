@@ -46,7 +46,7 @@ class LogInForm extends React.Component {
           <div className="session-forms">
             <div className="session-forms-container">
               <form onSubmit={this.handleSubmit}>
-                <div>
+                <div className="login-flex">
                   <div className="dots">
                     <h1 className="dot-1">●</h1>
                     <h1 className="dot-2">●</h1>
@@ -56,7 +56,7 @@ class LogInForm extends React.Component {
                     <input type="text"
                       value={this.state.username}
                       onChange={this.update('username')}
-                      className="form-input"
+                      className="username-input form-input"
                       placeholder="Username"
                     />
                   </label>
@@ -64,7 +64,7 @@ class LogInForm extends React.Component {
                     <input type="password"
                       value={this.state.password}
                       onChange={this.update('password')}
-                      className="form-input"
+                      className="password-input form-input"
                       placeholder="Password"
                     />
                   </label>
@@ -72,15 +72,15 @@ class LogInForm extends React.Component {
                   <input 
                     type="submit" 
                     value={this.props.formType}
-                    className="form-submit-button"/>
+                    className="login-button blue-button"/>
                   <button
                     type="submit" 
                     onClick={this.handleDemo}
-                    className="form-submit-button">Demo</button>
+                    className="demo-button blue-button">Demo</button>
+                  <h2 className="form-h2">Not a member?&nbsp;
+                    <Link to='/signup' className="form-sign-up-link">Sign up here</Link>
+                  </h2>
                 </div>
-                <h2 className="form-h2">Not a member?&nbsp;
-                  <Link to='/signup' className="form-sign-up-link">Sign up here</Link>
-                </h2>
               </form>
             </div>
           </div>

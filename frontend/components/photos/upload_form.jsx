@@ -4,16 +4,15 @@ import Footer from '../footer';
 class UploadForm extends React.Component {
   constructor(props) {
     super(props);
-
+    
     let photo = this.props.photo;
     this.state = {
       title: photo.title,
       description: photo.description,
       photoFile: null,
       photoUrl: null,
-      uploadState: false
+      uploadState: false,
     };
-
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleFile = this.handleFile.bind(this);
   }
@@ -26,7 +25,7 @@ class UploadForm extends React.Component {
       if (this.state.photoFile) {
         formData.append('photo[image]', this.state.photoFile);
       }
-    this.props.createPhoto(formData);
+    this.props.createPhoto(formData).then(photo => this.props.history.push(`/photos/${photo.id}`));
   }
 
   handleFile(e) {
@@ -39,6 +38,8 @@ class UploadForm extends React.Component {
     if (file) {
       fileReader.readAsDataURL(file);
     }
+
+    this.setState({uploadState: true});
   }
 
   handleInput(field) {
@@ -48,7 +49,7 @@ class UploadForm extends React.Component {
   }
 
   render() {
-    const preview = this.state.photoUrl ? <img src={this.state.photoUrl} /> : null;
+    const preview = this.state.photoUrl ? <img className="preview-image" src={this.state.photoUrl} /> : null;
     
     if (this.state.uploadState === false) {
       return (
@@ -57,11 +58,12 @@ class UploadForm extends React.Component {
             <div className="upload-button-contents">
               <div className="upload-button-wrap">
                 <label> 
-                  <h1 className="upload-button"><i class="fas fa-file-upload"></i></h1>
+                  <h1 className="upload-button"><i className="fas fa-file-upload"></i></h1>
                   <input type="file" onChange={this.handleFile} className="hide"/>
                 </label>
               </div>
-              <h1 className="upload-text">Drag & Drop Photos or Upload</h1>
+              {/* <h1 className="upload-text">Drag & Drop or</h1> */}
+              <h1 className="upload-text">Upload Photos</h1>
             </div>
           </div>
           <Footer />
@@ -71,14 +73,37 @@ class UploadForm extends React.Component {
     } else {
       return (
         <form onSubmit={this.handleSubmit}>
-          <label>Title
-            <input type="text" value={this.state.title}onChange={this.handleInput("title")}/>
-          </label>
-          <label>Description
-            <input type="text" value={this.state.description} onChange={this.handleInput("description")}/>
-          </label>
-          <div>{preview}</div>
-          <button>Upload</button>
+          <div className="preview-page">
+            <div className="preview-columns">
+              <div className="upload-column">
+                <div className="photo-details">
+                  <label>
+                    <input 
+                      type="text" 
+                      placeholder="title" 
+                      value={this.state.title}
+                      onChange={this.handleInput("title")}
+                      className="upload-title"/>
+                  </label>
+                  <label>
+                    <textarea 
+                      type="text" placeholder="description"
+                      value={this.state.description} 
+                      onChange={this.handleInput("description")}
+                      className="upload-des"/>
+                  </label>
+                  <button 
+                    className="blue-button2 upload-button-custom">Upload
+                  </button>
+                </div>
+                <div className="photo-tags"></div>
+              </div>
+              <div className="preview-column">
+                {preview}
+                <h1 className="preview-text">image preview</h1>
+              </div>
+            </div>
+          </div>
         </form>
       )
     }

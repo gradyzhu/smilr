@@ -1,12 +1,7 @@
 import React from 'react';
-import { Link, Redirect, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
-const Greeting = ({currentUser, logout}) => {
-
-  // const handleSubmit = (e) {
-  //   logout();
-  //   withRouter();
-  // }
+const Navbar = ({currentUser, logout}) => {
 
   const loggedInNav = () => {
     return (
@@ -42,7 +37,24 @@ const Greeting = ({currentUser, logout}) => {
     </div>
   );
 
+  // const loggedOutBrowsingNav = () => (
+  //   <div>
+  //     <nav className="nav-bar-logged-out">
+  //       <div className="navbar-container-logged-out">
+  //         <div className="navbar-left">
+  //           {/* <img src={window.images.logo} /> */}
+  //           <Link to="/" className="logo">smilr</Link>
+  //         </div>
+  //         <div className="navbar-right-logged-out">
+  //           <Link to='/login' className="login-link">Log In</Link>
+  //           <Link to='/signup' className="signup-link">Sign Up</Link>
+  //         </div>
+  //       </div>
+  //     </nav>
+  //   </div>
+  // );
+
   return currentUser ? loggedInNav() : loggedOutNav();
 };
 
-export default Greeting;
+export default Navbar;

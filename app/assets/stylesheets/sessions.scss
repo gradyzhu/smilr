@@ -14,14 +14,10 @@
   justify-content: center;
 }
 
-.session-forms, .form-section, .form-input, .form-submit-button, .form-h1, .form-h2, .form-sign-up-link, .dots {
+.session-forms, .form-section, .username-input, .password-input, .form-submit-button, .form-h1, .form-h2, .form-sign-up-link, .dots {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.session-forms {
-
 }
 
 .session-forms-container {
@@ -43,24 +39,23 @@
   padding-right: 20px;
   width: 250px;
   height: 56px;
-  margin-bottom: 15px;
+  margin-bottom: 10px; //here
 }
 
-.form-submit-button {
-  background-color: #128fdc;
-  color: white;
-  font-size: 16px;
-  font-weight: 600;
-  border-style: none;
-  width: 290px;
-  height: 40px;
-  margin-top: 15px;
-  margin-bottom: 15px;
-}
-
-.form-input, .form-submit-button {
+.username-input, .password-input, .form-submit-button {
   border-radius: 4px;
   transition: ease .3s;
+}
+
+.login-button, .demo-button {
+  width: 290px;
+  height: 40px;
+  margin: 5px 0px;
+  // margin-bottom: 10px;
+}
+
+.demo-button {
+  margin-bottom: 2px;
 }
 
 .form-input::placeholder {
@@ -72,6 +67,7 @@
   right: 0;
   width: auto;
   height: auto;
+  transition: ease .2s;
 }
 
 .form-input:focus {
@@ -83,7 +79,6 @@
 
 .form-input:focus::placeholder {
   color: #008ED9;
-  transition: ease .2s;
   width: 50%;
   font-size: 11px;
   top: -12px;
@@ -91,11 +86,11 @@
 
 .form-submit-button:focus {
   outline: none;
+  transition: ease .3s;
 }
 
 .form-submit-button:hover {
   background-color: #1397E8;
-  transition: ease .3s;
   cursor: pointer;
 }
 
@@ -112,17 +107,22 @@
   color: #343434;
   font-size: 22px;
   margin-top: 10px;
-  margin-bottom: 30px;
+  margin-bottom: 45px;
 }
 
 .form-h2, .form-sign-up-link {
   font-size: 13px;
 }
 
+.form-h2 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
 // dots
 
 .dots{
-  margin-bottom: 10px;
+  margin-bottom: 25px;
+  margin-top: 15px;
 }
 .dot-1 {
   color: #0063DC;
@@ -143,9 +143,17 @@
 // errors
 
 .login-errors {
-  height: 10px;
+  // height: 10px;
   color: #E4262A;
   font-size: 12px;
   letter-spacing: 0.5px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.login-flex {
+  display: flex;
+  flex-direction: column;
+
 }
 

@@ -27,6 +27,22 @@ class PhotosIndex extends React.Component {
         </div>
     )});
 
+    let shuffle = (photos) => {
+      var currentIndex = photos.length, temporaryValue, randomIndex;
+
+      while (0 !== currentIndex) {
+    
+        randomIndex = Math.floor(Math.random() * currentIndex);
+        currentIndex -= 1;
+    
+        temporaryValue = photos[currentIndex];
+        photos[currentIndex] = photos[randomIndex];
+        photos[randomIndex] = temporaryValue;
+      }
+    
+      return photos;
+    }
+
     return (
       <>
         <div className="options-bar-wrap">
@@ -37,7 +53,7 @@ class PhotosIndex extends React.Component {
         </div>
         <div className="tester">
           <ul className="test-center">
-            <div className="row">{photos}</div>
+            <div className="replace-later">{shuffle(photos)}</div>
           </ul>
         </div>
         <Footer />

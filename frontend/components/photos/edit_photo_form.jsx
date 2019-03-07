@@ -8,14 +8,12 @@ class EditPhotoForm extends React.Component {
     this.state = {
       title: photo.title,
       description: photo.description,
-      id: photo.id
+      id: photo.id,
+      editState: false
     };
 
     this.handleEdit = this.handleEdit.bind(this);
-  }
-
-  componentDidMount() {
-    this.props.fetchPhoto(this.props.photoId);
+    this.handleEditMode = this.handleEditMode.bind(this);
   }
 
   handleInput(field) {
@@ -27,20 +25,59 @@ class EditPhotoForm extends React.Component {
   handleEdit(e){
     e.preventDefault();
     this.props.updatePhoto(this.state);
+    this.setState({editState: false});
+  }
+
+  handleEditMode() {
+    this.setState({editState: true});
   }
 
   render() {
+
+    const editing = () => {
+      return ( <form onSubmit={this.handleEdit}>
+        <div className="flex-col">
+          <input 
+            type="text" 
+            value={this.state.title} 
+            onChange={this.handleInput("title")} 
+            className="edit-form-font-style edit-form-input"/>
+          <textarea 
+            type="text" 
+            value={this.state.description} 
+            onChange={this.handleInput("description")} 
+            className="edit-form-font-style edit-form-textarea"/>
+          <button className="blue-button edit-button-custom">Done</button>
+        </div>
+      </form> )
+    }
+
+    const notEditing = () => {
+      return (
+        <>
+          <div 
+            onClick={this.handleEditMode}
+            className="edit-form-highlight">
+            <p className="edit-display-title">{this.state.title}</p>
+            <p className="edit-display-des">{this.state.description}</p>
+          </div>
+        </>
+      )
+    }
+
+    const edit = this.state.editState ? editing() : notEditing();
+
     return (
       <>
-        <form onSubmit={this.handleEdit}>
-          <label> Title
-            <input value={this.state.title} onChange={this.handleInput("title")}/>
-          </label>
-          <label> Description
-            <input value={this.state.description} onChange={this.handleInput("description")}/>
-          </label>
-          <button>Edit</button>
-        </form>
+        <div className="display-edit-container">
+          <div className="display-edit-wrap">
+            <div className="display-edit">
+              {/* <h1 className="display-edit-username">{this.props.photo.userId}</h1> */}
+              {edit}
+            </div>
+            <hr></hr>
+          </div>
+        </div>
       </>
     )
   }

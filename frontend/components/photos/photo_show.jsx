@@ -13,7 +13,6 @@ class PhotoShow extends React.Component {
   }
   
   handleDelete(e){
-    // e.preventDefault();
     this.props.deletePhoto(this.props.photoId);
     this.props.history.push("/photos");
   }
@@ -22,21 +21,30 @@ class PhotoShow extends React.Component {
     if (this.props.photo !== undefined) {
       return(
         <>
-          <div className="photo-show-container">
-            <div className="photo-show-image-container">
-              <div className="photo-show-image-wrap">
+          <div className="show-container">
+            <div className="show-col-container">
+              <div className="show-left-col"></div>
+              <div className="show-mid-col">
                 <img 
-                src={this.props.photo.imageUrl}
-                className="show-image"/>
+                  className="show-image" 
+                  src={this.props.photo.imageUrl}/>
+              </div>
+              <div className="show-right-col">
+                <div className="show-tool-bar">
+                  <i className="far fa-edit tool-button"></i>
+                  <i 
+                    onClick={this.handleDelete} 
+                    className="far fa-trash-alt tool-button"></i>
+                </div>
               </div>
             </div>
-            <div>
-              <div className="photo-show-image-details">
-                <div>{this.props.photo.title}</div>
-                <div>{this.props.photo.description}</div>
-                <h1>comments here</h1>
-                <button onClick={this.handleDelete} className="delete-button">Delete</button>
-                <EditPhotoFormContainer photoId={this.props.photoId}/>
+            <div className="photo-details-container flex-center">
+              <div className="photo-details-wrap">
+                <div className="photo-details">
+                  <EditPhotoFormContainer photoId={this.props.photoId}/>
+                  <hr className="display-edit-line"></hr>
+                  <h1>comments container here</h1>
+                </div>
               </div>
             </div>
           </div>
