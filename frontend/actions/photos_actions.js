@@ -6,10 +6,11 @@ export const DELETE_PHOTO = 'DELETE_PHOTO';
 export const RECEIVE_PHOTO_ERRORS = "RECEIVE_PHOTO_ERRORS";
 export const REMOVE_PHOTO_ERRORS = 'REMOVE_PHOTO_ERRORS';
 
-const receivePhotos = photos => {
+const receivePhotos = ({photos, users}) => {
   return ({
     type: RECEIVE_PHOTOS,
-    photos
+    users: users,
+    photos: photos
   });
 };
 
@@ -36,8 +37,8 @@ export const clearErrors = () => ({
   type: REMOVE_PHOTO_ERRORS,
 });
 
-export const fetchPhotos = () => dispatch => (
-  ApiUtil.fetchPhotos().then(photos => (
+export const fetchPhotos = (id) => dispatch => (
+  ApiUtil.fetchPhotos(id).then(photos => (
     dispatch(receivePhotos(photos))
     ), err => (
       dispatch(receiveErrors(err.responseJSON))

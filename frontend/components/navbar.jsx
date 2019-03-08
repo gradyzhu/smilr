@@ -15,7 +15,7 @@ const Navbar = ({currentUser, logout}) => {
           <Link to="/upload">
             <i className="fas fa-cloud-upload-alt nav-bar-icon"></i>
           </Link>
-          <Link to={`/users/${currentUser.id}`}>
+          <Link to={`/users/${currentUser.id}/photos`}>
             <i className="fas fa-user nav-bar-icon"></i>
           </Link>
           <button 

@@ -7,14 +7,29 @@ class UserShow extends React.Component {
   constructor(props) {
     super(props);
   }
+  
   componentDidMount() {
     this.props.fetchPhotos();
+    this.props.fetchUser(this.props.match.params.id);
+  }
+
+  componentDidUpdate(prevProps) {
+    debugger
+    if (prevProps.match.url !== this.props.match.url) {
+      this.props.fetchPhotos(this.props.match.params.id);
+      this.props.fetchUser(this.props.match.params.id);
+    }
   }
 
   render() {
     // document.title = `${this.props.}`
+    if (!this.props.user) {
+      return null;
+    }
+
+    let userId = this.props.userId;
     let photos = this.props.photos.map(photo => {
-      if (photo.userId === this.props.sessionId) {
+      if (photo.userId == userId) {
         return (
           <div>
             <PhotosIndexItem 
@@ -28,6 +43,8 @@ class UserShow extends React.Component {
       }
     });
 
+    let username = this.props.user.username
+    let email = this.props.user.email
     return (
       <>
         <div className="index-flex-center-col">
@@ -41,11 +58,11 @@ class UserShow extends React.Component {
                 <div className="user-details-wrap flex-col-center">
                   <div className="user-details flex-col-left-text">
                     <div className="username">
-                      <h1 className="username-text">grady zhu</h1>
+                      <h1 className="username-text">{username}</h1>
                     </div>
                     <div className="followers flex-row-left">
                       <div className="border flex-col-center">
-                        <h1 className="followers-text">grady zhu</h1>
+                        <h1 className="followers-text">{email}</h1>
                       </div>
                       <div className="border flex-col-center">
                         <h1 className="followers-text">17 Followers</h1>

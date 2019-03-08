@@ -26,7 +26,7 @@ const App = () => (
     </header>
     <section>
       <Switch>
-        <ProtectedRoute exact path="/users/:id"component={UserShowContainer}></ProtectedRoute>
+        <Route path="/users/:id/photos" component={UserShowContainer} />
         <Route exact path="/photos/:id" component={PhotoShowContainer} />
         <Route exact path="/photos" component={PhotosIndexContainer} />
         <AuthRoute exact path="/photos/:id/edit" component={EditFormContainer} />
@@ -34,6 +34,7 @@ const App = () => (
         <AuthRoute exact path="/login" component={LogInFormContainer} />
         <AuthRoute exact path="/signup" component={SignUpFormContainer} />
         <SplashRoute exact path="/" loggedInComp={PhotosIndexContainer} loggedOutComp={Splash}/>
+        {/* <Redirect to="/"/> */}
       </Switch>
     </section>
     <section>
