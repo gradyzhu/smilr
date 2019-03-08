@@ -104,17 +104,6 @@
   z-index: 1;
 }
 
-.fa-cloud-upload-alt {
-  color: white;
-  font-size: 35px;
-  margin-right: 20px;
-  transition: ease .3s;
-}
-
-.fa-cloud-upload-alt:hover {
-  text-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
-}
-
 .options-bar-wrap {
   display: flex;
   justify-content: center;
@@ -130,11 +119,17 @@
   width: 1
 }
 
-
-.greeting-text {
-  font-weight: 100;
-  font-size: 15px;
-  font-family: helvetica;
+.nav-bar-icon {
   color: white;
-  margin-right: 15px;
+  font-size: 30px;
+  margin-right: 20px;
+  transition: ease .3s;
+}
+
+.nav-bar-icon:hover {
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
+}
+
+.fa-cloud-upload-alt {
+  font-size: 34px;
 }

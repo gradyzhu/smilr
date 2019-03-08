@@ -14,7 +14,7 @@ import PhotosIndexContainer from "./photos/photos_index_container";
 import PhotoShowContainer from "./photos/photo_show_container";
 import UploadFormContainer from "./photos/upload_form_container";
 import EditFormContainer from "./photos/edit_photo_form_container";
-import Footer from './footer';
+import UserShowContainer from "./users/user_show_container";
 
 import SplashRoute from './splash_auth_route';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
@@ -26,6 +26,7 @@ const App = () => (
     </header>
     <section>
       <Switch>
+        <ProtectedRoute exact path="/users/:id"component={UserShowContainer}></ProtectedRoute>
         <Route exact path="/photos/:id" component={PhotoShowContainer} />
         <Route exact path="/photos" component={PhotosIndexContainer} />
         <AuthRoute exact path="/photos/:id/edit" component={EditFormContainer} />

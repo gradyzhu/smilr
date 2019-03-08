@@ -1,0 +1,205 @@
+.flex-row-left {
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+}
+
+.flex-col-left-bottom {
+  display: flex;
+  justify-content: flex-end;
+  align-content: center;
+  flex-direction: column;
+}
+
+.flex-row-center {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.flex-col-center {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.flex-col-left {
+  display: flex;
+  justify-content: flex-start;
+  align-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.flex-col-left-text {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+
+.flex-col-bottom {
+  display: flex;
+  align-items: center;
+  flex-direction: column-reverse;
+}
+
+.user-banner-container {
+  width: 100%;
+  height: 250px;
+  background-image: url("https://s3-us-west-1.amazonaws.com/smilr-seed/antique-backdrop-background-733853.jpg");
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: black;
+
+  &:before {
+    content: '';
+  position: absolute; 
+  width: 100%;
+  height: 250px;
+	background-image: linear-gradient(to top,black, transparent);
+	opacity: .6; 
+  }
+}
+
+.user-banner {
+  width: 100%;
+  height: 100%;
+}
+
+.option-tab {
+  width: auto;
+  height: 60px;
+  transition: ease .5s;
+  border-bottom: 1px solid #DCDCDC;
+  // background-color: blue;
+}
+
+.option-bar {
+  display: block;
+  height: 50px;
+  width: 1400px;
+  background-color: red;
+}
+
+
+.photo-filter-bar {
+  font-family: helvetica;
+  font-size: 16px;
+  font-weight: 400;
+  text-decoration: none;
+  color: #202023;
+}
+
+
+.filters-bar-container {
+  width: 100%;
+  height: 60px;
+  background-color: #F3F5F6;
+  // background-color: purple;
+}
+
+.filters-bar {
+  width: 1400px;
+  height: 60px;
+  // background-color: blue;
+  margin-left: 2.5px;
+}
+
+.filter-tab {
+  width: auto;
+  height: 60px;
+  transition: ease .5s;
+  // background-color: yellow;
+}
+
+.filters-tabs-font-style {
+  font-family: helvetica neue;
+  font-size: 16px;
+  font-weight: 400;
+  text-decoration: none;
+  color: #737B80;
+  padding-right: 50px;
+}
+
+.username-text{
+  font-family: helvetica;
+  font-size: 32px;
+  font-weight: 200;
+  text-decoration: none;
+  color: white;
+  margin: 18px 0px;
+}
+
+.followers {
+  width: auto;
+  height: 50px;
+}
+
+.followers-text {
+  font-family: helvetica;
+  font-size: 14px;
+  font-weight: 200;
+  text-decoration: none;
+  color: white;
+  margin-right: 30px;
+}
+
+.user-details-columns {
+  z-index: 1;
+  height: 150px;
+  width: 1400px;
+  // background-color: green;
+
+}
+.user-avatar {
+  width: 125px;
+  height: 125px;
+  font-size: 50px;
+  // background-color: brown;
+}
+
+.user-avatar-image-well{
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: gray;
+  box-shadow: inset 0 0 0 2px rgb(183, 183, 183);
+}
+
+.user-details-wrap {
+  height: 125px;
+  width: auto;
+  // background-color: orange;
+}
+
+.border {
+  width: auto;
+  height: 25px;
+  // outline: 1px solid blue;
+}
+
+@media (max-width: 1200px) {
+  .filters-bar {
+    width: 900px;
+  }
+  .user-details-columns {
+    width: 900px;
+  }
+}
+
+// .overlap {
+//   position: absolute;
+//   left: 0;
+//   right: 0;
+//   top: 0;
+//   bottom: 0;
+//   height: 250px;
+//   width: 100%;
+//   transform-translate
+// }

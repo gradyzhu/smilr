@@ -39,9 +39,7 @@ class Api::AlbumsController < ApplicationController
    
   def update 
     @album = Album.find(params[:id])
-    debugger
     if @album.update(album_params)
-      debugger
       render "api/albums/_show"
     else
       render json: ["album upated"]

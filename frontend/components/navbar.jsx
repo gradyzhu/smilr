@@ -11,11 +11,18 @@ const Navbar = ({currentUser, logout}) => {
         <div className="navbar-left">
           <Link to="/" className="logo">smilr</Link>
         </div>
-          <div className="navbar-right-logged-in">
-            {/* <h1 className="greeting-text">Welcome, {currentUser.username}! </h1> */}
-            <Link to="/upload" className="hover"><i className="fas fa-cloud-upload-alt"></i></Link>
-            <button className="sign-out-link" onClick={logout}>Logout</button>
-          </div>
+        <div className="navbar-right-logged-in">
+          <Link to="/upload">
+            <i className="fas fa-cloud-upload-alt nav-bar-icon"></i>
+          </Link>
+          <Link to={`/users/${currentUser.id}`}>
+            <i className="fas fa-user nav-bar-icon"></i>
+          </Link>
+          <button 
+            className="sign-out-link" 
+            onClick={logout}>Logout
+          </button>
+        </div>
         </div>
       </div>
     </div>
