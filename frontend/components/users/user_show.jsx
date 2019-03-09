@@ -7,14 +7,13 @@ class UserShow extends React.Component {
   constructor(props) {
     super(props);
   }
-  
+
   componentDidMount() {
     this.props.fetchPhotos();
     this.props.fetchUser(this.props.match.params.id);
   }
 
   componentDidUpdate(prevProps) {
-    debugger
     if (prevProps.match.url !== this.props.match.url) {
       this.props.fetchPhotos(this.props.match.params.id);
       this.props.fetchUser(this.props.match.params.id);
@@ -42,7 +41,6 @@ class UserShow extends React.Component {
           </div>)
       }
     });
-
     let username = this.props.user.username
     let email = this.props.user.email
     return (

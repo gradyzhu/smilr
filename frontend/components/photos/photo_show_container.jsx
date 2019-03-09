@@ -6,21 +6,36 @@ import {
   updatePhoto,
   deletePhoto
  } from '../../actions/photos_actions';
+import { 
+  fetchUser
+ } from '../../actions/session_actions';
 
-const mapStateToProps = ({entities: {photos}}, ownProps) => {
+const mapStateToProps = ({entities: {photos, users}}, ownProps) => {
   let photoId = ownProps.match.params.id;
   let photo = photos[photoId];
-  return ({
-    photoId: photoId, 
-    photo
-  });
+  if (photo == undefined) {
+    return ({
+      photoId: photoId,
+      user: {},
+      photo
+    });
+  } else {
+    let user = users[photo.userId];
+
+    return ({
+      photoId: photoId,
+      user: user,
+      photo
+    });
+  }
 };
 
 const mapDispatchToProps = (dispatch) => {
   return ({
     fetchPhoto: (id) => dispatch(fetchPhoto(id)),
     updatePhoto: (photo) => dispatch(updatePhoto(photo)),
-    deletePhoto: (id) => dispatch(deletePhoto(id))
+    deletePhoto: (id) => dispatch(deletePhoto(id)),
+    fetchUser: (id) => dispatch(fetchUser(id))
   });
 };
 

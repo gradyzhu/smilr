@@ -1,6 +1,7 @@
 import React from 'react';
 import EditPhotoFormContainer from './edit_photo_form_container';
 import Footer from '../footer';
+import { Link } from 'react-router-dom';
 class PhotoShow extends React.Component {
   constructor(props) {
     super(props);
@@ -9,7 +10,9 @@ class PhotoShow extends React.Component {
   }
 
   componentDidMount() {
+
     this.props.fetchPhoto(this.props.photoId);
+    this.props.fetchUser(this.props[this.props.userId]);
   }
   
   handleDelete(e){
@@ -18,6 +21,13 @@ class PhotoShow extends React.Component {
   }
   
   render() {
+    if (!this.props.photo || !this.props.user)  {
+      return null;
+    }
+
+    // let ownerId = this.props.photo.userId;
+    // let owner = this.props.users[ownerId];
+
     if (this.props.photo !== undefined) {
       return(
         <>
@@ -41,6 +51,8 @@ class PhotoShow extends React.Component {
             <div className="photo-details-container flex-center">
               <div className="photo-details-wrap">
                 <div className="photo-details">
+                  {/* <Link to={`/users/${this.props.user.id}/photos`} className="quick-and-dirty"> */}
+                    {/* <h1>{this.props.user.username}</h1> </Link> */}
                   <EditPhotoFormContainer photoId={this.props.photoId}/>
                   <hr className="display-edit-line"></hr>
                   <h1>comments container here</h1>

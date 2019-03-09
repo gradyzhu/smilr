@@ -79,3 +79,10 @@ textarea:focus, input:focus{
   background-color: #0E76B4;
 }
 
+.quick-and-dirty {
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-size: 20px;
+  font-family: helvetica;
+}
+
