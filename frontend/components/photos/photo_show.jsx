@@ -2,6 +2,7 @@ import React from 'react';
 import EditPhotoFormContainer from './edit_photo_form_container';
 import Footer from '../footer';
 import { Link } from 'react-router-dom';
+import ReactLoading from 'react-loading';
 
 class PhotoShow extends React.Component {
   constructor(props) {
@@ -20,9 +21,6 @@ class PhotoShow extends React.Component {
   }
   
   render() {
-    // if (!this.props.photo || !this.props.user)  {
-    //   return null;
-    // }
     if (this.props.photo !== undefined) {
       return(
         <>
@@ -57,7 +55,12 @@ class PhotoShow extends React.Component {
         </>
       )
     } else {
-      return <></>
+      return(
+        <div className="loader">
+          <ReactLoading type={"spin"} color={"#FF0084"} height={'8%'} width={'8%'} />
+          <h1 className="loader-text">loading...</h1>
+        </div>
+      )
     } 
   }
 }

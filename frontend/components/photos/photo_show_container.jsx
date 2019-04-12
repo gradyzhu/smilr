@@ -1,4 +1,3 @@
-
 import PhotoShow from './photo_show';
 import { connect } from 'react-redux';
 import { 
