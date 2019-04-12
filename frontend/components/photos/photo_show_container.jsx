@@ -12,16 +12,15 @@ import {
 
 const mapStateToProps = ({entities: {photos, users}}, ownProps) => {
   let photoId = ownProps.match.params.id;
-  let photo = photos[photoId];
-  if (photo == undefined) {
+
+  if (Object.keys(photos).length == 0) {
     return ({
       photoId: photoId,
-      user: {},
-      photo
+      user: {}
     });
   } else {
+    let photo = photos[photoId];
     let user = users[photo.userId];
-
     return ({
       photoId: photoId,
       user: user,
