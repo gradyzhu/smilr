@@ -7,7 +7,7 @@ export const RECEIVE_PHOTO_ERRORS = "RECEIVE_PHOTO_ERRORS";
 export const REMOVE_PHOTO_ERRORS = 'REMOVE_PHOTO_ERRORS';
 
 //actions creators
-const receivePhotos = ({photos, users}) => {
+const receivePhotos = photos => {
   return ({
     type: RECEIVE_PHOTOS,
     photos: photos
@@ -17,7 +17,7 @@ const receivePhotos = ({photos, users}) => {
 const receivePhoto = photo => {
   return ({
     type: RECEIVE_PHOTO,
-    photo
+    photo: photo
   });
 };
 
@@ -30,7 +30,7 @@ const removePhoto = photo => {
 
 export const receiveErrors = errors => ({
   type: RECEIVE_PHOTO_ERRORS,
-  errors
+  errors: errors
 });
 
 export const clearErrors = () => ({
@@ -38,45 +38,45 @@ export const clearErrors = () => ({
 });
 
 // thunk actions creators
-export const fetchPhotos = (id) => dispatch => (
-  ApiUtil.fetchPhotos(id).then(photos => (
-    dispatch(receivePhotos(photos))
-    ), err => (
-      dispatch(receiveErrors(err.responseJSON))
-    ))
-);
+export const fetchPhotos = id => dispatch => {
+  return(
+    ApiUtil.fetchPhotos(id)
+      .then( photos => dispatch(receivePhotos(photos)))
+      .fail( error => dispatch(receiveErrors(error.responseJSON)))
+  );
+};
 
-export const fetchPhoto = id => dispatch => (
-  ApiUtil.fetchPhoto(id).then(photo => (
-    dispatch(receivePhoto(photo))
-    ), err => (
-      dispatch(receiveErrors(err.responseJSON))
-    ))
-);
+export const fetchPhoto = id => dispatch => {
+  return(
+    ApiUtil.fetchPhoto(id)
+      .then( photo => dispatch(receivePhoto(photo)))
+      .fail( error => dispatch(receiveErrors(error.responseJSON)))
+  );
+};
 
-export const createPhoto = photo => dispatch => (
-  ApiUtil.createPhoto(photo).then(photo => (
-    dispatch(receivePhoto(photo))
-    ), err => (
-      dispatch(receiveErrors(err.responseJSON))
-    ))
-);
+export const createPhoto = photo => dispatch => {
+  return(
+    ApiUtil.createPhoto(photo)
+      .then( photo => dispatch(receivePhoto(photo)))
+      .fail( error => dispatch(receiveErrors(error.responseJSON)))
+  );
+};
 
-export const updatePhoto = photo => dispatch => (
-  ApiUtil.updatePhoto(photo).then(photo => (
-    dispatch(receivePhoto(photo))
-    ), err => (
-      dispatch(receiveErrors(err.responseJSON))
-    ))
-);
+export const updatePhoto = photo => dispatch => {
+  return(
+    ApiUtil.updatePhoto(photo)
+      .then( photo => dispatch(receivePhoto(photo)))
+      .fail( error => dispatch(receiveErrors(error.responseJSON)))
+  );
+};
 
-export const deletePhoto = id => dispatch => (
-  ApiUtil.deletePhoto(id).then((photo) => (
-    dispatch(removePhoto(photo))
-    ), err => (
-      dispatch(receiveErrors(err.responseJSON))
-    ))
-);
+export const deletePhoto = id => dispatch => {
+  return(
+    ApiUtil.deletePhoto(id)
+      .then( photo => dispatch(removePhoto(photo)))
+      .fail( error => dispatch(receiveErrors(error.responseJSON)))
+  );
+};
 
 // window.fetchPhotos = fetchPhotos;
 // window.fetchPhoto = fetchPhoto;

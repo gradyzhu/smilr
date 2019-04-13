@@ -30,19 +30,18 @@ class UserShow extends React.Component {
     let photos = this.props.photos.map(photo => {
       if (photo.userId == userId) {
         return (
-          <div>
             <PhotosIndexItem 
               key={photo.id} 
               photo={photo.imageUrl}
               photoId={photo.id}
               photoTitle={photo.title}
               photoDescription={photo.description}
-              className="photos-grid"/>
-          </div>)
+              className="photos-grid"/>)
       }
     });
-    let username = this.props.user.username
-    let email = this.props.user.email
+
+    let username = this.props.user.username;
+    let email = this.props.user.email;
     return (
       <>
         <div className="index-flex-center-col">

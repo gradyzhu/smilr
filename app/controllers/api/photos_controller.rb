@@ -1,13 +1,10 @@
 class Api::PhotosController < ApplicationController
 
   def index 
-    afasfs = "hello"
-
     if params[:user_id] != nil
       @photos = Photo.all.select { |photo| photo.user_id = params[:user_id] }
       render "api/photos/index"
     else
-
       @photos = Photo.all
       @user = User.find_by(id: params[:user_id])
       render "api/photos/index"

@@ -12,19 +12,21 @@ class PhotosIndex extends React.Component {
   }
 
   render() {
-
+    // debugger
     let photos = this.props.photos.map(photo => {
       return (
-        <div key={photo.id} >
-          <PhotosIndexItem 
+          <PhotosIndexItem
+            key={photo.id}
             photo={photo.imageUrl}
             photoId={photo.id}
             photoTitle={photo.title}
             photoDescription={photo.description}
-            // username={}
-            className="photos-grid"/>
-        </div>
-    )});
+            username={photo.username}
+            userId={photo.userId}
+            className="photos-grid"
+          />
+      )
+    });
 
     let shuffle = (photos) => {
       var currentIndex = photos.length, temporaryValue, randomIndex;
@@ -38,8 +40,8 @@ class PhotosIndex extends React.Component {
         photos[randomIndex] = temporaryValue;
       }
       return photos;
-    }
-
+    };
+    // debugger
     return (
       <>
         <div className="index-flex-center-col">
