@@ -44,9 +44,15 @@
 }
 
 .details-username {
-  font-weight: 100;
+  color: rgb(186, 186, 186);
+  font-weight: 200;
   font-size: 11px;
   letter-spacing: 1px;
+  transition: ease .3s;
+}
+
+.details-username:hover {
+  color: white;
 }
 
 .flex-col-end{

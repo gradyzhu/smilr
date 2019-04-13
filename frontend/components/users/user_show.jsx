@@ -21,27 +21,24 @@ class UserShow extends React.Component {
   }
 
   render() {
-    // document.title = `${this.props.}`
-    if (!this.props.user) {
-      return null;
-    }
+    if (!this.props.user) return null;
 
+    let user = this.props.user;
     let userId = this.props.userId;
+    let email = this.props.user.email;
     let photos = this.props.photos.map(photo => {
       if (photo.userId == userId) {
         return (
-            <PhotosIndexItem 
-              key={photo.id} 
-              photo={photo.imageUrl}
-              photoId={photo.id}
-              photoTitle={photo.title}
-              photoDescription={photo.description}
-              className="photos-grid"/>)
+          <PhotosIndexItem 
+            key={photo.id} 
+            username={this.props.user.username}
+            photo={photo.imageUrl}
+            photoId={photo.id}
+            photoTitle={photo.title}
+            photoDescription={photo.description}
+            className="photos-grid"/>)
       }
     });
-
-    let username = this.props.user.username;
-    let email = this.props.user.email;
     return (
       <>
         <div className="index-flex-center-col">
@@ -55,7 +52,7 @@ class UserShow extends React.Component {
                 <div className="user-details-wrap flex-col-center">
                   <div className="user-details flex-col-left-text">
                     <div className="username">
-                      <h1 className="username-text">{username}</h1>
+                      <h1 className="username-text">{user.username}</h1>
                     </div>
                     <div className="followers flex-row-left">
                       <div className="border flex-col-center">

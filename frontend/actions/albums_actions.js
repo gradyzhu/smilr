@@ -36,48 +36,48 @@ export const clearErrors = () => ({
   type: REMOVE_ALBUM_ERRORS,
 });
 
-export const fetchAlbums = (user_id) => dispatch => (
-  ApiUtil.fetchAlbums(user_id).then(albums => (
-    dispatch(receiveAlbums(albums))
-    ), err => (
-      dispatch(receiveErrors(err.responseJSON))
-    ))
-);
+export const fetchAlbums = user_id => dispatch => {
+  return(
+    ApiUtil.fetchAlbums(user_id)
+      .then(albums => dispatch(receiveAlbums(albums)))
+      .fail(error => dispatch(receiveErrors(error.responseJSON)))
+  );
+};
 
-export const fetchAlbum = id => dispatch => (
-  ApiUtil.fetchAlbum(id).then(album => (
-    dispatch(receiveAlbum(album))
-    ), err => (
-      dispatch(receiveErrors(err.responseJSON))
-    ))
-);
+export const fetchAlbum = id => dispatch => {
+  return(
+    ApiUtil.fetchAlbum(id)
+      .then(album => dispatch(receiveAlbum(album)))
+      .fail(error => dispatch(receiveErrors(error.responseJSON)))
+  );
+};
 
-export const createAlbum = album => dispatch => (
-  ApiUtil.createAlbum(album).then(album => (
-    dispatch(receiveAlbum(album))
-    ), err => (
-      dispatch(receiveErrors(err.responseJSON))
-    ))
-);
+export const createAlbum = album => dispatch => {
+  return(
+    ApiUtil.createAlbum(album)
+      .then(album => dispatch(receiveAlbum(album)))
+      .fail(error => dispatch(receiveErrors(error.responseJSON)))
+  );
+};
 
-export const updateAlbum = album => dispatch => (
-  ApiUtil.updateAlbum(album).then(album => (
-    dispatch(receiveAlbum(album))
-    ), err => (
-      dispatch(receiveErrors(err.responseJSON))
-    ))
-);
+export const updateAlbum = album => dispatch => {
+  return(
+    ApiUtil.updateAlbum(album)
+      .then(album => dispatch(receiveAlbum(album)))
+      .fail(error => dispatch(receiveErrors(error.responseJSON)))
+  );
+};
 
-export const deleteAlbum = id => dispatch => (
-  ApiUtil.deleteAlbum(id).then((album) => (
-    dispatch(removeAlbum(album))
-    ), err => (
-      dispatch(receiveErrors(err.responseJSON))
-    ))
-);
+export const deleteAlbum = id => dispatch => {
+  return(
+    ApiUtil.deleteAlbum(id)
+      .then(album => dispatch(removeAlbum(album)))
+      .fail(error => dispatch(receiveErrors(err.responseJSON)))
+  );
+};
 
-window.fetchAlbums = fetchAlbums;
-window.fetchAlbum = fetchAlbum;
-window.createAlbum = createAlbum;
-window.updateAlbum = updateAlbum;
-window.deleteAlbum = deleteAlbum;
+// window.fetchAlbums = fetchAlbums;
+// window.fetchAlbum = fetchAlbum;
+// window.createAlbum = createAlbum;
+// window.updateAlbum = updateAlbum;
+// window.deleteAlbum = deleteAlbum;
