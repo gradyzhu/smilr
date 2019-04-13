@@ -2,24 +2,29 @@
   width: 400px;
 }
 
-.edit-display-title, .edit-display-des {
+.edit-form-display-title, .edit-form-display-des {
   font-family: helvetica neue;
   padding: 5px 10px;
-  font-size: 13px;
   line-height: 20px;
   color: black;
 }
 
-.edit-display-title {
+.edit-form-display-title {
   font-size: 16px;
   font-weight: 500;
+} 
+
+.edit-form-display-des {
+  font-size: 14px;
+  // font-weight: 400;
+  // letter-spacing: .1px;
 }
+
 .edit-form-input {
   height: 20px;
   font-size: 14px;
   margin-top: 5px;
 }
-
 
 .edit-form-textarea, .edit-form-input{
   width: auto;
@@ -31,7 +36,7 @@
 }
 
 .edit-form-textarea {
-  font-size: 13px;
+  font-size: 14px;
   height: 150px;
   resize: none;
   background-color: white;

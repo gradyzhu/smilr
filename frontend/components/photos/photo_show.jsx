@@ -42,11 +42,22 @@ class PhotoShow extends React.Component {
               </div>
             </div>
             <div className="photo-details-container flex-center">
-              <div className="photo-details-wrap">
-                <div className="photo-details">
-                  <EditPhotoFormContainer photoId={this.props.photoId}/>
-                  <hr className="display-edit-line"></hr>
-                  <h1>comments container here</h1>
+              <div className="flex-col">
+                <div className="flex-row-space">
+                  <Link to={`/users/${this.props.photo.userId}/photos`}
+                    className="display-username">
+                    {this.props.photo.username}
+                  </Link>
+                  <button className="blue-button follow-custom">
+                    Follow
+                  </button>
+                </div>
+                <div className="photo-details-wrap">
+                  <div className="photo-details">
+                    <EditPhotoFormContainer photoId={this.props.photoId}/>
+                    <hr className="display-edit-line"></hr>
+                    <h1>comments container here</h1>
+                  </div>
                 </div>
               </div>
             </div>

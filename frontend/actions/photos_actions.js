@@ -6,7 +6,6 @@ export const DELETE_PHOTO = 'DELETE_PHOTO';
 export const RECEIVE_PHOTO_ERRORS = "RECEIVE_PHOTO_ERRORS";
 export const REMOVE_PHOTO_ERRORS = 'REMOVE_PHOTO_ERRORS';
 
-//actions creators
 const receivePhotos = photos => {
   return ({
     type: RECEIVE_PHOTOS,
@@ -37,7 +36,6 @@ export const clearErrors = () => ({
   type: REMOVE_PHOTO_ERRORS,
 });
 
-// thunk actions creators
 export const fetchPhotos = id => dispatch => {
   return(
     ApiUtil.fetchPhotos(id)

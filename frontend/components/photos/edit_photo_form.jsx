@@ -58,8 +58,8 @@ class EditPhotoForm extends React.Component {
           <div 
             onClick={this.handleEditMode}
             className="edit-form-highlight">
-            <p className="edit-display-title">{this.state.title}</p>
-            <p className="edit-display-des">{this.state.description}</p>
+            <p className="edit-form-display-title">{this.state.title}</p>
+            <p className="edit-form-display-des">{this.state.description}</p>
           </div>
         </>
       )
@@ -72,7 +72,6 @@ class EditPhotoForm extends React.Component {
         <div className="display-edit-container">
           <div className="display-edit-wrap">
             <div className="display-edit">
-              {/* <h1 className="display-edit-username">{this.props.photo.userId}</h1> */}
               {edit}
             </div>
             <hr></hr>

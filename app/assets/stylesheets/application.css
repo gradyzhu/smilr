@@ -59,6 +59,13 @@ textarea:focus, input:focus{
   outline: none;
 }
 
+
+.flex-row-space{
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .blue-button {
   outline: none;
   transition: ease .3s;

@@ -72,7 +72,7 @@ export const deleteAlbum = id => dispatch => {
   return(
     ApiUtil.deleteAlbum(id)
       .then(album => dispatch(removeAlbum(album)))
-      .fail(error => dispatch(receiveErrors(err.responseJSON)))
+      .fail(error => dispatch(receiveErrors(error.responseJSON)))
   );
 };
 
