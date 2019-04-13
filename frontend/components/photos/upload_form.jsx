@@ -4,11 +4,10 @@ import Footer from '../footer';
 class UploadForm extends React.Component {
   constructor(props) {
     super(props);
-    
-    let photo = this.props.photo;
+
     this.state = {
-      title: photo.title,
-      description: photo.description,
+      title: "",
+      description: "",
       photoFile: null,
       photoUrl: null,
       uploadState: false,

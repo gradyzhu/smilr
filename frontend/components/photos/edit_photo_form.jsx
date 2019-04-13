@@ -74,7 +74,6 @@ class EditPhotoForm extends React.Component {
             <div className="display-edit">
               {edit}
             </div>
-            <hr></hr>
           </div>
         </div>
       </>

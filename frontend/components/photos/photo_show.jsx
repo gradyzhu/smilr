@@ -28,6 +28,10 @@ class PhotoShow extends React.Component {
             <div className="show-col-container">
               <div className="show-left-col"></div>
               <div className="show-mid-col">
+                <Link to={`/`} className="show-back-to-ex flex-row-left">
+                  <i className="fas fa-arrow-left"></i>
+                  <p className="show-back-text">Back to explore</p>
+                </Link>
                 <img 
                   className="show-image" 
                   src={this.props.photo.imageUrl}/>
@@ -55,8 +59,12 @@ class PhotoShow extends React.Component {
                 <div className="photo-details-wrap">
                   <div className="photo-details">
                     <EditPhotoFormContainer photoId={this.props.photoId}/>
+                  </div>
+                  <div>
+                    {/* <CommentsIndexContainer></CommentsIndexContainer> */}
                     <hr className="display-edit-line"></hr>
-                    <h1>comments container here</h1>
+                    <h1>comments index container here</h1>
+                    <hr className="display-edit-line"></hr>
                   </div>
                 </div>
               </div>

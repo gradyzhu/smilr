@@ -4,10 +4,6 @@ import { createPhoto } from '../../actions/photos_actions';
 
 const mapStateToProps = (state, ownProps) => {
   return ({
-    photo: {
-      title: "",
-      description: ""
-    },
     formType: "Upload"
   });
 };

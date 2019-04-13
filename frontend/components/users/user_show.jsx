@@ -1,6 +1,7 @@
 import React from 'react';
 import PhotosIndexItem from '../photos/photos_index_item';
 import Footer from '../footer';
+import CreateAlbumFormContainer from '../albums/create_album_form_container';
 import { Link } from 'react-router-dom';
 
 class UserShow extends React.Component {
@@ -79,6 +80,7 @@ class UserShow extends React.Component {
               <div className="option-tab index-flex-center-row">
                 <h1 className='options-tabs-font-style'>Albums</h1>
               </div>
+              <CreateAlbumFormContainer />
             </div>
           </div>
 

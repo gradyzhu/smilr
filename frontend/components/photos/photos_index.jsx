@@ -12,7 +12,6 @@ class PhotosIndex extends React.Component {
   }
 
   render() {
-    // debugger
     let photos = this.props.photos.map(photo => {
       return (
           <PhotosIndexItem
@@ -41,7 +40,7 @@ class PhotosIndex extends React.Component {
       }
       return photos;
     };
-    // debugger
+
     return (
       <>
         <div className="index-flex-center-col">
