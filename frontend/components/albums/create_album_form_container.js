@@ -2,9 +2,9 @@ import CreateAlbumForm from './create_album_form';
 import { connect } from 'react-redux';
 import { createAlbum } from '../../actions/albums_actions';
 
-const mstp = state => { 
+const mstp = (state) => { 
   return ({
-    sessionId: state.session.id
+    sessionId: state.session.id,
   });
 };
 

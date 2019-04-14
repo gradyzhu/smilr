@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 class UserShow extends React.Component {
   constructor(props) {
     super(props);
+    console.log(this.props);
   }
 
   componentDidMount() {
@@ -80,7 +81,9 @@ class UserShow extends React.Component {
               <div className="option-tab index-flex-center-row">
                 <h1 className='options-tabs-font-style'>Albums</h1>
               </div>
-              <CreateAlbumFormContainer />
+              <CreateAlbumFormContainer 
+                userId={parseInt(this.props.match.params.id, 10)}
+                />
             </div>
           </div>
 

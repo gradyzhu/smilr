@@ -7,13 +7,11 @@ class CreateAlbumForm extends React.Component {
       name: "",
       user_id: this.props.sessionId
     };
-    debugger
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInput = this.handleInput.bind(this);
   }
   
   handleSubmit(event) {
-    debugger
     event.preventDefault();
     this.props.createAlbum(this.state);
   }
@@ -25,22 +23,25 @@ class CreateAlbumForm extends React.Component {
   }
 
   render() {
-    return(<>
-      <div>
-        <form onSubmit={this.handleSubmit}>
-          <input
-            type="text"
-            placeholder="name"
-            value={this.state.name}
-            onChange={this.handleInput}
-          />
-          <button className="blue-button">
-            Create
-          </button>
-        </form>
-      </div>
-    </>
-  )}
+    if (this.props.sessionId === this.props.userId) {
+      return(
+        <>
+          <form onSubmit={this.handleSubmit}>
+            <input
+              type="text"
+              placeholder="name"
+              value={this.state.name}
+              onChange={this.handleInput}
+            />
+            <button className="blue-button">
+              Create
+            </button>
+          </form>
+        </>)
+    } else {
+      return(<></>)
+    }
+  }
 }
 
 export default CreateAlbumForm;
