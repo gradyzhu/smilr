@@ -18,7 +18,7 @@ class CreateAlbumForm extends React.Component {
 
   handleInput(event) {
     this.setState({
-      name: event.target.value
+      name: event.target.value,
     });
   }
 

@@ -1,9 +1,11 @@
-export const fetchAlbums = user_id => (
-  $.ajax({
-    method: 'GET',
-    url: `api/users/${user_id}/albums`,
-  })
-);
+export const fetchAlbums = user_id => {
+  return (
+    $.ajax({
+      method: 'GET',
+      url: `api/users/${user_id}/albums`,
+    })
+  );
+};
 
 export const fetchAlbum = id => (
   $.ajax({
@@ -12,13 +14,16 @@ export const fetchAlbum = id => (
   })
 );
 
-export const createAlbum = album => (
-  $.ajax({
-    method: 'POST',
-    url: `api/users/${album.user_id}/albums`,
-    data: { album }
-  })
-);
+export const createAlbum = album => {
+  return (
+    $.ajax({
+      method: 'POST',
+      url: `api/users/${album.user_id}/albums`,
+      data: { album }
+    })
+  );
+};
+
 
 export const updateAlbum = album => (
   $.ajax({

@@ -53,7 +53,6 @@ export const fetchAlbum = id => dispatch => {
 };
 
 export const createAlbum = album => dispatch => {
-  debugger;
   return(
     ApiUtil.createAlbum(album)
       .then(album => dispatch(receiveAlbum(album)))

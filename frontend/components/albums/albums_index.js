@@ -1,47 +1,35 @@
 import React from 'react';
-import PhotosIndexItem from '../photos/photos_index_item';
-import Footer from '../footer';
+import ReactLoading from 'react-loading';
+import AlbumsIndexItem from './albums_index_item';
+import CreateAlbumFormContainer from '../albums/create_album_form_container';
 import { Link } from 'react-router-dom';
 
-class UserShow extends React.Component {
+class AlbumsIndex extends React.Component {
   constructor(props) {
     super(props);
   }
 
   componentDidMount() {
-    this.props.fetchPhotos();
-    this.props.fetchUser(this.props.match.params.id);
-  }
-
-  componentDidUpdate(prevProps) {
-    if (prevProps.match.url !== this.props.match.url) {
-      this.props.fetchPhotos(this.props.match.params.id);
-      this.props.fetchUser(this.props.match.params.id);
-    }
+    let userId = parseInt(this.props.userId, 10);
+    this.props.fetchAlbums(userId);
   }
 
   render() {
-    if (!this.props.user) return null;
+    // if (!this.props.user) return null;
 
-    let user = this.props.user;
-    let userId = this.props.userId;
-    let email = this.props.user.email;
-    let photos = this.props.photos.map(photo => {
-      if (photo.userId == userId) {
-        return (
-          <PhotosIndexItem 
-            key={photo.id} 
-            username={this.props.user.username}
-            photo={photo.imageUrl}
-            photoId={photo.id}
-            photoTitle={photo.title}
-            photoDescription={photo.description}
-            className="photos-grid"/>)
-      }
+    // let user = this.props.user;
+    // let email = this.props.user.email;
+    let albums = this.props.albums.map(album => {
+      return(
+        <AlbumsIndexItem 
+          key={album.id}
+          name={album.name}/>
+      );
     });
-    return (
-      <>
-        <div className="index-flex-center-col">
+
+    if (this.props.albums.length !== 0) {
+      return(
+        <>
           <div className="user-banner-container index-flex-center-col">
             <div className="user-banner flex-col-bottom">
               <div className="user-details-columns flex-row-left">
@@ -52,11 +40,11 @@ class UserShow extends React.Component {
                 <div className="user-details-wrap flex-col-center">
                   <div className="user-details flex-col-left-text">
                     <div className="username">
-                      <h1 className="username-text">{user.username}</h1>
+                      {/* <h1 className="username-text">{user.username}</h1> */}
                     </div>
                     <div className="followers flex-row-left">
                       <div className="border flex-col-center">
-                        <h1 className="followers-text">{email}</h1>
+                        {/* <h1 className="followers-text">{email}</h1> */}
                       </div>
                       <div className="border flex-col-center">
                         <h1 className="followers-text">17 Followers</h1>
@@ -85,27 +73,25 @@ class UserShow extends React.Component {
               </div>
             </div>
           </div>
-
-          <div className="filters-bar-container index-flex-center-col">
-            <div className="filters-bar index-flex-left">
-              <div className="filter-tab index-flex-center-row">
-                <Link to="/" className='filters-tabs-font-style'>Date uploaded ▾</Link>
-              </div>
-              <div className="filter-tab index-flex-center-row">
-                <Link to="/" className='filters-tabs-font-style'>Public view ▾</Link>
-              </div>
+          <CreateAlbumFormContainer 
+            userId={parseInt(this.props.match.params.id, 10)}
+          />
+          <div className="full-width flex-center-1">
+            <div className="albums-index-container flex-center flex-wrap">
+              {albums}
             </div>
           </div>
-
-          <ul className="index-ul-container index-items-flex">
-            <div className="index-li-flex">{photos}</div>
-          </ul>
-          
+        </>
+      )
+    } else {
+      return(
+        <div className="loader">
+          <ReactLoading type={"spin"} color={"#FF0084"} height={'8%'} width={'8%'} />
+          <h1 className="loader-text">loading...</h1>
         </div>
-        <Footer />
-      </>
-    ) 
+      )
+    }
   }
 }
 
-export default UserShow;
+export default AlbumsIndex;
