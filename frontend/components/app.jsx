@@ -12,6 +12,7 @@ import SignUpFormContainer from './session_form/sign_up_form_container';
 import LogInFormContainer from './session_form/log_in_form_container';
 import PhotosIndexContainer from "./photos/photos_index_container";
 import PhotoShowContainer from "./photos/photo_show_container";
+import AlbumShowContainer from "./albums/album_show_container";
 import UploadFormContainer from "./photos/upload_form_container";
 import EditFormContainer from "./photos/edit_photo_form_container";
 import UserShowContainer from "./users/user_show_container";
@@ -29,6 +30,7 @@ const App = () => (
       <Switch>
         <Route path="/users/:id/photos" component={UserShowContainer} />
         <Route exact path="/photos/:id" component={PhotoShowContainer} />
+        <Route exact path="/albums/:id" component={AlbumShowContainer} />
         <Route exact path="/photos" component={PhotosIndexContainer} />
         <Route exact path="/users/:id/albums" component={AlbumsIndexContainer} />
         <AuthRoute exact path="/photos/:id/edit" component={EditFormContainer} />
