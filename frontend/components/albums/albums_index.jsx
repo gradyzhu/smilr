@@ -1,12 +1,19 @@
 import React from 'react';
 import ReactLoading from 'react-loading';
 import AlbumsIndexItem from './albums_index_item';
-import CreateAlbumFormContainer from './create_album_form_container';
+import CreateAlbumModal from './create_album_modal';
+// import CreateAlbumFormContainer from './create_album_form_container';
 import { Link } from 'react-router-dom';
 
 class AlbumsIndex extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      showModal: false
+    };
+
+    this.handleShowModal = this.handleShowModal.bind(this);
+    this.handleCloseModal = this.handleCloseModal.bind(this);
   }
 
   componentDidMount() {
@@ -14,6 +21,17 @@ class AlbumsIndex extends React.Component {
     this.props.fetchAlbums(userId);
   }
 
+  handleShowModal(event) {
+    this.setState({
+      showModal: true
+    });
+  }
+
+  handleCloseModal(event) {
+    this.setState({
+      showModal: false
+    });
+  }
   render() {
     // if (!this.props.user) return null;
     // let user = this.props.user;
@@ -32,6 +50,12 @@ class AlbumsIndex extends React.Component {
 
     return(
       <>
+        <CreateAlbumModal
+          show={this.state.showModal}
+          closeModal={this.handleCloseModal}
+          userId={parseInt(this.props.match.params.id, 10)}
+        />
+        {/* banner component */}
         <div className="user-banner-container index-flex-center-col">
           <div className="user-banner flex-col-bottom">
             <div className="user-details-columns flex-row-left">
@@ -61,6 +85,7 @@ class AlbumsIndex extends React.Component {
           </div>
         </div>
 
+        {/* options bar component */}
         <div className="options-bar-container index-flex-center-col">
           <div className="options-bar index-flex-center-row">
             <div className="option-tab index-flex-center-row">
@@ -75,9 +100,15 @@ class AlbumsIndex extends React.Component {
             </div>
           </div>
         </div>
-        <CreateAlbumFormContainer 
-          userId={parseInt(this.props.match.params.id, 10)}
-        />
+
+        {/* album bar component*/}
+        <div className="album-options flex-center-1">
+
+        </div>
+        <h1 onClick={this.handleShowModal}>
+          New Album
+        </h1>
+
         <div className="full-width flex-center-1">
           <div className="albums-index-container flex-center flex-wrap">
             {albums}
