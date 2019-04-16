@@ -6,13 +6,11 @@ class AlbumShow extends React.Component {
   }
 
   componentDidMount() {
-    console.log(this.props.albums);
     this.props.fetchPhotos(); 
     this.props.fetchAlbum(this.props.albumId); 
   }
 
   render() {
-    console.log(this.props);
     return(
       <>
         <div className="album-show-container">

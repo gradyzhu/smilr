@@ -66,6 +66,8 @@ textarea:focus, input:focus{
   align-items: center;
 }
 
+/** blue button **/
+
 .blue-button {
   outline: none;
   transition: ease .3s;
@@ -86,12 +88,57 @@ textarea:focus, input:focus{
   background-color: #0E76B4;
 }
 
-.flex-center-1{
+.full-width {
+  width: 100%;
+  height: 100%;
+}
+
+/**************** flex tools *****************/
+
+.flex-center{
   display:flex;
   justify-content: center;
   align-items: center;
 }
+/* flex column */
+.flex-col-center {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+.flex-col-start {
+  display:flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
+}
 
+.flex-col-end {
+  display:flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* flex row */
+.flex-row-center {
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+.flex-row-start {
+  display:flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+.flex-row-end {
+  display:flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+/* flex wrap */
 .flex-wrap {
   display:flex;
   justify-content: center;
@@ -99,7 +146,12 @@ textarea:focus, input:focus{
   flex-wrap: wrap;
 }
 
-.full-width {
-  width: 100%;
-  height: 100%;
+.flex-wrap2 {
+  flex-wrap: wrap;
+}
+
+.flex-row-start-top-left {
+  display:flex;
+  justify-content: flex-start;
+  align-content: flex-start;
 }

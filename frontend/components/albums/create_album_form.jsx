@@ -16,12 +16,11 @@ class CreateAlbumForm extends React.Component {
     this.props.createAlbum(this.state);
   }
 
-  handleInput(event) {
-    this.setState({
-      name: event.target.value,
-    });
+  handleInput(field) {
+    return event => {
+      this.setState({[field]: event.currentTarget.value});
+    };
   }
-
   render() {
     if (this.props.sessionId === this.props.userId) {
       return(
@@ -32,13 +31,17 @@ class CreateAlbumForm extends React.Component {
                 type="text"
                 placeholder="name"
                 value={this.state.name}
-                onChange={this.handleInput}
+                onChange={this.handleInput("name")}
                 className="create-album-form-input"
               />
               <textarea
+                type="text"
+                // placeholder="description"
+                value={this.state.description}
+                onChange={this.handleInput("description")}
                 className="create-album-form-textarea"
               />
-              <div className="flex-row-right">
+              <div className="">
                 <button className="blue-button create-album-form-button">
                   Create
                 </button>

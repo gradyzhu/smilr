@@ -2,16 +2,14 @@ import React from 'react';
 import ReactLoading from 'react-loading';
 import AlbumsIndexItem from './albums_index_item';
 import CreateAlbumModal from './create_album_modal';
-// import CreateAlbumFormContainer from './create_album_form_container';
 import { Link } from 'react-router-dom';
 
 class AlbumsIndex extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      showModal: false
+      showModal: false,
     };
-
     this.handleShowModal = this.handleShowModal.bind(this);
     this.handleCloseModal = this.handleCloseModal.bind(this);
   }
@@ -19,6 +17,14 @@ class AlbumsIndex extends React.Component {
   componentDidMount() {
     let userId = parseInt(this.props.userId, 10);
     this.props.fetchAlbums(userId);
+    this.props.fetchUser(userId);
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.match.url !== this.props.match.url) {
+      this.props.fetchAlbums(this.props.match.params.id);
+      this.props.fetchUser(this.props.match.params.id);
+    }
   }
 
   handleShowModal(event) {
@@ -33,10 +39,11 @@ class AlbumsIndex extends React.Component {
     });
   }
   render() {
-    // if (!this.props.user) return null;
-    // let user = this.props.user;
-    // let email = this.props.user.email;
+    if (!this.props.users[this.props.userId]) return null;
+    let user = this.props.users[this.props.userId];
     let userId = parseInt(this.props.userId, 10);
+    let showCreateButton = this.props.sessionId === parseInt(this.props.userId, 10);
+    let className = showCreateButton ? "display-block" : "display-none";
     let albums = this.props.albums.map(album => {
       if (album.userId === userId) {
         return(
@@ -47,7 +54,7 @@ class AlbumsIndex extends React.Component {
         );
       }
     });
-
+    
     return(
       <>
         <CreateAlbumModal
@@ -66,11 +73,11 @@ class AlbumsIndex extends React.Component {
               <div className="user-details-wrap flex-col-center">
                 <div className="user-details flex-col-left-text">
                   <div className="username">
-                    {/* <h1 className="username-text">{user.username}</h1> */}
+                    <h1 className="username-text">{user.username}</h1>
                   </div>
                   <div className="followers flex-row-left">
                     <div className="border flex-col-center">
-                      {/* <h1 className="followers-text">{email}</h1> */}
+                      <h1 className="followers-text">{user.email}</h1>
                     </div>
                     <div className="border flex-col-center">
                       <h1 className="followers-text">17 Followers</h1>
@@ -102,16 +109,23 @@ class AlbumsIndex extends React.Component {
         </div>
 
         {/* album bar component*/}
-        <div className="album-options flex-center-1">
-
+        <div className="full-width flex-center album-options-container">
+          <div className="album-options flex-row-end">
+            <div className={className}>
+              <button
+                onClick={this.handleShowModal}
+                className="create-new-alb-button flex-row-end">
+                + New Album</button>
+            </div>
+          </div>
         </div>
-        <h1 onClick={this.handleShowModal}>
-          New Album
-        </h1>
 
-        <div className="full-width flex-center-1">
-          <div className="albums-index-container flex-center flex-wrap">
-            {albums}
+
+        <div className="full-width">
+          <div className="albums-index-container-wrap flex-row-center">
+            <div className="albums-index-container flex-row-start-top-left flex-wrap2">
+              {albums}
+            </div>
           </div>
         </div>
       </>

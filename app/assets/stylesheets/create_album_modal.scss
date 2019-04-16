@@ -1,7 +1,3 @@
-.create-album-form {
-  width: 450px;
-}
-
 .display-block {
   display: block;
 }
@@ -13,59 +9,51 @@
   position: absolute;
   top: 0;
   left: 0;
-  width:100%;
+  width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.6);
   z-index: 100;
 }
-.modal-size {
-  width: 500px;
-  height: 300px;
+.modal-container {
+  width: 420px;
+  height: 320px;
   background-color: rgb(255, 255, 255);
   border-radius: 3px;
 }
 
 .modal-content{
-  width: 450px;
+  background-color: gray;
+  width: 100%;
+  height: 100%;
 }
 
 .fa-times {
   position: absolute;
-  transform: translate(222px, -125px);
+  transform: translate(175px, -125px);
   font-size: 22px;
   font-weight: 100;
   color: rgb(210, 210, 210);
+  cursor: pointer;
 }
 
 .create-album-text-container {
-  // background-color: blue;
   width: 100%;
-  height: 40px;
   font-family: helvetica neue;
   font-weight: 400;
   font-size: 18px;
+  margin-bottom: 10px;
 }
+
 .create-album-text {
-
-}
-
-.flex-row-right {
-  display: flex;
-  justify-content: flex-end;
-  width: 100%;
-}
-
-.flex-center-col {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  color: rgb(96, 96, 96);
+  margin-left: 30px;
+  margin-bottom: 15px;
 }
 
 .create-album-form-input, .create-album-form-textarea{
   height: 20px;
   font-size: 14px;
-  width: 430px;
+  width: 340px;
   border: none;
   padding: 5px 10px;
   border-radius: 4px;
@@ -73,7 +61,7 @@
   box-shadow: inset 0 0 0 1px rgb(205, 205, 205);
 }
 
-.create-album-form-input:focus{
+.create-album-form-input:focus, .create-album-form-textarea:focus{
   border: none;
   box-shadow: inset 0 0 0 1px #008FDA;
 }
@@ -91,6 +79,10 @@
   margin-bottom: 10px;
 }
 .create-album-form-button {
-  padding: 10px 15px;
+  padding: 8px 154px;
   border-radius: 3px;
+}
+
+.create-album-form {
+  // background-color: blue;
 }
