@@ -27,19 +27,19 @@ class PhotosIndex extends React.Component {
       )
     });
 
-    let shuffle = (photos) => {
-      var currentIndex = photos.length, temporaryValue, randomIndex;
-      while (0 !== currentIndex) {
+    // let shuffle = (photos) => {
+    //   var currentIndex = photos.length, temporaryValue, randomIndex;
+    //   while (0 !== currentIndex) {
     
-        randomIndex = Math.floor(Math.random() * currentIndex);
-        currentIndex -= 1;
+    //     randomIndex = Math.floor(Math.random() * currentIndex);
+    //     currentIndex -= 1;
     
-        temporaryValue = photos[currentIndex];
-        photos[currentIndex] = photos[randomIndex];
-        photos[randomIndex] = temporaryValue;
-      }
-      return photos;
-    };
+    //     temporaryValue = photos[currentIndex];
+    //     photos[currentIndex] = photos[randomIndex];
+    //     photos[randomIndex] = temporaryValue;
+    //   }
+    //   return photos;
+    // };
 
     return (
       <>
@@ -60,7 +60,7 @@ class PhotosIndex extends React.Component {
             </div>
           </div>
           <ul className="index-ul-container index-items-flex">
-            <div className="index-li-flex">{shuffle(photos)}</div>
+            <div className="index-li-flex">{(photos)}</div>
           </ul>
         </div>
         <Footer />

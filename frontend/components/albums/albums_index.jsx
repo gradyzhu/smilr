@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactLoading from 'react-loading';
 import AlbumsIndexItem from './albums_index_item';
-import CreateAlbumModal from './create_album_modal';
+import CreateAlbumModalContainer from './create_album_modal_container';
 import { Link } from 'react-router-dom';
+import Footer from '../footer';
 
 class AlbumsIndex extends React.Component {
   constructor(props) {
@@ -57,7 +58,7 @@ class AlbumsIndex extends React.Component {
     
     return(
       <>
-        <CreateAlbumModal
+        <CreateAlbumModalContainer
           show={this.state.showModal}
           closeModal={this.handleCloseModal}
           userId={parseInt(this.props.match.params.id, 10)}
@@ -128,6 +129,7 @@ class AlbumsIndex extends React.Component {
             </div>
           </div>
         </div>
+        <Footer />
       </>
     )
   }

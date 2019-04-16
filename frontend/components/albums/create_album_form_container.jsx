@@ -10,7 +10,7 @@ const mstp = (state) => {
 
 const mdtp = dispatch => {
   return ({
-    createAlbum: album => dispatch(createAlbum(album))
+    createAlbum: album => dispatch(createAlbum(album)),
   });
 };
 

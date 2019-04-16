@@ -61,7 +61,7 @@ textarea:focus, input:focus{
 
 
 .flex-row-space{
-  display:flex;
+  display: flex;
   justify-content: space-between;
   align-items: center;
 }
