@@ -1,27 +1,43 @@
 import React from 'react';
 import AlbumModalIndexItem from './album_modal_index_item';
-import CreateAlbumFormContainer from './create_album_form_container';
+import CreateAlbumForm from './create_album_form';
 
 class CreateAlbumModal extends React.Component {
   constructor(props) {
     super(props);
-    console.log(this.props);
+    this.state = {
+      album: {
+
+      }
+    };
   }
   componentDidMount() {
     this.props.fetchPhotos();
+    // this.props.createAlbum();
   }
+
+  // handleCheck() {
+  //   this.setState() {
+      
+  //   }
+  // }
 
   render() {
     const className = this.props.show ? "modal" : "modal display-none";
     const photos = this.props.photos.map(photo => {
       return(
-        <AlbumModalIndexItem 
-          key={photo.id}
-          photo={photo.imageUrl}
-        />
+        <div 
+          className="album-modal-index-item-container flex-row-center"
+          key={photo.id}>
+          {/* <input type="checkbox" id="checkbox-1" className="checkbox-style"></input> */}
+          <label for="checkbox-1">
+          <AlbumModalIndexItem 
+            photo={photo.imageUrl}
+          />
+          </label>
+        </div>
       )
     });
-
     return(
       <>
         <div className={className}>
@@ -32,11 +48,14 @@ class CreateAlbumModal extends React.Component {
                 <div className="create-album-text-container">
                   <h1 className="create-album-text">Create a new Album</h1>
                 </div>
-                <CreateAlbumFormContainer userId={this.props.userId}/>
+                {/* <CreateAlbumFormContainer userId={this.props.userId}/> */}
+                <CreateAlbumForm 
+                  userId={this.props.userId}
+                  sessionId={this.props.sessionId}/>
               </div>
               <div className="vertical-line"></div>
               <div className="modal-photo-index flex-row-center">
-                <div className="modal-index-item">
+                <div className="modal-index-items">
                   {photos}
                 </div>
               </div>
@@ -49,14 +68,3 @@ class CreateAlbumModal extends React.Component {
 }
 
 export default CreateAlbumModal;
-
-{/* <ul className="index-ul-container index-items-flex">
-  <div className="index-li-flex">{(photos)}</div>
-</ul> */}
-
-  // const handleEsc = event => {
-    //   if (event.key == '27') {
-      //     className = "modal display-none";
-      //   }
-      // };
-      

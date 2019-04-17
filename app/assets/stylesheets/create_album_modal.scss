@@ -2,7 +2,7 @@
   display: block;
 }
 .display-none {
-  display: block;
+  display: none;
 }
 
 .modal {
@@ -34,7 +34,7 @@
 
 .fa-times {
   position: absolute;
-  transform: translate(175px, -125px);
+  transform: translate(470px, -320px);
   font-size: 22px;
   font-weight: 100;
   color: rgb(210, 210, 210);
@@ -104,16 +104,16 @@
 .modal-photo-index {
   width: 600px;
   height: 600px;
-  // background-color: orange;
 }
 
 .album-modal-image {
-  max-height: 100px;
-  width: auto;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
   padding: 0;
 }
 
-.modal-index-item{
+.modal-index-items{
   display: flex;
   justify-content: center;
   align-content: center;
@@ -121,15 +121,17 @@
   align-items: center;
 }
 
-.test1 {
-  max-height: 100px;
-  width: auto;
-  padding: 0;
-}
-
 .album-modal-index-item-container {
   position: relative;
-  width: auto;
+  width: 100px;
   height: 100px;
-  margin: 2.5px 2.5px;
+  margin: 4px 4px;
+}
+
+.checkbox-style {
+  height: 18px;
+  width: 18px;
+  top: 70px;
+  left: 70px;
+  position: absolute;
 }

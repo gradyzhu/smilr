@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactLoading from 'react-loading';
 import AlbumsIndexItem from './albums_index_item';
 import CreateAlbumModalContainer from './create_album_modal_container';
 import { Link } from 'react-router-dom';
@@ -39,14 +38,14 @@ class AlbumsIndex extends React.Component {
       showModal: false
     });
   }
+  
   render() {
     if (!this.props.users[this.props.userId]) return null;
+
     let user = this.props.users[this.props.userId];
-    let userId = parseInt(this.props.userId, 10);
-    let showCreateButton = this.props.sessionId === parseInt(this.props.userId, 10);
+    let showCreateButton = this.props.sessionId === this.props.userId;
     let className = showCreateButton ? "display-block" : "display-none";
     let albums = this.props.albums.map(album => {
-      if (album.userId === userId) {
         return(
           <AlbumsIndexItem 
             key={album.id}
@@ -54,7 +53,7 @@ class AlbumsIndex extends React.Component {
             name={album.name}/>
         );
       }
-    });
+    );
     
     return(
       <>

@@ -3,12 +3,10 @@ class Photo < ApplicationRecord
 
   # validates :ensure_image
   
-  belongs_to :user,
-    foreign_key: :user_id,
-    class_name: :User
-
+  belongs_to :user
+  has_many :album_photos
   has_one_attached :image
-
+  
   # def ensure_image
   #   unless self.image.attached?
   #     errors[:image] << "Must be attached"

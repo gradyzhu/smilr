@@ -4,9 +4,12 @@ import { fetchAlbums} from '../../actions/albums_actions';
 import { fetchUser } from '../../actions/session_actions';
 
 const mstp = ({entities: {albums, users}, session}, ownProps) => {
+  let userId = parseInt(ownProps.match.params.id, 10);
+  let userAlbums = Object.values(albums);
+
   return({
-    albums: Object.values(albums),
-    userId: ownProps.match.params.id,
+    albums: userAlbums,
+    userId: userId,
     users: users,
     sessionId: session.id
   });
@@ -15,7 +18,8 @@ const mstp = ({entities: {albums, users}, session}, ownProps) => {
 const mdtp = dispatch => {
   return({
     fetchAlbums: id => dispatch(fetchAlbums(id)),
-    fetchUser: id => dispatch(fetchUser(id))
+    fetchUser: id => dispatch(fetchUser(id)),
+    fetchPhotos: () => dispatch(fetchPhotos());
   });
 };
 
