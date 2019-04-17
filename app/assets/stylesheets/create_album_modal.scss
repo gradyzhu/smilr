@@ -49,10 +49,16 @@
   margin-bottom: 10px;
 }
 
-.create-album-text {
+.create-album-text, .select-photos-text {
   color: rgb(96, 96, 96);
   margin-bottom: 15px;
+  font-family: helvetica neue;
+  font-weight: 400;
+  font-size: 18px;
 }
+
+// .select-photos-text {
+// }
 
 .create-album-form-input, .create-album-form-textarea{
   height: 20px;
@@ -95,12 +101,14 @@
 .vertical-line {
   height: 600px;
   margin: 0px 25px;
-  border-left: 1.5px solid rgb(205, 205, 205);;
+  border-left: 1.5px solid rgb(205, 205, 205);
 }
 
 .modal-photo-index {
-  width: 600px;
+  width: 500px;
   height: 600px;
+  background-color: orange;
+  // border-left: 1.5px solid rgb(205, 205, 205);
 }
 
 .album-modal-image {

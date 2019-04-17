@@ -1,5 +1,4 @@
 import React from 'react';
-import CreateAlbumForm from './create_album_form';
 import AlbumModalIndexItem from './album_modal_index_item';
 import { connect } from 'react-redux';
 import { fetchPhotos } from '../../actions/photos_actions';
@@ -9,10 +8,15 @@ class CreateAlbumModal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      name: "",
+      user_id: this.props.sessionId,
+      description: "description",
       photoIds: []
     };
 
     this.handleClick = this.handleClick.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleInput = this.handleInput.bind(this);
   }
   componentDidMount() {
     this.props.fetchPhotos();
@@ -32,8 +36,18 @@ class CreateAlbumModal extends React.Component {
     });
   }
   
+  handleSubmit(event) {
+    event.preventDefault();
+    this.props.createAlbum(this.state);
+  }
+
+  handleInput(field) {
+    return event => {
+      this.setState({[field]: event.currentTarget.value});
+    };
+  }
+
   render() {
-    console.log(this.state.photoIds);
     const className = this.props.show ? "modal display-block" : "modal display-none";
     const photos = this.props.photos.map(photo => {
       return(
@@ -59,17 +73,40 @@ class CreateAlbumModal extends React.Component {
           <div className="modal-container-wrap flex-row-center">
             <div className="modal-container flex-col-center">
               <div className="create-album-text-container">
-                <h1 className="create-album-text">Create a new Album</h1>
+                <h1 className="create-album-text">Step 1: Album details</h1>
               </div>
-              <CreateAlbumForm 
+              {/* <CreateAlbumForm 
                 userId={this.props.userId}
                 sessionId={this.props.sessionId}
-                photoIds={this.state.photoIds}/>
+                photoIds={this.state.photoIds}/> */}
+              <form
+                onSubmit={this.handleSubmit} 
+                className="flex-col-center">
+                <input
+                  type="text"
+                  placeholder="name"
+                  value={this.state.name}
+                  onChange={this.handleInput("name")}
+                  className="create-album-form-input"/>
+                <textarea
+                  type="text"
+                  value={this.state.description}
+                  onChange={this.handleInput("description")}
+                  className="create-album-form-textarea"/>
+                <div className="">
+                  <button className="blue-button create-album-form-button">
+                    Create
+                  </button>
+                </div>
+              </form>
             </div>
             <div className="vertical-line"></div>
             <div className="modal-photo-index flex-row-center">
-              <div className="modal-index-items">
-                {photos}
+              <div className="flex-col-center">
+                <h1 className="select-photos-text">Step 2: Select photos</h1>
+                <div className="modal-index-items">
+                  {photos}
+                </div>
               </div>
             </div>
           </div>
