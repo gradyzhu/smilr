@@ -10,6 +10,8 @@ require "open-uri"
 ActiveRecord::Base.transaction do
   User.destroy_all
   Photo.destroy_all
+  Album.destroy_all
+  AlbumPhoto.destroy_all
 
   josh = User.create!(username: "josh", email: "josh@gmail.com", password: "password")
   juice = User.create!(username: "juice", email: "stephens@gmail.com", password: "password")

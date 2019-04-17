@@ -10,8 +10,8 @@ class CreateAlbumModal extends React.Component {
     this.state = {
       name: "",
       user_id: this.props.sessionId,
-      description: "description",
-      photoIds: []
+      description: "",
+      photo_ids: []
     };
 
     this.handleClick = this.handleClick.bind(this);
@@ -24,7 +24,7 @@ class CreateAlbumModal extends React.Component {
 
   handleClick(event) {
     let newPhotoId = parseInt(event.currentTarget.id, 10);
-    let photoIds = this.state.photoIds;
+    let photoIds = this.state.photo_ids;
     if (photoIds.includes(newPhotoId)) {
       let index = photoIds.indexOf(newPhotoId);
       photoIds.splice(index, 1);
@@ -32,13 +32,16 @@ class CreateAlbumModal extends React.Component {
       photoIds.push(newPhotoId);
     }
     this.setState({
-      photoIds: photoIds
+      photo_ids: photoIds
     });
   }
   
   handleSubmit(event) {
     event.preventDefault();
-    this.props.createAlbum(this.state);
+    debugger
+    this.props.createAlbum(this.state).then(res => {
+      this.props.history.push(`/albums/${res.album.id}`);
+    });
   }
 
   handleInput(field) {
@@ -71,41 +74,43 @@ class CreateAlbumModal extends React.Component {
         <div className="full-width flex-center">
           <i onClick={this.props.closeModal} className="fa fa-times"></i>
           <div className="modal-container-wrap flex-row-center">
-            <div className="modal-container flex-col-center">
-              <div className="create-album-text-container">
-                <h1 className="create-album-text">Step 1: Album details</h1>
+            <div className="step-1-container flex-col-center">
+              <div className="step-text flex-row-start">
+                <h1>Step 1 - Album details</h1>
               </div>
-              {/* <CreateAlbumForm 
-                userId={this.props.userId}
-                sessionId={this.props.sessionId}
-                photoIds={this.state.photoIds}/> */}
-              <form
-                onSubmit={this.handleSubmit} 
-                className="flex-col-center">
-                <input
-                  type="text"
-                  placeholder="name"
-                  value={this.state.name}
-                  onChange={this.handleInput("name")}
-                  className="create-album-form-input"/>
-                <textarea
-                  type="text"
-                  value={this.state.description}
-                  onChange={this.handleInput("description")}
-                  className="create-album-form-textarea"/>
-                <div className="">
-                  <button className="blue-button create-album-form-button">
-                    Create
-                  </button>
-                </div>
-              </form>
+              <div className="create-album-form-container flex-col-center">
+                <form
+                  onSubmit={this.handleSubmit} 
+                  className="flex-col-center">
+                  <input
+                    type="text"
+                    placeholder="name"
+                    value={this.state.name}
+                    onChange={this.handleInput("name")}
+                    className="create-album-form-input"/>
+                  <textarea
+                    type="text"
+                    value={this.state.description}
+                    placeholder="description"
+                    onChange={this.handleInput("description")}
+                    className="create-album-form-textarea"/>
+                  <div className="">
+                    <button className="blue-button create-album-form-button">
+                      Create
+                    </button>
+                  </div>
+                </form> 
+              </div>
             </div>
-            <div className="vertical-line"></div>
-            <div className="modal-photo-index flex-row-center">
-              <div className="flex-col-center">
-                <h1 className="select-photos-text">Step 2: Select photos</h1>
-                <div className="modal-index-items">
-                  {photos}
+            <div className="step-2-container flex-col-center">
+              <div className="step-text flex-row-start">
+                <h1 className="step-text-2">Step 2 - Select photos</h1>
+              </div>
+              <div className="modal-photo-index">
+                <div className="flex-row-start-top-left">
+                  <div className="modal-index-items flex-row-start-top-left">
+                    {photos}
+                  </div>
                 </div>
               </div>
             </div>

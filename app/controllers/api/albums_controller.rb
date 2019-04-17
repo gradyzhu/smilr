@@ -20,9 +20,20 @@ class Api::AlbumsController < ApplicationController
 
   def create 
     @album = Album.new(album_params)
-    # @albumPhotos = AlbumPhotos.new()
     @album.user_id = current_user.id
-    if @album.save    
+    photo_ids = params[:album][:photo_ids]
+    debugger
+    if @album.save && photo_ids && !photo_ids.empty?
+
+      photo_ids.each do |id|
+        debugger
+        album_photo_params = {
+          album_id: @album.user_id,
+          photo_id: id.to_i
+        }
+        AlbumPhoto.create(album_photo_params)
+      end
+
       render "api/albums/_show"
     else
       render json: ["error"], status: 422
@@ -48,7 +59,7 @@ class Api::AlbumsController < ApplicationController
   end
 
   def album_params
-    params.require(:album).permit(:name, :description, :user_id)
+    params.require(:album).permit(:name, :description, :user_id, :photo_ids)
   end
 
 end
