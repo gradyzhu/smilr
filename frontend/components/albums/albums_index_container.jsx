@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import AlbumsIndex from './albums_index';
-import { fetchAlbums} from '../../actions/albums_actions';
+import { fetchAlbums } from '../../actions/albums_actions';
 import { fetchUser } from '../../actions/session_actions';
 
 const mstp = ({entities: {albums, users}, session}, ownProps) => {
@@ -18,8 +18,7 @@ const mstp = ({entities: {albums, users}, session}, ownProps) => {
 const mdtp = dispatch => {
   return({
     fetchAlbums: id => dispatch(fetchAlbums(id)),
-    fetchUser: id => dispatch(fetchUser(id)),
-    fetchPhotos: () => dispatch(fetchPhotos());
+    fetchUser: id => dispatch(fetchUser(id))
   });
 };
 

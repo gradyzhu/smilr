@@ -75,9 +75,3 @@ export const deletePhoto = id => dispatch => {
       .fail( error => dispatch(receiveErrors(error.responseJSON)))
   );
 };
-
-// window.fetchPhotos = fetchPhotos;
-// window.fetchPhoto = fetchPhoto;
-// window.createPhoto = createPhoto;
-// window.updatePhoto = updatePhoto;
-// window.deletePhoto = deletePhoto;

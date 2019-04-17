@@ -46,12 +46,12 @@ class PhotosIndex extends React.Component {
         <div className="index-flex-center-col">
           <div className="options-bar-container index-flex-center-col">
             <div className="options-bar index-flex-center-row">
-              <div className="option-tab index-flex-center-row">
+              <div className="option-tab-explore index-flex-center-row">
                 <Link to="/" className='options-tabs-font-style'>Explore</Link>
               </div>
-              <div className="option-tab index-flex-center-row">
+              {/* <div className="option-tab index-flex-center-row">
                 <Link to="/" className='options-tabs-font-style'>Trending</Link>
-              </div>
+              </div> */}
             </div>
           </div>
           <div className="index-page-header-container index-flex-center-col">

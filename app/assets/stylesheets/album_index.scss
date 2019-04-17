@@ -22,14 +22,18 @@
   border: none;
   padding: 8px 20px;
   border: 1px solid #737b80;
-  cursor:pointer;
   transition: ease .3s;
+  cursor:pointer;
 }
-
-// .create-new-alb-button:hover {
-//   background-color: rgb(255, 255, 255);  
-// }
 
 .create-new-alb-button:active {
   background-color: rgb(237, 237, 237);
+}
+
+.option-tab-album {
+  width: auto;
+  height: 60px;
+  transition: ease .5s;
+  box-shadow: inset 0px -3px 0px 0px #128fdc;
+  border-bottom: 1px solid #DCDCDC;
 }

@@ -36,7 +36,8 @@ class UserShow extends React.Component {
             photoId={photo.id}
             photoTitle={photo.title}
             photoDescription={photo.description}
-            className="photos-grid"/>)
+            className="photos-grid"/>
+        )
       }
     });
     return (
@@ -59,10 +60,10 @@ class UserShow extends React.Component {
                         <h1 className="followers-text">{email}</h1>
                       </div>
                       <div className="border flex-col-center">
-                        <h1 className="followers-text">17 Followers</h1>
+                        {/* <h1 className="followers-text">17 Followers</h1> */}
                       </div>
                       <div className="border flex-col-center">
-                        <h1 className="followers-text">32 Followers</h1>
+                        {/* <h1 className="followers-text">32 Followers</h1> */}
                       </div>
                     </div>
                   </div>
@@ -73,7 +74,7 @@ class UserShow extends React.Component {
 
           <div className="options-bar-container index-flex-center-col">
             <div className="options-bar index-flex-center-row">
-              <div className="option-tab index-flex-center-row">
+              <div className="option-tab-index index-flex-center-row">
                 <Link to={`/users/${this.props.match.params.id}/photos`} className='options-tabs-font-style'>
                   Photostream
                 </Link>

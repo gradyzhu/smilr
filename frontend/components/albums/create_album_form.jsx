@@ -26,19 +26,19 @@ class CreateAlbumForm extends React.Component {
     if (this.props.sessionId === this.props.userId) {
       return(
         <>
-          <form onSubmit={this.handleSubmit} className="flex-col-center">
+          <form
+            onSubmit={this.handleSubmit} 
+            className="flex-col-center">
             <input
               type="text"
               placeholder="name"
               value={this.state.name}
               onChange={this.handleInput("name")}
-              className="create-album-form-input"
-            />
+              className="create-album-form-input"/>
             <textarea
               type="text"
               onChange={this.handleInput("description")}
-              className="create-album-form-textarea"
-            />
+              className="create-album-form-textarea"/>
             <div className="">
               <button className="blue-button create-album-form-button">
                 Create

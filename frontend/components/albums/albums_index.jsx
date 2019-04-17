@@ -38,7 +38,7 @@ class AlbumsIndex extends React.Component {
       showModal: false
     });
   }
-  
+
   render() {
     if (!this.props.users[this.props.userId]) return null;
 
@@ -46,14 +46,13 @@ class AlbumsIndex extends React.Component {
     let showCreateButton = this.props.sessionId === this.props.userId;
     let className = showCreateButton ? "display-block" : "display-none";
     let albums = this.props.albums.map(album => {
-        return(
-          <AlbumsIndexItem 
-            key={album.id}
-            albumId={album.id}
-            name={album.name}/>
+      return(
+        <AlbumsIndexItem 
+          key={album.id}
+          albumId={album.id}
+          name={album.name}/>
         );
-      }
-    );
+    });
     
     return(
       <>
@@ -62,6 +61,7 @@ class AlbumsIndex extends React.Component {
           closeModal={this.handleCloseModal}
           userId={parseInt(this.props.match.params.id, 10)}
         />
+
         {/* banner component */}
         <div className="user-banner-container index-flex-center-col">
           <div className="user-banner flex-col-bottom">
@@ -100,7 +100,7 @@ class AlbumsIndex extends React.Component {
                 Photostream
               </Link>
             </div>
-            <div className="option-tab index-flex-center-row">
+            <div className="option-tab-album index-flex-center-row">
               <Link to={`/users/${this.props.match.params.id}/albums`} className='options-tabs-font-style'>
                 Albums
               </Link>
@@ -115,7 +115,8 @@ class AlbumsIndex extends React.Component {
               <button
                 onClick={this.handleShowModal}
                 className="create-new-alb-button flex-row-end">
-                + New Album</button>
+                + New Album
+              </button>
             </div>
           </div>
         </div>
