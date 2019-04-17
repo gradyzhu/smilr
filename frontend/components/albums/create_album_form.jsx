@@ -6,7 +6,7 @@ class CreateAlbumForm extends React.Component {
     this.state = {
       name: "",
       user_id: this.props.sessionId,
-      description: "description"
+      description: "description",
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInput = this.handleInput.bind(this);

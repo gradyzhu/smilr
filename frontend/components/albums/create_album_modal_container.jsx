@@ -9,25 +9,44 @@ class CreateAlbumModal extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      photoIds: []
     };
+
+    this.handleClick = this.handleClick.bind(this);
   }
   componentDidMount() {
     this.props.fetchPhotos();
   }
+
+  handleClick(event) {
+    let newPhotoId = parseInt(event.currentTarget.id, 10);
+    let photoIds = this.state.photoIds;
+    if (photoIds.includes(newPhotoId)) {
+      let index = photoIds.indexOf(newPhotoId);
+      photoIds.splice(index, 1);
+    } else {
+      photoIds.push(newPhotoId);
+    }
+    this.setState({
+      photoIds: photoIds
+    });
+  }
   
   render() {
+    console.log(this.state.photoIds);
     const className = this.props.show ? "modal display-block" : "modal display-none";
     const photos = this.props.photos.map(photo => {
       return(
         <div 
           className="album-modal-index-item-container flex-row-center"
           key={photo.id}>
-          <input 
-            type="checkbox" 
-            id="checkbox-1" 
-            className="checkbox-style">
-          </input>
-          <label for="checkbox-1">
+          <label>
+            <input 
+              onClick={this.handleClick}
+              type="checkbox" 
+              id={photo.id} 
+              className="checkbox-style">
+            </input>
             <AlbumModalIndexItem photo={photo.imageUrl}/>
           </label>
         </div>
@@ -42,10 +61,10 @@ class CreateAlbumModal extends React.Component {
               <div className="create-album-text-container">
                 <h1 className="create-album-text">Create a new Album</h1>
               </div>
-              {/* <CreateAlbumFormContainer userId={this.props.userId}/> */}
               <CreateAlbumForm 
                 userId={this.props.userId}
-                sessionId={this.props.sessionId}/>
+                sessionId={this.props.sessionId}
+                photoIds={this.state.photoIds}/>
             </div>
             <div className="vertical-line"></div>
             <div className="modal-photo-index flex-row-center">
