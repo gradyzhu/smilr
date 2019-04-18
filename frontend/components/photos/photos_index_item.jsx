@@ -8,7 +8,7 @@ const PhotosIndexItem = (props) => {
         <Link to={`/photos/${props.photoId}`}>
           <div className="overlay">
             <div className="overlay-50">
-              <div className="flex-col-end">
+              <div className="flex-col-end-1">
                 <div className="details-title">{props.photoTitle}</div>
                 <div className="details-username">by {props.username}</div>
               </div>

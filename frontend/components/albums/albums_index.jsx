@@ -82,10 +82,10 @@ class AlbumsIndex extends React.Component {
                       <h1 className="followers-text">{user.email}</h1>
                     </div>
                     <div className="border flex-col-center">
-                      <h1 className="followers-text">17 Followers</h1>
+                      {/* <h1 className="followers-text">17 Followers</h1> */}
                     </div>
                     <div className="border flex-col-center">
-                      <h1 className="followers-text">32 Followers</h1>
+                      {/* <h1 className="followers-text">32 Followers</h1> */}
                     </div>
                   </div>
                 </div>

@@ -19,6 +19,7 @@
   margin-left: 20px;
   margin-bottom: 20px;
 }
+
 .album-index-item-container {
   border-radius: 3px;
   position: relative;
@@ -28,6 +29,9 @@
   margin-bottom: 20px;
 }
 
+.album-flex-col-end-1 {
+
+}
 .album-flex-col-end{
   height: 250px;
   display: flex;
@@ -59,7 +63,7 @@
 }
 
 .album-details-description {
-  color: rgb(186, 186, 186);
+  color: rgb(255, 255, 255);
   font-weight: 200;
   font-size: 11px;
   letter-spacing: 1px;

@@ -60,7 +60,7 @@ class PhotosIndex extends React.Component {
             </div>
           </div>
           <ul className="index-ul-container index-items-flex">
-            <div className="index-li-flex">{(photos)}</div>
+            <div className="index-li-flex">{photos}</div>
           </ul>
         </div>
         <Footer />
