@@ -2,10 +2,53 @@
 .album-show-container {
   font-family: helvetica neue;
   width: 100%;
+  height: auto;
+  background-color: #F3F5F6;
+}
+
+.album-back-bar {
+  width: 1200px;
   height: 75px;
-  background-color: blue;
+  // background-color: brown;
+}
+
+.album-head {
+  width: 1200px;
+  height: 400px;
+  background-color: rgb(230, 230, 230);
 }
 
 .show-back-to-albs {
+  color: rgb(72, 72, 72);
   margin-left: 10px;
+  text-decoration: none;
+}
+
+.index-ul-container-1{
+  width: 1200px;
+  height: auto;
+  margin-bottom: 60px;
+  // background-color: green;
+}
+
+.album-name {
+  font-size: 35px;
+  padding: 40px;
+  // background-color: green;
+}
+
+.album-description {
+  font-size: 25px;
+  padding: 20px;
+  // background-color: green;
+}
+.album-username {
+  font-size: 18px;
+  padding: 20px;
+  // background-color: yellow;
+}
+.album-length {
+  font-size: 18px;
+  padding: 20px;
+  // background-color: purple;
 }

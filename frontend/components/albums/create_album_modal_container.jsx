@@ -31,6 +31,7 @@ class CreateAlbumModal extends React.Component {
     } else {
       photoIds.push(newPhotoId);
     }
+    debugger
     this.setState({
       photo_ids: photoIds
     });
@@ -38,7 +39,6 @@ class CreateAlbumModal extends React.Component {
   
   handleSubmit(event) {
     event.preventDefault();
-    debugger
     this.props.createAlbum(this.state).then(res => {
       this.props.history.push(`/albums/${res.album.id}`);
     });

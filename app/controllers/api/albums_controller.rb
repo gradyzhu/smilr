@@ -19,16 +19,21 @@ class Api::AlbumsController < ApplicationController
   end
 
   def create 
-    @album = Album.new(album_params)
-    @album.user_id = current_user.id
+    @album = Album.new(
+      name: params[:album][:name], 
+      description: params[:album][:description], 
+      user_id: params[:album][:user_id])
+      
     photo_ids = params[:album][:photo_ids]
+
     debugger
-    if @album.save && photo_ids && !photo_ids.empty?
+
+    if @album.save! && photo_ids && !photo_ids.empty?
 
       photo_ids.each do |id|
         debugger
         album_photo_params = {
-          album_id: @album.user_id,
+          album_id: @album.id,
           photo_id: id.to_i
         }
         AlbumPhoto.create(album_photo_params)
@@ -59,7 +64,7 @@ class Api::AlbumsController < ApplicationController
   end
 
   def album_params
-    params.require(:album).permit(:name, :description, :user_id, :photo_ids)
+    params.require(:album).permit(:name, :description, :user_id, photo_ids: [])
   end
 
 end
