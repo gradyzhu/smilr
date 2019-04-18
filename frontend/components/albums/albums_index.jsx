@@ -50,7 +50,9 @@ class AlbumsIndex extends React.Component {
         <AlbumsIndexItem 
           key={album.id}
           albumId={album.id}
-          name={album.name}/>
+          name={album.name}
+          description={album.description}
+          photos={album.photos}/>
         );
     });
     
