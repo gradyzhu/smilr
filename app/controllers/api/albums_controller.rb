@@ -26,12 +26,9 @@ class Api::AlbumsController < ApplicationController
       
     photo_ids = params[:album][:photo_ids]
 
-    debugger
-
     if @album.save! && photo_ids && !photo_ids.empty?
 
       photo_ids.each do |id|
-        debugger
         album_photo_params = {
           album_id: @album.id,
           photo_id: id.to_i

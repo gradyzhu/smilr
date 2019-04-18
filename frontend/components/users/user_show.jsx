@@ -35,8 +35,7 @@ class UserShow extends React.Component {
             photo={photo.imageUrl}
             photoId={photo.id}
             photoTitle={photo.title}
-            photoDescription={photo.description}
-            className="photos-grid"/>
+            photoDescription={photo.description}/>
         )
       }
     });
@@ -90,11 +89,11 @@ class UserShow extends React.Component {
           <div className="filters-bar-container index-flex-center-col">
             <div className="filters-bar index-flex-left">
               <div className="filter-tab index-flex-center-row">
-                <Link to="/" className='filters-tabs-font-style'>Date uploaded ▾</Link>
+                <div className='filters-tabs-font-style'>All photos ▾</div>
               </div>
-              <div className="filter-tab index-flex-center-row">
+              {/* <div className="filter-tab index-flex-center-row">
                 <Link to="/" className='filters-tabs-font-style'>Public view ▾</Link>
-              </div>
+              </div> */}
             </div>
           </div>
 

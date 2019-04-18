@@ -3,6 +3,7 @@ import AlbumModalIndexItem from './album_modal_index_item';
 import { connect } from 'react-redux';
 import { fetchPhotos } from '../../actions/photos_actions';
 import { createAlbum } from '../../actions/albums_actions';
+import { withRouter } from 'react-router';
 
 class CreateAlbumModal extends React.Component {
   constructor(props) {
@@ -31,10 +32,10 @@ class CreateAlbumModal extends React.Component {
     } else {
       photoIds.push(newPhotoId);
     }
-    debugger
     this.setState({
       photo_ids: photoIds
     });
+
   }
   
   handleSubmit(event) {
@@ -121,7 +122,7 @@ class CreateAlbumModal extends React.Component {
   }
 }
 
-const mstp = ({entities: {photos}, session}) => {
+const mstp = ({entities: {photos}, session}, ownProps) => {
   return {
     sessionId: session.id,
     photos: Object.values(photos).filter(photo => {
@@ -137,4 +138,4 @@ const mdtp = dispatch => {
   });
 };
 
-export default connect(mstp, mdtp)(CreateAlbumModal);
+export default withRouter(connect(mstp, mdtp)(CreateAlbumModal));
