@@ -52,7 +52,7 @@ class CreateAlbumModal extends React.Component {
   }
 
   render() {
-    const className = this.props.show ? "modal display-block" : "modal display-none";
+    const className = this.props.show ? "modal" : "display-none";
     const photos = this.props.photos.map(photo => {
       return(
         <div 
@@ -72,7 +72,7 @@ class CreateAlbumModal extends React.Component {
     });
     return(
       <div className={className}>
-        <div className="full-width flex-center">
+        <div className="full-width">
           <i onClick={this.props.closeModal} className="fa fa-times"></i>
           <div className="modal-container-wrap flex-row-center">
             <div className="step-1-container flex-col-center">
@@ -122,7 +122,7 @@ class CreateAlbumModal extends React.Component {
   }
 }
 
-const mstp = ({entities: {photos}, session}, ownProps) => {
+const mstp = ({entities: {photos}, session}) => {
   return {
     sessionId: session.id,
     photos: Object.values(photos).filter(photo => {

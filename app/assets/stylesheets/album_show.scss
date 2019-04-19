@@ -1,4 +1,3 @@
-
 .album-show-container {
   font-family: helvetica neue;
   width: 100%;
@@ -9,14 +8,22 @@
 .album-back-bar {
   width: 900px;
   height: 60px;
-  // background-color: brown;
 }
 
+// .album-head {
+//   width: 900px;
+//   height: 300px;
+//   background-color: rgb(58, 58, 58);
+//   margin-bottom: 5px;
+//   color: white;
+// }
+
 .album-head {
-  width: 900px;
+  position: relative;
+  width: auto;
   height: 300px;
-  background-color: rgb(230, 230, 230);
   margin-bottom: 5px;
+  color: white;
 }
 
 .show-back-to-albs {
@@ -29,34 +36,76 @@
   width: 900px;
   height: auto;
   margin-bottom: 60px;
-  // background-color: green;
 }
 
+.test {
+  width: 100%;
+  height: auto;
+  margin-top: 120px;
+}
 .album-name {
   font-size: 35px;
-  padding: 40px;
-  // background-color: green;
+  font-weight: 300;
+  letter-spacing: 1px;
+  padding-bottom: 45px;
+  // background-color: red;
 }
 
 .album-description {
-  font-size: 25px;
-  padding: 20px;
-  // background-color: green;
+  font-size: 20px;
+  padding-bottom: 80px;
+  font-weight: 200;
+  letter-spacing: 1px;
 }
-.album-username {
-  font-size: 18px;
-  padding: 20px;
-  // background-color: yellow;
-}
+
 .album-length {
-  font-size: 18px;
-  padding: 20px;
-  // background-color: purple;
+  font-size: 16px;
+  // padding-right: 30px;
+  padding-bottom: 10px;
+  font-weight: 200;
+  letter-spacing: 1px;
 }
 
 .album-show-image {
   max-height: 200px;
 }
+
+.album-head-image {
+  object-fit:cover;
+  width: 900px;
+  height: 300px;
+  padding: 0;
+}
+
+.album-head-details-description {
+  color: rgb(255, 255, 255);
+  font-weight: 200;
+  font-size: 11px;
+  letter-spacing: 1px;
+  transition: ease .3s;
+}
+
+.album-head-overlay-50 {
+  width: 100%;
+  height: 100%;
+  // transform: translate(0, 100%);
+  border-radius: 3px;
+  background-image: linear-gradient(to top, rgba(0,0,0,1),transparent);
+}
+
+.album-head-overlay {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0;
+  opacity: 1;
+  transition: ease .3s;
+}
+
+//head overlay
 
 .album-show-index-item-container {
   border-radius: 3px;
@@ -97,3 +146,4 @@
 .album-show-overlay:hover {
   opacity: 1;
 }
+

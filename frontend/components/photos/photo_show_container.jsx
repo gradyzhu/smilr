@@ -5,9 +5,7 @@ import {
   updatePhoto,
   deletePhoto
  } from '../../actions/photos_actions';
-import { 
-  fetchUser
- } from '../../actions/session_actions';
+import { fetchUser } from '../../actions/session_actions';
 
 const mapStateToProps = ({entities: {photos, users}}, ownProps) => {
   let photoId = ownProps.match.params.id;
@@ -28,7 +26,7 @@ const mapStateToProps = ({entities: {photos, users}}, ownProps) => {
   }
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
   return ({
     fetchPhoto: (id) => dispatch(fetchPhoto(id)),
     updatePhoto: (photo) => dispatch(updatePhoto(photo)),

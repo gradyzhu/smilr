@@ -42,11 +42,20 @@ class AlbumShow extends React.Component {
               <p className="show-back-to-albs">Back to albums</p>
             </Link>
           </div>
-          <div className="album-head flex-col-center">
-            <h1 className="album-name">{this.props.album.name}</h1>
-            <h1 className="album-description">{this.props.album.description}</h1>
-            <h1 className="album-length">{this.props.album.photos.length} photos</h1>
-            <h1 className="album-username">by: {this.props.album.username}</h1>
+          <div className="album-head">
+            <div className="album-head-overlay">
+              <div className="album-head-overlay-50 flex-row-end">
+                <div className="test">
+                  <h1 className="album-name flex-row-center">{this.props.album.name}</h1>
+                  <h1 className="album-description flex-row-center">{this.props.album.description}</h1>
+                  <h1 className="album-length flex-row-center">{this.props.album.photos.length} photos</h1>
+                </div>
+              </div>
+            </div>
+            <img 
+              src={this.props.album.photos[0].imageUrl}
+              className="album-head-image">
+            </img>
           </div>
           <ul className="index-ul-container-1 index-items-flex">
             <div className="index-li-flex">{photos}</div>

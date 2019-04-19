@@ -125,7 +125,7 @@ class AlbumsIndex extends React.Component {
 
 
         <div className="full-width">
-          <div className="albums-index-container-wrap flex-row-center">
+          <div className="albums-index-container-wrap flex-col-start">
             <div className="albums-index-container flex-row-start-top-left flex-wrap2">
               {albums}
             </div>
