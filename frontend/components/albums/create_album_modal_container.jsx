@@ -72,7 +72,7 @@ class CreateAlbumModal extends React.Component {
     });
     return(
       <div className={className}>
-        <div className="full-width">
+        <div className="full-width flex-row-center">
           <i onClick={this.props.closeModal} className="fa fa-times"></i>
           <div className="modal-container-wrap flex-row-center">
             <div className="step-1-container flex-col-center">
