@@ -1,24 +1,38 @@
-# README
+# Smilr
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## [Live Site](https://smilr.herokuapp.com)
 
-Things you may want to cover:
+## Overview
 
-* Ruby version
+Smilr is clone of the photo-sharing platform Flickr.
 
-* System dependencies
+User are able to sign-up, browse photos, view users, upload photos, and create albums.  The web application was built with a React.js frontend and a Ruby on Rails backend.
 
-* Configuration
+## Technologies
 
-* Database creation
+* React
+* Redux
+* Ruby on Rails
+* HTML5 / CSS
+* Javascript
+* AWS S3
+* Active Storage
+* Heroku
 
-* Database initialization
+## Features
 
-* How to run the test suite
+### Photo Upload
 
-* Services (job queues, cache servers, search engines, etc.)
+### Photo Grid
 
-* Deployment instructions
+### Albums Modal
 
-* ...
+### User Authentication
+
+## Future Features
+
+* Comments
+* Tags
+* Grid using React Gallery 
+* Optimized images using AWS Lambda
+
