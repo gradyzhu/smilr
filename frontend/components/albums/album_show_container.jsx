@@ -15,7 +15,6 @@ class AlbumShow extends React.Component {
 
   render() {
     if (!this.props.album) return null;
-
     let photos = this.props.album.photos.map(photo => {
       return (
           <div className="album-show-index-item-container">
@@ -33,6 +32,7 @@ class AlbumShow extends React.Component {
           </div>
       )
     })
+    let bannerImage = this.props.album.photos[0] ? this.props.albums.photos[0].imageUrl : null;
     return(
       <>
         <div className="album-show-container flex-col-center">
@@ -53,7 +53,7 @@ class AlbumShow extends React.Component {
               </div>
             </div>
             <img 
-              src={this.props.album.photos[0].imageUrl}
+              src={bannerImage}
               className="album-head-image">
             </img>
           </div>

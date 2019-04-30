@@ -23,7 +23,6 @@ class Api::AlbumsController < ApplicationController
       name: params[:album][:name], 
       description: params[:album][:description], 
       user_id: params[:album][:user_id])
-    @album = Album.new(album_params)
       
     photo_ids = params[:album][:photo_ids]
 
