@@ -10,7 +10,6 @@ class AlbumShow extends React.Component {
   }
 
   componentDidMount() {
-    debugger
     this.props.fetchAlbum(this.props.albumId); 
   }
 
@@ -18,7 +17,7 @@ class AlbumShow extends React.Component {
     if (!this.props.album) return null;
     let photos = this.props.album.photos.map(photo => {
       return (
-          <div className="album-show-index-item-container">
+          <div key={photo.id} className="album-show-index-item-container">
             <Link to={`/photos/${photo.id}`}>
               <div className="album-show-overlay">
                 <div className="album-show-overlay-50">
@@ -33,7 +32,8 @@ class AlbumShow extends React.Component {
           </div>
       )
     })
-    let bannerImage = this.props.album.photos[0] === undefined ? this.props.albums.photos[0].imageUrl : null;
+
+    let bannerImage = (this.props.album.photos[0] === undefined) ? null : this.props.album.photos[0].imageUrl;
     return(
       <>
         <div className="album-show-container flex-col-center">

@@ -16,7 +16,6 @@ class PhotoShow extends React.Component {
   }
 
   componentWillUnmount() {
-    debugger
     this.props.clearPhotos();
   }
   
