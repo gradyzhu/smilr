@@ -14,6 +14,11 @@ class PhotoShow extends React.Component {
     this.props.fetchPhoto(this.props.photoId);
     this.props.fetchUser(this.props[this.props.userId]);
   }
+
+  componentWillUnmount() {
+    debugger
+    this.props.clearPhotos();
+  }
   
   handleDelete(e){
     this.props.deletePhoto(this.props.photoId);

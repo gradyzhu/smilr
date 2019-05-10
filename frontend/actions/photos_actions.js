@@ -5,6 +5,8 @@ export const RECEIVE_PHOTO = 'RECEIVE_PHOTO';
 export const DELETE_PHOTO = 'DELETE_PHOTO';
 export const RECEIVE_PHOTO_ERRORS = "RECEIVE_PHOTO_ERRORS";
 export const REMOVE_PHOTO_ERRORS = 'REMOVE_PHOTO_ERRORS';
+export const REMOVE_PHOTOS = 'REMOVE_PHOTOS';
+
 
 const receivePhotos = photos => {
   return ({
@@ -34,6 +36,10 @@ export const receiveErrors = errors => ({
 
 export const clearErrors = () => ({
   type: REMOVE_PHOTO_ERRORS,
+});
+
+export const clearPhotos = () => ({
+  type: REMOVE_PHOTOS,
 });
 
 export const fetchPhotos = id => dispatch => {

@@ -10,6 +10,7 @@ class AlbumShow extends React.Component {
   }
 
   componentDidMount() {
+    debugger
     this.props.fetchAlbum(this.props.albumId); 
   }
 
@@ -32,7 +33,7 @@ class AlbumShow extends React.Component {
           </div>
       )
     })
-    let bannerImage = this.props.album.photos[0] ? this.props.albums.photos[0].imageUrl : null;
+    let bannerImage = this.props.album.photos[0] === undefined ? this.props.albums.photos[0].imageUrl : null;
     return(
       <>
         <div className="album-show-container flex-col-center">

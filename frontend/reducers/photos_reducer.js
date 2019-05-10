@@ -1,7 +1,8 @@
 import { 
   RECEIVE_PHOTOS, 
   RECEIVE_PHOTO, 
-  DELETE_PHOTO } from '../actions/photos_actions';
+  DELETE_PHOTO,
+  REMOVE_PHOTOS } from '../actions/photos_actions';
 
 const photosReducer = (oldState = {}, action) => {
   Object.freeze(oldState); 
@@ -14,6 +15,8 @@ const photosReducer = (oldState = {}, action) => {
     case DELETE_PHOTO:
       delete newState[action.photoId];
       return newState;
+    case REMOVE_PHOTOS:
+      return {};
     default:
       return oldState;
   }

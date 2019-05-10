@@ -2,7 +2,7 @@ import {
   RECEIVE_PHOTOS,
   RECEIVE_PHOTO,
   RECEIVE_PHOTO_ERRORS,
-  REMOVE_PHOTO_ERRORS
+  REMOVE_PHOTO_ERRORS,
 }
   from '../actions/photos_actions';
 

@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import { 
   fetchPhoto,
   updatePhoto,
-  deletePhoto
+  deletePhoto,
+  clearPhotos
  } from '../../actions/photos_actions';
 import { fetchUser } from '../../actions/session_actions';
 
@@ -31,7 +32,8 @@ const mapDispatchToProps = dispatch => {
     fetchPhoto: (id) => dispatch(fetchPhoto(id)),
     updatePhoto: (photo) => dispatch(updatePhoto(photo)),
     deletePhoto: (id) => dispatch(deletePhoto(id)),
-    fetchUser: (id) => dispatch(fetchUser(id))
+    fetchUser: (id) => dispatch(fetchUser(id)),
+    clearPhotos: () => dispatch(clearPhotos())
   });
 };
 
