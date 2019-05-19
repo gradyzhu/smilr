@@ -6,22 +6,18 @@ import {
   deletePhoto,
   clearPhotos
  } from '../../actions/photos_actions';
-import { fetchUser } from '../../actions/session_actions';
 
-const mapStateToProps = ({entities: {photos, users}}, ownProps) => {
+const mapStateToProps = ({entities: {photos}}, ownProps) => {
   let photoId = ownProps.match.params.id;
-
   if (Object.keys(photos).length == 0) {
     return ({
       photoId: photoId,
-      user: {}
+      photo: {}
     });
   } else {
     let photo = photos[photoId];
-    let user = users[photo.userId];
     return ({
       photoId: photoId,
-      user: user,
       photo
     });
   }
@@ -32,7 +28,6 @@ const mapDispatchToProps = dispatch => {
     fetchPhoto: (id) => dispatch(fetchPhoto(id)),
     updatePhoto: (photo) => dispatch(updatePhoto(photo)),
     deletePhoto: (id) => dispatch(deletePhoto(id)),
-    fetchUser: (id) => dispatch(fetchUser(id)),
     clearPhotos: () => dispatch(clearPhotos())
   });
 };

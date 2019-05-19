@@ -1,10 +1,10 @@
-import * as ApiUtil from '../util/photos_api_util';
+import * as ApiUtil from '../util/comments_api_util';
 
 export const RECEIVE_COMMENTS = 'RECEIVE_COMMENTS';
 export const RECEIVE_COMMENT = "RECEIVE_COMMENT";
 export const DELETE_COMMENT = "DELETE_COMMENT";
 
-const receiveComments = () => {
+const receiveComments = comments => {
   return ({
     type: RECEIVE_COMMENTS,
     comments: comments
@@ -21,7 +21,7 @@ const receiveComment = comment => {
 const removeComment = comment => {
   return ({
     type: DELETE_COMMENT,
-    photoId: comment.id
+    commentId: comment.id
   });
 };
 
@@ -30,9 +30,9 @@ export const receiveErrors = errors => ({
   errors: errors
 });
 
-export const fetchComments = id => dispatch => {
+export const fetchComments = photoId => dispatch => {
   return(
-    ApiUtil.fetchComments()
+    ApiUtil.fetchComments(photoId)
       .then( comments => dispatch(receiveComments(comments)))
       .fail( error => dispatch(receiveErrors(error.responseJSON)))
   );

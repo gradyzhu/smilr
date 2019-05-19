@@ -6,7 +6,7 @@ import {
 }
   from '../actions/photos_actions';
 
-const sessionErrorsReducer = (oldState = {}, action) => {
+const photosErrorsReducer = (oldState = {}, action) => {
   Object.freeze(oldState);
   let clear = [];
   switch (action.type) {
@@ -23,4 +23,4 @@ const sessionErrorsReducer = (oldState = {}, action) => {
   }
 };
 
-export default sessionErrorsReducer;
+export default photosErrorsReducer;

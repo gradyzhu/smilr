@@ -16,7 +16,7 @@ class Api::PhotosController < ApplicationController
     if @photo
       render "api/photos/_show"
     else
-      render json: ["no photo that id"]
+      render json: ["no photo with that id"], status: 404
     end
   end
 
@@ -44,7 +44,7 @@ class Api::PhotosController < ApplicationController
     if @photo.update(photo_params)
       render "api/photos/_show"
     else
-      render json: ["photo not updated"]
+      render json: ["photo not updated"], status: 404
     end
   end
 
