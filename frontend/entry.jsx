@@ -4,6 +4,8 @@ import Root from './components/root';
 import configureStore from './store/store';
 import * as AlbumAjax from "./util/albums_api_util";
 import * as ApiActions from "./actions/albums_actions";
+import * as CommentsApi from "./util/comments_api_util";
+
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;

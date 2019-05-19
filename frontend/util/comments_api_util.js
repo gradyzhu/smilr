@@ -1,8 +1,8 @@
-export const fetchComments = id => {
+export const fetchComments = () => {
   return (
     $.ajax({
       method: 'GET',
-      url: `api/photos/${id}`
+      url: `api/comments`
     })
   );
 };
@@ -11,7 +11,7 @@ export const createComment = comment => {
   return (
     $.ajax({
       method: 'POST',
-      url: `api/photos/${photo.id}`,
+      url: `api/comments`,
       data: { comment }
     })
   );
@@ -21,7 +21,7 @@ export const deleteComment = id => {
   return (
     $.ajax({
       method: 'DELETE',
-      url: `api/photos/${id}`
+      url: `api/comments/${id}`
     })
   );
 };

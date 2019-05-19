@@ -56,7 +56,7 @@ class Api::AlbumsController < ApplicationController
     if @album.update(album_params)
       render "api/albums/_show"
     else
-      render json: ["album upated"]
+      render json: ["album updated"]
     end
   end
 
