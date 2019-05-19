@@ -4,6 +4,7 @@ class Photo < ApplicationRecord
   # validates :ensure_image
   
   belongs_to :user
+  has_many :comments
   has_many :album_photos
   has_many :albums, through: :album_photos
   has_one_attached :image

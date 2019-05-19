@@ -8,3 +8,4 @@ else
 end
 
 json.extract! photo.user, :username
+json.extract! photo.comments, :comments
