@@ -1,78 +1,55 @@
-// import * as ApiUtil from '../util/photos_api_util';
+import * as ApiUtil from '../util/photos_api_util';
 
-// export const RECEIVE_COMMENTS = 'RECEIVE_COMMENTS';
-// export const DELETE_COMMENT = "DELETE_COMMENT";
+export const RECEIVE_COMMENTS = 'RECEIVE_COMMENTS';
+export const RECEIVE_COMMENT = "RECEIVE_COMMENT";
+export const DELETE_COMMENT = "DELETE_COMMENT";
 
-// const receivePhotos = photos => {
-//   return ({
-//     type: RECEIVE_PHOTOS,
-//     photos: photos
-//   });
-// };
+const receiveComments = () => {
+  return ({
+    type: RECEIVE_COMMENTS,
+    comments: comments
+  });
+};
 
-// const receivePhoto = photo => {
-//   return ({
-//     type: RECEIVE_PHOTO,
-//     photo: photo
-//   });
-// };
+const receiveComment = comment => {
+ return ({
+   type: RECEIVE_COMMENT,
+   comment: comment
+ });
+};
 
-// const removePhoto = photo => {
-//   return ({
-//     type: DELETE_PHOTO,
-//     photoId: photo.id
-//   });
-// };
+const removeComment = comment => {
+  return ({
+    type: DELETE_COMMENT,
+    photoId: comment.id
+  });
+};
 
-// export const receiveErrors = errors => ({
-//   type: RECEIVE_PHOTO_ERRORS,
-//   errors: errors
-// });
+export const receiveErrors = errors => ({
+  type: RECEIVE_COMMENTS_ERRORS,
+  errors: errors
+});
 
-// export const clearErrors = () => ({
-//   type: REMOVE_PHOTO_ERRORS,
-// });
+export const fetchComments = id => dispatch => {
+  return(
+    ApiUtil.fetchComments()
+      .then( comments => dispatch(receiveComments(comments)))
+      .fail( error => dispatch(receiveErrors(error.responseJSON)))
+  );
+};
 
-// export const clearPhotos = () => ({
-//   type: REMOVE_PHOTOS,
-// });
+export const createComment = comment => dispatch => {
+  return(
+    ApiUtil.createComment(comment)
+      .then( comment => dispatch(receiveComment(comment)))
+      .fail( error => dispatch(receiveErrors(error.responseJSON)))
+  );
+};
 
-// export const fetchPhotos = id => dispatch => {
-//   return(
-//     ApiUtil.fetchPhotos(id)
-//       .then( photos => dispatch(receivePhotos(photos)))
-//       .fail( error => dispatch(receiveErrors(error.responseJSON)))
-//   );
-// };
-
-// export const fetchPhoto = id => dispatch => {
-//   return(
-//     ApiUtil.fetchPhoto(id)
-//       .then( photo => dispatch(receivePhoto(photo)))
-//       .fail( error => dispatch(receiveErrors(error.responseJSON)))
-//   );
-// };
-
-// export const createPhoto = photo => dispatch => {
-//   return(
-//     ApiUtil.createPhoto(photo)
-//       .then( photo => dispatch(receivePhoto(photo)))
-//       .fail( error => dispatch(receiveErrors(error.responseJSON)))
-//   );
-// };
-
-// export const updatePhoto = photo => dispatch => {
-//   return(
-//     ApiUtil.updatePhoto(photo)
-//       .then( photo => dispatch(receivePhoto(photo)))
-//       .fail( error => dispatch(receiveErrors(error.responseJSON)))
-//   );
-// };
-
-// export const deletePhoto = id => dispatch => {
-//   return(
-//     ApiUtil.deletePhoto(id)
-//       .then( photo => dispatch(removePhoto(photo)))
-//       .fail( error => dispatch(receiveErrors(error.responseJSON)))
-//   );
-// };
+export const deleteComment = id => dispatch => {
+  return(
+    ApiUtil.deleteComment(id)
+      .then( comment => dispatch(removeComment(comment)))
+      .fail( error => dispatch(receiveErrors(error.responseJSON)))
+  );
+};

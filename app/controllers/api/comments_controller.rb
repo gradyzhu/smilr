@@ -1,7 +1,11 @@
 class Api::CommentsController < ApplicationController
-  def index 
-    @comments = Comment.all.select { |comment| comment.photo_id = params[:photo_id]}
-    render "api/comments/index"
+  def index
+    if params[:photo_id] != nil
+      @comments = Comment.all.select { |comment| comment.photo_id === params[:photo_id].to_i }
+      render "api/comments/index"
+    else
+      render json: ["no photo_id found"], status: 404
+    end
   end
 
   def create

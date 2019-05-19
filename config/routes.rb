@@ -7,8 +7,11 @@ Rails.application.routes.draw do
     end
     resource :session, only: [:create, :destroy]
     resources :photos, only: [:create, :show, :destroy, :update, :index]
+    resources :photos do
+      resources :comments, only: [:index]
+    end
     resources :albums, only: [:show, :destroy, :update]
-    resources :comments, only: [:index, :create, :destroy]
+    resources :comments, only: [:create, :destroy]
   end
   
   root to: "static_pages#root"
