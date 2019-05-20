@@ -22,9 +22,9 @@ class CommentsIndex extends React.Component {
 
     let comments = this.props.comments.map(comment => {
       return(
-        <div className="comment_index_item" key={comment.id}>
-          <h1>{comment.body}</h1>
-          <h1>{comment.username}</h1>
+        <div className="comment-index-item flex-center-col" key={comment.id}>
+          <div className="comment-username flex-start-center">{comment.username}</div>
+          <div className="comment-body flex-start-top">{comment.body}</div>
         </div>
       )
     });

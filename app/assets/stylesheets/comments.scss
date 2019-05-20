@@ -1,3 +1,38 @@
-// Place all the styles related to the Comments controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+.flex-start-center {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.flex-start-top {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+
+.comment-index-item {
+  width: 400px;
+  height: auto;
+  margin-bottom: 5px;
+  transition: ease .2s;
+  padding: 5px 0px;
+}
+
+.comment-username {
+  padding: 10px 10px;
+  color: #128fdc;
+  font-weight: 700;
+  font-size: 14px;
+  // background: green;
+}
+
+.comment-body {
+  font-size: 14px;
+  padding: 10px 10px;
+  // background: orange;
+}
+
+.comment-index-item:hover {
+  background-color: white;
+}

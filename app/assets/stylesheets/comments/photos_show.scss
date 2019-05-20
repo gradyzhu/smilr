@@ -92,15 +92,16 @@
   flex-direction: column;
   justify-content: left;
 }
+
 .photo-details-container {
-  height: 50vh;
+  height: auto;
   width: 100%;
   margin-top: 30px;
 }
 
 .photo-details-wrap {
   position: relative;
-  height: 200px;
+  height: auto;
   width: 400px;
   background: #F3F5F6;
   margin-top: 20px;
