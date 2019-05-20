@@ -1,8 +1,9 @@
 import * as ApiUtil from '../util/comments_api_util';
 
 export const RECEIVE_COMMENTS = 'RECEIVE_COMMENTS';
-export const RECEIVE_COMMENT = "RECEIVE_COMMENT";
-export const DELETE_COMMENT = "DELETE_COMMENT";
+export const RECEIVE_COMMENT = 'RECEIVE_COMMENT';
+export const DELETE_COMMENT = 'DELETE_COMMENT';
+export const RECEIVE_COMMENTS_ERRORS = 'RECEIVE_COMMENTS_ERRORS';
 
 const receiveComments = comments => {
   return ({
@@ -39,7 +40,6 @@ export const fetchComments = photoId => dispatch => {
 };
 
 export const createComment = comment => dispatch => {
-  debugger
   return(
     ApiUtil.createComment(comment)
       .then( comment => dispatch(receiveComment(comment)))

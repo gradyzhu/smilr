@@ -1,13 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
+import { 
+  createComment,
+} from '../../actions/comments_actions';
 
 class CommentsForm extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      body: "",
+      body: '',
       photo_id: parseInt(this.props.photoId),
       user_id: this.props.sessionId
     };
@@ -18,9 +21,8 @@ class CommentsForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.createComment(this.state);
-    this.setState({
-      body: ""
-    });
+    this.setState({body: ''});
+    
   }
 
   handleInput(field) {
@@ -51,7 +53,7 @@ class CommentsForm extends React.Component {
   }
 }
 
-const mstp = ({session}, ownProps) => {
+const mstp = ({session}) => {
   return ({
     sessionId: session.id
   });

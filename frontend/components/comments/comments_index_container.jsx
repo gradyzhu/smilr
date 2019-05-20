@@ -5,34 +5,33 @@ import {
   deleteComment,
 } from '../../actions/comments_actions';
 import { withRouter } from 'react-router';
-import { Link } from 'react-router-dom';
+import CommentIndexItem from './comment_index_item';
 
 
 class CommentsIndex extends React.Component {
   constructor(props) {
     super(props);
-
-    this.handleDelete = this.handleDelete.bind(this);
   }
 
   componentDidMount() {
     let photoId = this.props.photoId;
     this.props.fetchComments(photoId);
   }
-
-  handleDelete(e) {
-    this.props.deleteComment(this.props.comment.id);
-  }
-
+  
   render() {
     if (Object.keys(this.props.comments).length === 0) return null;
 
     let comments = this.props.comments.map(comment => {
       return(
-        <div className="comment-index-item flex-center-col" key={comment.id}>
-          <Link to={`/users/${comment.userId}/photos`} className="comment-username flex-start-center">{comment.username}</Link>
-          <div className="comment-body flex-start-top">{comment.body}</div>
-          <i className="fa fa-times remove-comment"></i>
+        <div key={comment.id}>
+          <CommentIndexItem
+            commentId={comment.id}
+            body={comment.body}
+            commenterId={comment.userId}
+            username={comment.username}
+            deleteComment={this.props.deleteComment}
+            photoId={this.props.photoId}
+          />
         </div>
       )
     });

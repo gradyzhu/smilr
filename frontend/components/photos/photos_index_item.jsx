@@ -16,10 +16,6 @@ const PhotosIndexItem = (props) => {
           </div>
           <img src={props.photo} className="image"/>
         </Link>
-
-        {/* implement later */}
-        {/* <Link to={`/users/${props.userId}/photos`}>
-        </Link> */}
       </div>
     </>
   )
