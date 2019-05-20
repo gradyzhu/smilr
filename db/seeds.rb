@@ -20,14 +20,22 @@ ActiveRecord::Base.transaction do
   nicole = User.create!(username: "nicole", email: "wong@gmail.com", password: "password")
 
   # photo = Photo.create!({user_id: , title: "", description: "", album_id: , date_taken: ""})
-  josh_photo_1 = Photo.create!(user_id: josh.id, title: "josh_photo_1", description: "description")
-  josh_photo_2 = Photo.create!(user_id: josh.id, title: "josh_photo_2", description: "description")
-  josh_photo_3 = Photo.create!(user_id: josh.id, title: "josh_photo_3", description: "description")
-  josh_photo_4 = Photo.create!(user_id: josh.id, title: "josh_photo_4", description: "description")
-  josh_photo_5 = Photo.create!(user_id: josh.id, title: "josh_photo_5", description: "description")
-  josh_photo_6 = Photo.create!(user_id: josh.id, title: "josh_photo_6", description: "description")
-  josh_photo_7 = Photo.create!(user_id: josh.id, title: "josh_photo_7", description: "description")
-  josh_photo_8 = Photo.create!(user_id: josh.id, title: "josh_photo_8", description: "description")
+  josh_photo_1 = Photo.create!(user_id: josh.id, title: "Walking Across the Brooklyn Bridge", 
+    description: "The Brooklyn Bridge is a hybrid cable-stayed/suspension bridge in New York City. It connects the boroughs of Manhattan and Brooklyn, spanning the East River.")
+  josh_photo_2 = Photo.create!(user_id: josh.id, title: "The City of New York", 
+    description: "The City of New York, usually called either New York City (NYC) or simply New York (NY), is the most populous city in the United States.")
+  josh_photo_3 = Photo.create!(user_id: josh.id, title: "Stunning Cityscape Architecture", 
+    description: "Architecture is both the process and the product of planning, designing, and constructing buildings or any other structures.")
+  josh_photo_4 = Photo.create!(user_id: josh.id, title: "A Ray of Light in a Moment of Darkness", 
+    description: "I have always believed that each man makes his own happiness and is responsible for his own problems. It is a simple philosophy.")
+  josh_photo_5 = Photo.create!(user_id: josh.id, title: "Bubble Girl", 
+    description: "You Learn More From Failure Than From Success. Don’t Let It Stop You. Failure Builds Character")
+  josh_photo_6 = Photo.create!(user_id: josh.id, title: "A Moment of Inspiration", 
+    description: "If You Are Working On Something That You Really Care About, You Don’t Have To Be Pushed. The Vision Pulls You.")
+  josh_photo_7 = Photo.create!(user_id: josh.id, title: "Yosemite National Park", 
+    description: "On average, about 4 million people visit Yosemite each year, and most spend the majority of their time in the 7 square miles (18 km2) of Yosemite Valley.")
+  josh_photo_8 = Photo.create!(user_id: josh.id, title: "Mariposa, California", 
+    description: "Yosemite is one of the largest and least fragmented habitat blocks in the Sierra Nevada, and the park supports a diversity of plants and animals. The park has an elevation range from 2,127 to 13,114 feet (648 to 3,997 m) and contains five major vegetation zones: chaparral and oak woodland, lower montane forest, upper montane forest, subalpine zone, and alpine.")
 
   juice_photo_1 = Photo.create!(user_id: juice.id, title: "juice_photo_1", description: "description")
   juice_photo_2 = Photo.create!(user_id: juice.id, title: "juice_photo_2", description: "description")
@@ -174,4 +182,41 @@ ActiveRecord::Base.transaction do
   album_photo_31 = AlbumPhoto.create!(photo_id: nicole_photo_10.id, album_id: nicole_album_3.id)
   album_photo_32 = AlbumPhoto.create!(photo_id: nicole_photo_11.id, album_id: nicole_album_3.id)
   album_photo_33 = AlbumPhoto.create!(photo_id: nicole_photo_12.id, album_id: nicole_album_3.id)
+
+  nicole_comment_1 = Comment.create!(photo_id: josh_photo_1.id, user_id: nicole.id, 
+    body: "I can drive 10 miles, walk 50 feet. Turn around and before I know it, I'd be back home. Or would I? I'm not sure but that's just how it is." )
+  nicole_comment_2 = Comment.create!(photo_id: josh_photo_1.id, user_id: nicole.id, 
+    body: "From this day on I shall be known as Bob. For Bob is a good name and I am good. But if you want you can just call me Sally." )
+  nicole_comment_3 = Comment.create!(photo_id: josh_photo_2.id, user_id: nicole.id, 
+    body: "I like to wax my legs and stick the hair on my back. Why? Because it keeps my back warm. There's method in my madness." )
+  nicole_comment_4 = Comment.create!(photo_id: josh_photo_2.id, user_id: nicole.id, 
+    body: "If I could I would. Wether or not I should, I still would." )
+
+  lisa_comment_5 = Comment.create!(photo_id: josh_photo_3.id, user_id: lisa.id, 
+    body: "Look! In the sky. It's a bird, it's a plane. Or is it a hellicopter? No actually I think it is a bird. Or maybe I'm just seeing things. Who knows... After 10 shots of Whiskey things start to get a bit strange." )
+  lisa_comment_6 = Comment.create!(photo_id: josh_photo_3.id, user_id: lisa.id, 
+    body: "From this day on I shall be known as Bob. For Bob is a good name and I am good. But if you want you can just call me Sally." )
+  lisa_comment_7 = Comment.create!(photo_id: josh_photo_4.id, user_id: lisa.id, 
+    body: "If you really wanted to do that, then why wouldn't you do that? Instead you do this. It makes no sense." )
+  lisa_comment_8 = Comment.create!(photo_id: josh_photo_4.id, user_id: lisa.id, 
+    body: "Sometimes I wonder if I really can. But then I think to myself, maybe I can't. But if I could, that would be good. Maybe it's all a lie?" )
+
+  juice_comment_1 = Comment.create!(photo_id: josh_photo_1.id, user_id: juice.id, 
+    body: "Loving you Isn't the right thing to do How can I Ever change things that I feel? If I could Maybe I'd give you my world How can I When you won't take it from me?" )
+  juice_comment_2 = Comment.create!(photo_id: josh_photo_1.id, user_id: juice.id, 
+    body: "I never meant to cause you any sorrow. I never meant to cause you any pain. I only wanted to one time see you laughing. I only wanted to see you laughing in the purple rain." )
+  juice_comment_3 = Comment.create!(photo_id: josh_photo_2.id, user_id: juice.id, 
+    body: "And everything is going to the beat And everything is going to the beat And everything is going..." )
+  juice_comment_4 = Comment.create!(photo_id: josh_photo_2.id, user_id: juice.id, 
+    body: "I see trees of green........ red roses too I see em bloom..... for me and for you And I think to myself.... what a wonderful world." )
+
+  tony_comment_5 = Comment.create!(photo_id: josh_photo_3.id, user_id: tony.id, 
+    body: "It's gonna take a lot to take me away from you There's nothing that a hundred men or more could ever do I bless the rains down in Africa Gonna take some time to do the things we never have." )
+  tony_comment_6 = Comment.create!(photo_id: josh_photo_3.id, user_id: tony.id, 
+    body: "Buddy you're a young man hard man Shoutin' in the street gonna take on the world some day You got blood on yo' face You big disgrace Wavin' your banner all over the place." )
+  tony_comment_7 = Comment.create!(photo_id: josh_photo_4.id, user_id: tony.id, 
+    body: "Oppan Gangnam Style Gangnam Style Op op op op oppan Gangnam Style Gangnam Style Op op op op oppan Gangnam Style." )
+  tony_comment_8 = Comment.create!(photo_id: josh_photo_4.id, user_id: tony.id, 
+    body: "Don't want to close my eyes I don't want to fall asleep Cause I'd miss you babe And I don't want to miss a thing Cause even when I dream of you The sweetest dream will never do I'd still miss you babe And I don't want to miss a thing." )
+
 end
