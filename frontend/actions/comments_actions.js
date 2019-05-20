@@ -39,6 +39,7 @@ export const fetchComments = photoId => dispatch => {
 };
 
 export const createComment = comment => dispatch => {
+  debugger
   return(
     ApiUtil.createComment(comment)
       .then( comment => dispatch(receiveComment(comment)))

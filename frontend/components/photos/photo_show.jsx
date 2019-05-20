@@ -1,6 +1,7 @@
 import React from 'react';
 import EditPhotoFormContainer from './edit_photo_form_container';
 import CommentsIndexContainer from '../comments/comments_index_container';
+import CommentsFormContainer from '../comments/comments_form_container';
 import Footer from '../footer';
 import { Link } from 'react-router-dom';
 
@@ -69,6 +70,9 @@ class PhotoShow extends React.Component {
                   <hr className="display-edit-line"></hr>
                   <CommentsIndexContainer/>
                   <hr className="display-edit-line"></hr>
+                  <CommentsFormContainer
+                    photoId={this.props.photoId}
+                  />
                 </div>
               </div>
             </div>
