@@ -22,6 +22,7 @@ class PhotosIndex extends React.Component {
             photoDescription={photo.description}
             username={photo.username}
             userId={photo.userId}
+            commentCount={photo.comments.length}
           />
       )
     });
