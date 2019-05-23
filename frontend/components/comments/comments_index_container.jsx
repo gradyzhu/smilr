@@ -7,21 +7,17 @@ import {
 import { withRouter } from 'react-router';
 import CommentIndexItem from './comment_index_item';
 
-
 class CommentsIndex extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() {
-    let photoId = this.props.photoId;
-    this.props.fetchComments(photoId);
+    const { photoId, fetchComments } = this.props;
+    fetchComments(photoId);
   }
-  
-  render() {
-    if (Object.keys(this.props.comments).length === 0) return null;
 
-    let comments = this.props.comments.map(comment => {
+  render() {
+    const { comments, photoId, deleteComment } = this.props;
+    if (Object.keys(comments).length === 0) return null;
+    
+    let allComments = comments.map(comment => {
       return(
         <div key={comment.id}>
           <CommentIndexItem
@@ -29,17 +25,14 @@ class CommentsIndex extends React.Component {
             body={comment.body}
             commenterId={comment.userId}
             username={comment.username}
-            deleteComment={this.props.deleteComment}
-            photoId={this.props.photoId}
-          />
+            deleteComment={deleteComment}
+            photoId={photoId}/>
         </div>
       )
     });
 
     return(
-      <div>
-        { comments }
-      </div>
+      <>{ allComments }</>
     )
   }
 }

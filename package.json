@@ -35,7 +35,9 @@
     "lib": "lib",
     "test": "test"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.4.4"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC"

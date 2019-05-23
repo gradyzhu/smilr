@@ -2,21 +2,15 @@ import React from'react';
 import Footer from '../footer';
 
 class UploadForm extends React.Component {
-  constructor(props) {
-    super(props);
+  state = {
+    title: "",
+    description: "",
+    photoFile: null,
+    photoUrl: null,
+    uploadState: false,
+  };
 
-    this.state = {
-      title: "",
-      description: "",
-      photoFile: null,
-      photoUrl: null,
-      uploadState: false,
-    };
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleFile = this.handleFile.bind(this);
-  }
-
-  handleSubmit(e) {
+  const handleSubmit = e => {
     e.preventDefault();
     const formData = new FormData();
     formData.append('photo[title]', this.state.title);
@@ -27,7 +21,7 @@ class UploadForm extends React.Component {
     this.props.createPhoto(formData).then(res => this.props.history.push(`/photos/${res.photo.id}`));
   }
 
-  handleFile(e) {
+  const handleFile = e => {
     const file = e.currentTarget.files[0];
     const fileReader = new FileReader();
 
@@ -39,7 +33,7 @@ class UploadForm extends React.Component {
     }
 
     this.setState({uploadState: true});
-  }
+  };
 
   handleInput(field) {
     return e => {
@@ -61,7 +55,6 @@ class UploadForm extends React.Component {
                   <input type="file" onChange={this.handleFile} className="hide"/>
                 </label>
               </div>
-              {/* <h1 className="upload-text">Drag & Drop or</h1> */}
               <h1 className="upload-text">Upload Photos</h1>
             </div>
           </div>
@@ -77,15 +70,9 @@ class UploadForm extends React.Component {
           <div className="preview-page">
             <div className="preview-columns">
               <div className="upload-column">
-                {/* <div className="photo-details-row">
-                  <div className="photo-details-row-flex">
-                  <h1 className="photo-upload-text">Upload Photo</h1>
-                  </div>
-                </div> */}
                 <div className="photo-details-row">
                   <div className="photo-details-row-flex">
                     <div className="photo-details">
-                      {/* <h1 className="photo-upload-text">Title / Description</h1> */}
                       <label>
                         <input 
                           type="text" 
@@ -107,11 +94,6 @@ class UploadForm extends React.Component {
                     </div>
                   </div>
                 </div>
-                {/* <div className="photo-details-row">
-                  <div className="photo-details-row-flex">
-                    <h1 className="photo-upload-text">Tags</h1>
-                  </div>
-                </div> */}
               </div>
               <div className="preview-column">
                 {preview}

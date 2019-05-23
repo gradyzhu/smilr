@@ -4,9 +4,6 @@ import Footer from '../footer';
 import { Link } from 'react-router-dom';
 
 class PhotosIndex extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   componentDidMount() {
     this.props.fetchPhotos();
   }
@@ -22,8 +19,7 @@ class PhotosIndex extends React.Component {
             photoDescription={photo.description}
             username={photo.username}
             userId={photo.userId}
-            commentCount={photo.comments.length}
-          />
+            commentCount={photo.comments.length}/>
       )
     });
 

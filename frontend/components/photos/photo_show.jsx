@@ -6,11 +6,6 @@ import Footer from '../footer';
 import { Link } from 'react-router-dom';
 
 class PhotoShow extends React.Component {
-  constructor(props) {
-    super(props);
-    this.handleDelete = this.handleDelete.bind(this);
-  }
-
   componentDidMount() {
     this.props.fetchPhoto(this.props.photoId);
   }
@@ -21,13 +16,14 @@ class PhotoShow extends React.Component {
     }
   }
   
-  handleDelete(e){
+  handleDelete = e => {
     this.props.deletePhoto(this.props.photoId);
     this.props.history.push("/photos");
   }
   
   render() {
     if (!this.props.photo || Object.keys(this.props.photo).length == 0) return null;
+    const { photo: {imageUrl, userId, username}, photoId } = this.props;
     return(
       <>
         <div className="show-container">
@@ -40,7 +36,7 @@ class PhotoShow extends React.Component {
               </Link>
               <img 
                 className="show-image" 
-                src={this.props.photo.imageUrl}/>
+                src={imageUrl}/>
             </div>
             <div className="show-right-col">
               <div className="show-tool-bar">
@@ -54,9 +50,9 @@ class PhotoShow extends React.Component {
           <div className="photo-details-container flex-center">
             <div className="flex-col">
               <div className="flex-row-space">
-                <Link to={`/users/${this.props.photo.userId}/photos`}
+                <Link to={`/users/${userId}/photos`}
                   className="display-username">
-                  {this.props.photo.username}
+                  {username}
                 </Link>
                 <button className="blue-button follow-custom">
                   Follow
@@ -64,14 +60,14 @@ class PhotoShow extends React.Component {
               </div>
               <div className="photo-details-wrap">
                 <div className="photo-details">
-                  <EditPhotoFormContainer photoId={this.props.photoId}/>
+                  <EditPhotoFormContainer photoId={photoId}/>
                 </div>
                 <div>
                   <hr className="display-edit-line"></hr>
                   <CommentsIndexContainer/>
                   <hr className="display-edit-line"></hr>
                   <CommentsFormContainer
-                    photoId={this.props.photoId}
+                    photoId={photoId}
                   />
                 </div>
               </div>

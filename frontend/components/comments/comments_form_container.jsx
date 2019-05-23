@@ -1,37 +1,26 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import { 
-  createComment,
-} from '../../actions/comments_actions';
+import { createComment } from '../../actions/comments_actions';
 
 class CommentsForm extends React.Component {
-  constructor(props) {
-    super(props);
+  state = {
+    body: '',
+    photo_id: parseInt(this.props.photoId),
+    user_id: this.props.sessionId
+  };
 
-    this.state = {
-      body: '',
-      photo_id: parseInt(this.props.photoId),
-      user_id: this.props.sessionId
-    };
-
-    this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  handleSubmit(e) {
+  handleSubmit = e =>  {
     e.preventDefault();
     this.props.createComment(this.state);
-    this.setState({body: ''});
-    
+    this.setState({ body: '' });
   }
 
-  handleInput(field) {
+  handleInput = field => {
     return e => {
-      this.setState({
-        [field]: e.currentTarget.value,
-      });
+      this.setState({ [field]: e.currentTarget.value });
     };
-  }
+  };
 
   render() {
     if (!this.props.sessionId) return null;
@@ -44,8 +33,7 @@ class CommentsForm extends React.Component {
           value={this.state.body}
           onChange={this.handleInput("body")}
           className="add-comment-textarea"/>
-        <button
-          className="add-comment-button blue-button">
+        <button className="add-comment-button blue-button">
             Comment
         </button>
       </form>
