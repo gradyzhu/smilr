@@ -10,7 +10,7 @@ class UploadForm extends React.Component {
     uploadState: false,
   };
 
-  const handleSubmit = e => {
+  handleSubmit = e => {
     e.preventDefault();
     const formData = new FormData();
     formData.append('photo[title]', this.state.title);
@@ -21,7 +21,7 @@ class UploadForm extends React.Component {
     this.props.createPhoto(formData).then(res => this.props.history.push(`/photos/${res.photo.id}`));
   }
 
-  const handleFile = e => {
+  handleFile = e => {
     const file = e.currentTarget.files[0];
     const fileReader = new FileReader();
 
