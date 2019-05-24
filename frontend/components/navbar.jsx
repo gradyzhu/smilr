@@ -8,21 +8,21 @@ const Navbar = ({currentUser, logout}) => {
     <div>
       <div className="nav-bar-logged-in">
         <div className="navbar-container-logged-in">
-        <div className="navbar-left">
-          <Link to="/" className="logo">smilr</Link>
-        </div>
-        <div className="navbar-right-logged-in">
-          <Link to="/upload">
-            <i className="fas fa-cloud-upload-alt nav-bar-icon"></i>
-          </Link>
-          <Link to={`/users/${currentUser.id}/photos`}>
-            <i className="fas fa-user nav-bar-icon"></i>
-          </Link>
-          <button 
-            className="sign-out-link" 
-            onClick={logout}>Logout
-          </button>
-        </div>
+          <div className="navbar-left">
+            <Link to="/" className="logo">smilr</Link>
+          </div>
+          <div className="navbar-right-logged-in">
+            <Link to="/upload">
+              <i className="fas fa-cloud-upload-alt nav-bar-icon"></i>
+            </Link>
+            <Link to={`/users/${currentUser.id}/photos`}>
+              <i className="fas fa-user nav-bar-icon"></i>
+            </Link>
+            <button 
+              className="sign-out-link" 
+              onClick={logout}>Logout
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -33,7 +33,6 @@ const Navbar = ({currentUser, logout}) => {
       <nav className="nav-bar-logged-out">
         <div className="navbar-container-logged-out">
           <div className="navbar-left">
-            {/* <img src={window.images.logo} /> */}
             <Link to="/" className="logo">smilr</Link>
           </div>
           <div className="navbar-right-logged-out">

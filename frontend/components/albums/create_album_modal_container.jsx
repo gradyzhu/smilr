@@ -6,40 +6,39 @@ import { createAlbum } from '../../actions/albums_actions';
 import { withRouter } from 'react-router';
 
 class CreateAlbumModal extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: "",
-      user_id: this.props.sessionId,
-      description: "",
-      photo_ids: []
-    };
-  }
+  state = {
+    name: "",
+    user_id: this.props.sessionId,
+    description: "",
+    photo_ids: []
+  };
 
   componentDidMount() {
     this.props.fetchPhotos();
   }
 
-  handleClick = (event) => {
+  handleClick = event => {
     const newPhotoId = parseInt(event.currentTarget.id, 10);
     const photoIds = this.state.photo_ids;
+
     if (photoIds.includes(newPhotoId)) {
       let index = photoIds.indexOf(newPhotoId);
       photoIds.splice(index, 1);
     } else {
       photoIds.push(newPhotoId);
     }
+
     this.setState({photo_ids: photoIds});
   }
   
-  handleSubmit = (event) => {
+  handleSubmit = event => {
     event.preventDefault();
     this.props.createAlbum(this.state).then(res => {
       this.props.history.push(`/albums/${res.album.id}`);
     });
   }
 
-  handleInput = (field) => {
+  handleInput = field => {
     return event => {
       this.setState({[field]: event.currentTarget.value});
     };

@@ -4,7 +4,7 @@ import { withRouter } from 'react-router';
 
 const CommentIndexItem = (props) => {
   const { deleteComment, commentId, username, body, commenterId } = props;
-
+  
   const handleDelete = e => {
     deleteComment(commentId);
   };

@@ -1,9 +1,7 @@
-import { Link } from "react-router-dom";
 import React from 'react';
 
 const Footer = () => {
   return (
-    <>
     <div className="footer-wrap">
       <div className="footer">
         <div className="footer-spread">
@@ -17,7 +15,6 @@ const Footer = () => {
 
       </div>
     </div>
-    </>
   )
 }
 

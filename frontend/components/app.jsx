@@ -41,9 +41,6 @@ const App = () => (
         {/* <Redirect to="/"/> */}
       </Switch>
     </section>
-    <section>
-    </section>
-
   </>
 )
 

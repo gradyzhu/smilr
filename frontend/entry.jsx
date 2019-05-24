@@ -2,10 +2,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Root from './components/root';
 import configureStore from './store/store';
-import * as AlbumAjax from "./util/albums_api_util";
-import * as ApiActions from "./actions/albums_actions";
-import * as CommentsApi from "./util/comments_api_util";
-
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
@@ -25,10 +21,6 @@ document.addEventListener("DOMContentLoaded", () => {
   } else {
     store = configureStore();
   }
-
-  const root = document.getElementById('root');
-
-  window.getState = store.getState;
-  window.dispatch = store.dispatch;
-  ReactDOM.render(<Root store={store}/>, root);
+  
+  ReactDOM.render(<Root store={store}/>, document.getElementById('root'));
 });

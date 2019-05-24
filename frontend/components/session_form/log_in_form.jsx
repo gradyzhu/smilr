@@ -2,29 +2,22 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 class LogInForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      username: '',
-      password: '',
-    };
-    this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleDemo = this.handleDemo.bind(this);
-  }
+  state = {
+    username: '',
+    password: '',
+  };
 
-  update(field) {
-    return e => this.setState({
-      [field]: e.currentTarget.value
-    });
-  }
+  handleInput = field => e => this.setState({
+    [field]: e.currentTarget.value
+  });
 
-  handleSubmit(e) {
+  handleSubmit = e => {
     e.preventDefault();
     const user = Object.assign({}, this.state);
     this.props.processForm(user);
   }
 
-  handleDemo(e) {
+  handleDemo = (e) => {
     e.preventDefault();
     const user = {
       username: "josh", 
@@ -33,15 +26,17 @@ class LogInForm extends React.Component {
     };
 
     this.props.processForm(user);
-  }
+  };
 
-  componentWillUnmount() {
+  componentWillUnmount = () => {
     this.props.clearErrors();
-  }
+  };
 
-  render() {
+  render = () => {
+    const { errors, formType } = this.props;
+    const { username, password } = this.state;
     return (
-      <div>
+      <>
         <div className="session-wrap">
           <div className="session-forms">
             <div className="session-forms-container">
@@ -54,24 +49,24 @@ class LogInForm extends React.Component {
                   <h1 className="form-h1">Login to Smilr</h1>
                   <label>
                     <input type="text"
-                      value={this.state.username}
-                      onChange={this.update('username')}
+                      value={username}
+                      onChange={this.handleInput('username')}
                       className="username-input form-input"
                       placeholder="Username"
                     />
                   </label>
                   <label>
                     <input type="password"
-                      value={this.state.password}
-                      onChange={this.update('password')}
+                      value={password}
+                      onChange={this.handleInput('password')}
                       className="password-input form-input"
                       placeholder="Password"
                     />
                   </label>
-                  <div className="login-errors"><h1>{this.props.errors[0]}</h1></div>
+                  <div className="login-errors"><h1>{errors[0]}</h1></div>
                   <input 
                     type="submit" 
-                    value={this.props.formType}
+                    value={formType}
                     className="login-button blue-button"/>
                   <button
                     type="submit" 
@@ -86,7 +81,7 @@ class LogInForm extends React.Component {
           </div>
         </div>
         <div className="log-in-bg"></div>
-      </div>
+      </>
     );
   }
 }

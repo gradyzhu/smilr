@@ -5,17 +5,15 @@ import { fetchAlbum } from '../../actions/albums_actions';
 import Footer from '../footer';
 
 class AlbumShow extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() {
     this.props.fetchAlbum(this.props.albumId); 
   }
 
   render() {
     if (!this.props.album) return null;
-    let photos = this.props.album.photos.map(photo => {
+    const { album: {photos, name, description, userId} } = this.props;
+
+    let albumPhotos = this.props.album.photos.map(photo => {
       return (
           <div key={photo.id} className="album-show-index-item-container">
             <Link to={`/photos/${photo.id}`}>
@@ -33,12 +31,12 @@ class AlbumShow extends React.Component {
       )
     })
 
-    let bannerImage = (this.props.album.photos[0] === undefined) ? null : this.props.album.photos[0].imageUrl;
+    let bannerImage = (photos[0] === undefined) ? null : photos[0].imageUrl;
     return(
       <>
         <div className="album-show-container flex-col-center">
           <div className="album-back-bar flex-row-left">
-            <Link to={`/users/${this.props.album.userId}/albums`} className="show-back-to-albs flex-row-left">
+            <Link to={`/users/${userId}/albums`} className="show-back-to-albs flex-row-left">
               <i className="fas fa-arrow-left"></i>
               <p className="show-back-to-albs">Back to albums</p>
             </Link>
@@ -47,9 +45,9 @@ class AlbumShow extends React.Component {
             <div className="album-head-overlay">
               <div className="album-head-overlay-50 flex-row-end">
                 <div className="test">
-                  <h1 className="album-name flex-row-center">{this.props.album.name}</h1>
-                  <h1 className="album-description flex-row-center">{this.props.album.description}</h1>
-                  <h1 className="album-length flex-row-center">{this.props.album.photos.length} photos</h1>
+                  <h1 className="album-name flex-row-center">{name}</h1>
+                  <h1 className="album-description flex-row-center">{description}</h1>
+                  <h1 className="album-length flex-row-center">{photos.length} photos</h1>
                 </div>
               </div>
             </div>
@@ -59,7 +57,7 @@ class AlbumShow extends React.Component {
             </img>
           </div>
           <ul className="index-ul-container-1 index-items-flex">
-            <div className="index-li-flex">{photos}</div>
+            <div className="index-li-flex">{albumPhotos}</div>
           </ul>
         </div>
         <Footer />
@@ -69,7 +67,6 @@ class AlbumShow extends React.Component {
 }
 
 const mstp = ({entities: {albums}}, ownProps) => {
-  
   let albumId = Number(ownProps.match.params.id)
   return({
     albumId: albumId,
