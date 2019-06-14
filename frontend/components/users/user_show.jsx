@@ -4,26 +4,51 @@ import Footer from '../footer';
 import { Link } from 'react-router-dom';
 
 class UserShow extends React.Component {
+  state = { offset: 0 }
+
   componentDidMount() {
-    const { fetchPhotos, fetchUser, match: { params: {id} }} = this.props;
-    fetchPhotos();
-    fetchUser(id);
+    const { fetchPhotos, fetchUser, userId } = this.props;
+
+    fetchPhotos(0, userId);
+    fetchUser(userId);
+
+    window.addEventListener('scroll', this.handleScroll);
   }
 
   componentDidUpdate(prevProps) {
-    const { fetchPhotos, fetchUser, match: { url, params: {id} }} = this.props;
+    const { fetchPhotos, fetchUser, url, userId, clearPhotos } = this.props;
+
     if (prevProps.match.url !== url) {
-      fetchPhotos(id);
-      fetchUser(id);
+      clearPhotos();
+      fetchUser(userId);
+      fetchPhotos(0, userId);
+    }
+  }
+
+  componentWillUnmount() {
+    this.props.clearPhotos();
+  }
+
+  handleScroll = e => {
+    const { offset } = this.state;
+    const { fetchPhotos, userId } = this.props;
+    
+    let newOffset = offset + 1;
+    
+    let bottom = window.innerHeight + document.documentElement.scrollTop > document.documentElement.offsetHeight * 0.75;
+
+    if (bottom) {
+      fetchPhotos(offset, userId);
+      this.setState({ offset: newOffset });
     }
   }
 
   render() {
     if (!this.props.user) return null;
-    const { user: {email, username}, userId, photos, match: {params: {id} }} = this.props;
+    debugger
+    const { user: {email, username}, photos, userId } = this.props;
 
     let userPhotos = photos.map(photo => {
-      if (photo.userId == userId) {
         return (
           <PhotosIndexItem 
             key={photo.id} 
@@ -33,9 +58,9 @@ class UserShow extends React.Component {
             photoTitle={photo.title}
             photoDescription={photo.description}
             commentCount={photo.comments.length}/>
-        )
+        );
       }
-    });
+    );
 
     return (
       <>
@@ -72,12 +97,12 @@ class UserShow extends React.Component {
           <div className="options-bar-container index-flex-center-col">
             <div className="options-bar index-flex-center-row">
               <div className="option-tab-index index-flex-center-row">
-                <Link to={`/users/${id}/photos`} className='options-tabs-font-style'>
+                <Link to={`/users/${userId}/photos`} className='options-tabs-font-style'>
                   Photostream
                 </Link>
               </div>
               <div className="option-tab index-flex-center-row">
-                <Link to={`/users/${id}/albums`} className='options-tabs-font-style'>
+                <Link to={`/users/${userId}/albums`} className='options-tabs-font-style'>
                   Albums
                 </Link>
               </div>

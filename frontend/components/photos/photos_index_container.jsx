@@ -1,17 +1,21 @@
 import PhotosIndex from './photos_index';
 import { connect } from 'react-redux';
-import { fetchPhotos } from '../../actions/photos_actions';
+import { 
+  fetchPhotos,
+  clearPhotos
+ } from '../../actions/photos_actions';
 
 const mapStateToProps = ({session, entities: {photos}}) => {
   return {
     photos: Object.values(photos),
-    loggedIn: Boolean(session.id)
+    loggedIn: Boolean(session.id),
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return ({
-    fetchPhotos: () => dispatch(fetchPhotos())
+    fetchPhotos: (count, id) => dispatch(fetchPhotos(count, id)),
+    clearPhotos: () => dispatch(clearPhotos())
   });
 };
 

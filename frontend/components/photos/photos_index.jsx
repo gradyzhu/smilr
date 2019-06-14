@@ -4,12 +4,38 @@ import Footer from '../footer';
 import { Link } from 'react-router-dom';
 
 class PhotosIndex extends React.Component {
+  state = {
+    offset: 0
+  };
+
   componentDidMount() {
-    this.props.fetchPhotos();
+    const { fetchPhotos } = this.props;
+    fetchPhotos(0);
+    window.addEventListener('scroll', this.handleScroll);
+  }
+
+  componentWillUnmount() {
+    this.props.clearPhotos();
+  }
+
+  handleScroll = e => {
+    const { offset } = this.state;
+    const { fetchPhotos } = this.props;
+    
+    let newOffset = offset + 1;
+
+    let bottom = window.innerHeight + document.documentElement.scrollTop > document.documentElement.offsetHeight * 0.75
+
+    if (bottom) {
+      fetchPhotos(offset);
+      this.setState({ offset: newOffset });
+    }
   }
 
   render() {
-    let photos = this.props.photos.map(photo => {
+    const { photos } = this.props;
+
+    let currentPhotos = photos.map(photo => {
       return (
           <PhotosIndexItem
             key={photo.id}
@@ -39,7 +65,7 @@ class PhotosIndex extends React.Component {
             </div>
           </div>
           <ul className="index-ul-container index-items-flex">
-            <div className="index-li-flex">{photos}</div>
+            <div className="index-li-flex">{currentPhotos}</div>
           </ul>
         </div>
         <Footer />

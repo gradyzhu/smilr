@@ -42,9 +42,9 @@ export const clearPhotos = () => ({
   type: REMOVE_PHOTOS,
 });
 
-export const fetchPhotos = id => dispatch => {
+export const fetchPhotos = (count, id) => dispatch => {
   return(
-    ApiUtil.fetchPhotos(id)
+    ApiUtil.fetchPhotos(count, id)
       .then( photos => dispatch(receivePhotos(photos)))
       .fail( error => dispatch(receiveErrors(error.responseJSON)))
   );
@@ -81,3 +81,20 @@ export const deletePhoto = id => dispatch => {
       .fail( error => dispatch(receiveErrors(error.responseJSON)))
   );
 };
+
+// infinite scroll
+const RECEIVE_SOME_PHOTOS = "RECEIVE_SOME_PHOTOS";
+
+export const receiveSomePhotos = photos => {
+  return({
+    type: RECEIVE_SOME_PHOTOS,
+    payload: photos
+  });
+};
+
+export const fetchSomePhotos = () => dispatch => {
+  ApiUtils.fetchSomePhotos()
+    .then(photos => dispatch(receiveSomePhotos(photos)))
+    .fail(errors => dispatch(receiveErrors(errors)));
+};
+

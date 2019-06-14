@@ -1,11 +1,17 @@
 //api end points
 
-export const fetchPhotos = () => (
-  $.ajax({
-    method: 'GET',
-    url: `api/photos`,
-  })
-);
+export const fetchPhotos = (count, userId) => {
+  return (
+    $.ajax({
+      method: 'GET',
+      url: `api/photos`,
+      data: { 
+        count,
+        user_id: userId
+      }
+    })
+  );
+};
 
 export const fetchPhoto = id => (
   $.ajax({
@@ -38,9 +44,3 @@ export const deletePhoto = id => (
     url: `api/photos/${id}`
   })
 );
-
-// window.fetchPhotos = fetchPhotos;
-// window.fetchPhoto = fetchPhoto;
-// window.createPhoto = createPhoto;
-// window.updatePhoto = updatePhoto;
-// window.deletePhoto = deletePhoto;

@@ -1,14 +1,38 @@
 class Api::PhotosController < ApplicationController
 
-  def index 
+  def index   
     if params[:user_id] != nil
-      @photos = Photo.all.select { |photo| photo.user_id = params[:user_id] }
-      render "api/photos/index"
+      is_initial_load = params[:count].to_i == 0
+      initial_count = 10
+      batch_count = 5
+      offset_count = initial_count - batch_count + params[:count].to_i * batch_count
+
+      if is_initial_load
+        @photos = Photo.where("user_id = #{params[:user_id]}")
+        .order('created_at ASC')
+        .limit(initial_count)
+      else
+        @photos = Photo.where("user_id = #{params[:user_id]}")
+        .offset(offset_count)
+        .order('created_at ASC')
+        .limit(batch_count)
+      end
     else
-      @photos = Photo.all
-      @user = User.find_by(id: params[:user_id])
-      render "api/photos/index"
+      is_initial_load = params[:count].to_i == 0
+      initial_count = 20
+      batch_count = 10
+      offset_count = initial_count - batch_count + params[:count].to_i * batch_count
+
+      if is_initial_load
+        @photos = Photo.order('created_at ASC').limit(initial_count)
+      else
+        @photos = Photo.offset(offset_count)
+        .order('created_at ASC')
+        .limit(batch_count)
+      end
     end
+
+    render "api/photos/index"
   end
 
   def show 
