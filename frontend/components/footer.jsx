@@ -12,7 +12,6 @@ const Footer = () => {
             <i className="fab fa-linkedin footer-text"></i>
           </a>
         </div>
-
       </div>
     </div>
   )

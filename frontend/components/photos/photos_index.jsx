@@ -1,77 +1,53 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PhotosIndexItem from './photos_index_item';
-import Footer from '../footer';
-import { Link } from 'react-router-dom';
+import LoadMore from './load_more';
 
-class PhotosIndex extends React.Component {
-  state = {
-    offset: 0
+const PhotosIndex = props => {
+  const [ offset, setOffset ] = useState(0);
+  const [ isLoading, setIsLoading ] = useState(true);
+  const { fetchPhotos, clearPhotos, photos } = props;
+
+  useEffect(() => {
+    fetchPhotos(offset).then(() => setIsLoading(false));
+    return (() => clearPhotos());
+  }, []);
+
+  const handleClick = () => {
+    setIsLoading(true);
+    fetchPhotos(offset + 1)
+    .then(() => setOffset(offset + 1))
+    .then(() => setIsLoading(false));
   };
 
-  componentDidMount() {
-    const { fetchPhotos } = this.props;
-    fetchPhotos(0);
-    window.addEventListener('scroll', this.handleScroll);
-  }
-
-  componentWillUnmount() {
-    this.props.clearPhotos();
-  }
-
-  handleScroll = e => {
-    const { offset } = this.state;
-    const { fetchPhotos } = this.props;
-    
-    let newOffset = offset + 1;
-
-    let bottom = window.innerHeight + document.documentElement.scrollTop > document.documentElement.offsetHeight * 0.75
-
-    if (bottom) {
-      fetchPhotos(offset);
-      this.setState({ offset: newOffset });
-    }
-  }
-
-  render() {
-    const { photos } = this.props;
-
-    let currentPhotos = photos.map(photo => {
-      return (
-          <PhotosIndexItem
-            key={photo.id}
-            photo={photo.imageUrl}
-            photoId={photo.id}
-            photoTitle={photo.title}
-            photoDescription={photo.description}
-            username={photo.username}
-            userId={photo.userId}
-            commentCount={photo.comments.length}/>
-      )
-    });
-
+  let allPhotos = photos.map(photo => {
     return (
-      <>
-        <div className="index-flex-center-col">
-          <div className="options-bar-container index-flex-center-col">
-            <div className="options-bar index-flex-center-row">
-              <div className="option-tab-explore index-flex-center-row">
-                <Link to="/" className='options-tabs-font-style'>Explore</Link>
-              </div>
-            </div>
-          </div>
-          <div className="index-page-header-container index-flex-center-col">
-            <div className="index-page-header index-flex-left">
-              <h1 className="options-font-style">Explore</h1>  
-            </div>
-          </div>
-          <ul className="index-ul-container index-items-flex">
-            <div className="index-li-flex">{currentPhotos}</div>
-          </ul>
+      <PhotosIndexItem
+        key={photo.id}
+        photo={photo.imageUrl}
+        photoId={photo.id}
+        photoTitle={photo.title}
+        photoDescription={photo.description}
+        username={photo.username}
+        userId={photo.userId}
+        commentCount={photo.comments.length} 
+      />
+    )
+  });
+  
+  return (
+    <div>
+      <ul className="index-ul-container index-items-flex">
+        <div className="index-li-flex">
+          {allPhotos}
         </div>
-        <Footer />
-      </>
-    ) 
-  }
-}
+      </ul>
+      <LoadMore 
+        isLoading={isLoading}
+        handleClick={handleClick}
+      />
+    </div>
+  )
+};
 
 export default PhotosIndex;
+

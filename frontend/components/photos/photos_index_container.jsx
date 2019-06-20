@@ -5,18 +5,18 @@ import {
   clearPhotos
  } from '../../actions/photos_actions';
 
-const mapStateToProps = ({session, entities: {photos}}) => {
+const mstp = ({session, entities: {photos}}) => {
   return {
     photos: Object.values(photos),
     loggedIn: Boolean(session.id),
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mdtp = (dispatch) => {
   return ({
     fetchPhotos: (count, id) => dispatch(fetchPhotos(count, id)),
     clearPhotos: () => dispatch(clearPhotos())
   });
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(PhotosIndex);
+export default connect(mstp, mdtp)(PhotosIndex);

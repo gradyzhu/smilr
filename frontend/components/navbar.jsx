@@ -5,11 +5,12 @@ const Navbar = ({currentUser, logout}) => {
 
   const loggedInNav = () => {
     return (
-    <div>
       <div className="nav-bar-logged-in">
         <div className="navbar-container-logged-in">
           <div className="navbar-left">
-            <Link to="/" className="logo">smilr</Link>
+            <Link to="/" className="logo">
+              smilr
+            </Link>
           </div>
           <div className="navbar-right-logged-in">
             <Link to="/upload">
@@ -25,8 +26,8 @@ const Navbar = ({currentUser, logout}) => {
           </div>
         </div>
       </div>
-    </div>
-  )};
+    )
+  };
 
   const loggedOutNav = () => (
     <div>

@@ -45,7 +45,6 @@ class UserShow extends React.Component {
 
   render() {
     if (!this.props.user) return null;
-    debugger
     const { user: {email, username}, photos, userId } = this.props;
 
     let userPhotos = photos.map(photo => {
