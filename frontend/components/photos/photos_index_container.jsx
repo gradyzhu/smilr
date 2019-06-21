@@ -5,8 +5,9 @@ import {
   clearPhotos
  } from '../../actions/photos_actions';
 
-const mstp = ({session, entities: {photos}}) => {
+const mstp = ({session, entities: {photos}}, ownProps) => {
   return {
+    userId: ownProps.userId,
     photos: Object.values(photos),
     loggedIn: Boolean(session.id),
   };

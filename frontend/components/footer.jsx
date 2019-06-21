@@ -2,7 +2,6 @@ import React from 'react';
 
 const Footer = () => {
   return (
-    <div className="footer-wrap">
       <div className="footer">
         <div className="footer-spread">
           <a href='https://www.github.com/gradyzhu'>
@@ -13,7 +12,6 @@ const Footer = () => {
           </a>
         </div>
       </div>
-    </div>
   )
 }
 

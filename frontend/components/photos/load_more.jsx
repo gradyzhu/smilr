@@ -5,7 +5,7 @@ const LoadMore = props => {
   const { isLoading, handleClick } = props;
 
   let buttonOrLoader = isLoading ?
-    <SyncLoader color={'#919191'}/> :
+    <SyncLoader color={'#919191'} /> :
     <button 
       className="load-more-button"
       onClick={handleClick}>

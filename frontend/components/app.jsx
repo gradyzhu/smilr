@@ -1,11 +1,9 @@
 import React from 'react';
-
 import {
   Route,
   Switch,
   Redirect
 } from 'react-router-dom';
-
 import NavBar from './navbar_container';
 import Splash from './splash';
 import Home from './pages/home/home';
@@ -15,10 +13,10 @@ import PhotoShowContainer from "./photos/photo_show_container";
 import AlbumShowContainer from "./albums/album_show_container";
 import UploadFormContainer from "./photos/upload_form_container";
 import EditFormContainer from "./photos/edit_photo_form_container";
-import UserShowContainer from "./users/user_show_container";
+import UserShowContainer from "./pages/user_show/user_show_container";
 import AlbumsIndexContainer from "./albums/albums_index_container";
 
-import SplashRoute from './splash_auth_route';
+import SplashRoute from '../reducers/splash_auth_route';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
 const App = () => (
@@ -29,8 +27,8 @@ const App = () => (
     <section>
       <Switch>
         <Route path="/users/:id/photos" component={UserShowContainer} />
-        {/* <Route exact path="/photos/:id" component={PhotoShowContainer} />
-        <Route exact path="/albums/:id" component={AlbumShowContainer} /> */}
+        <Route exact path="/photos/:id" component={PhotoShowContainer} />
+        {/* <Route exact path="/albums/:id" component={AlbumShowContainer} /> */}
         <Route exact path="/photos" component={Home} />
         {/* /* <Route exact path="/users/:id/albums" component={AlbumsIndexContainer} />
         <AuthRoute exact path="/photos/:id/edit" component={EditFormContainer} />
