@@ -1,12 +1,16 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { fetchUser } from '../../../actions/session_actions';
+import { 
+  fetchUser,
+  clearUsers
+ } from '../../../actions/session_actions';
 
 const UserShowBanner = props => {
-  const { user, userId, fetchUser } = props;
+  const { user, userId, fetchUser, clearUsers } = props;
 
   useEffect(() => {
     fetchUser(userId);
+    return (() => clearUsers());
   }, [ userId ]);
 
   if (!user) return null;
@@ -22,11 +26,15 @@ const UserShowBanner = props => {
           <div className="user-details-wrap flex-col-center">
             <div className="user-details flex-col-left-text">
               <div className="username">
-                <h1 className="username-text">{user.username}</h1>
+                <h1 className="username-text">
+                  {user.username}
+                </h1>
               </div>
               <div className="followers flex-row-left">
                 <div className="border flex-col-center">
-                  <h1 className="followers-text">{user.email}</h1>
+                  <h1 className="followers-text">
+                    {user.email}
+                  </h1>
                 </div>
                 <div className="border flex-col-center">
                   {/* <h1 className="followers-text">17 Followers</h1> */}
@@ -55,6 +63,7 @@ const mstp = ({entities: {users}}, ownProps) => {
 const mdtp = (dispatch) => {
   return ({
     fetchUser: (id) => dispatch(fetchUser(id)),
+    clearUsers: () => dispatch(clearUsers())
   });
 };
 

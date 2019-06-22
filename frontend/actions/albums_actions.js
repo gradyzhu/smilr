@@ -5,6 +5,7 @@ export const RECEIVE_ALBUM = 'RECEIVE_ALBUM';
 export const DELETE_ALBUM = 'DELETE_ALBUM';
 export const RECEIVE_ALBUM_ERRORS = "RECEIVE_ALBUM_ERRORS";
 export const REMOVE_ALBUM_ERRORS = 'REMOVE_ALBUM_ERRORS';
+export const REMOVE_ALBUMS = 'REMOVE_ALBUMS';
 
 const receiveAlbums = albums => {
   return ({
@@ -34,6 +35,10 @@ export const receiveErrors = errors => ({
 
 export const clearErrors = () => ({
   type: REMOVE_ALBUM_ERRORS,
+});
+
+export const clearAlbums = () => ({
+  type: REMOVE_ALBUMS
 });
 
 export const fetchAlbums = user_id => dispatch => {

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const UserOptions = props => {
   const { userId } = props;
-
+  
   return (
     <div className="options-bar-container index-flex-center-col">
       <div className="options-bar index-flex-center-row">

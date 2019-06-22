@@ -1,17 +1,17 @@
 import React from 'react';
-import PhotosIndexContainer from '../../photos/photos_index_container';
 import UserShowBannerContainer from './user_show_banner_container';
 import UserShowOptions from './user_show_options';
 import UserShowFilters from './user_show_filters';
+import PhotosIndexContainer from '../../photos/photos_index_container';
 import Footer from '../../footer';
 import { connect } from 'react-redux';
 
-const UserShow = props => {
+const UserShowPhotos = props => {
   const { userId } = props;
 
   return (
     <div className="index-flex-center-col">
-      <UserShowBannerContainer userId={userId}/>
+      <UserShowBannerContainer userId={userId} />
       <UserShowOptions userId={userId} />
       <UserShowFilters />
       <PhotosIndexContainer userId={userId} />
@@ -20,9 +20,8 @@ const UserShow = props => {
   )
 }
 
-const mstp = ({session: {id}, entities: {users}}, ownProps) => {
+const mstp = ({ session: { id } }, ownProps) => {
   let userId = Number(ownProps.match.params.id);
-  
   return ({
     sessionId: id,
     userId: userId
@@ -34,4 +33,4 @@ const mdtp = (dispatch) => {
   });
 };
 
-export default connect(mstp, mdtp)(UserShow);
+export default connect(mstp, mdtp)(UserShowPhotos);

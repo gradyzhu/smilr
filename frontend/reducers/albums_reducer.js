@@ -1,7 +1,9 @@
 import { 
   RECEIVE_ALBUMS, 
   RECEIVE_ALBUM, 
-  DELETE_ALBUM } from '../actions/albums_actions';
+  DELETE_ALBUM,
+  REMOVE_ALBUMS
+ } from '../actions/albums_actions';
 
 const albumsReducer = (oldState = {}, action) => {
   Object.freeze(oldState); 
@@ -14,6 +16,8 @@ const albumsReducer = (oldState = {}, action) => {
     case DELETE_ALBUM:
       delete newState[action.albumId];
       return newState;
+    case REMOVE_ALBUMS:
+      return {};
     default:
       return oldState;
   }

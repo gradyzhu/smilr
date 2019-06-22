@@ -1,27 +1,55 @@
+import React, { useEffect } from 'react';
+import AlbumsIndexItem from './albums_index_item';
+import { clearAlbums, fetchAlbums } from '../../actions/albums_actions';
 import { connect } from 'react-redux';
-import AlbumsIndex from './albums_index';
-import { fetchAlbums } from '../../actions/albums_actions';
-import { fetchUser } from '../../actions/session_actions';
-import { fetchPhotos } from '../../actions/photos_actions';
 
-const mstp = ({entities: {albums, users}, session}, ownProps) => {
-  let userId = parseInt(ownProps.match.params.id, 10);
-  let userAlbums = Object.values(albums);
+const AlbumsIndex = props => {
+  const { albums, fetchAlbums, clearAlbums, userId } = props;
 
-  return({
-    albums: userAlbums,
-    userId: userId,
-    users: users,
-    sessionId: session.id
+  useEffect(() => {
+    fetchAlbums(userId);
+    return (() => clearAlbums());
+  }, []);
+
+  useEffect(() => {
+    fetchAlbums(userId);
+  }, [ userId ]);
+
+  let userAlbums = albums.map(album => {
+    return(
+      <AlbumsIndexItem 
+        key={album.id}
+        albumId={album.id}
+        name={album.name}
+        description={album.description}
+        photos={album.photos}/>
+      );
   });
-};
+  
+  return (
+    <div className="full-width">
+      <div className="albums-index-container-wrap flex-col-start">
+        <div className="albums-index-container flex-row-start-top-left flex-wrap2">
+          {userAlbums}
+        </div>
+      </div>
+    </div>
+  )
+}
+
+const mstp = ({ entities: { albums }}, ownProps) => {
+  let userAlbums = Object.values(albums);
+  return ({ 
+    albums: userAlbums,
+    userId: ownProps.userId
+  })
+}
 
 const mdtp = dispatch => {
-  return({
+  return ({
     fetchAlbums: id => dispatch(fetchAlbums(id)),
-    fetchUser: id => dispatch(fetchUser(id)),
-    fetchPhotos: () => dispatch(fetchPhotos())
-  });
-};
+    clearAlbums: () => dispatch(clearAlbums())
+  })
+}
 
 export default connect(mstp, mdtp)(AlbumsIndex);
