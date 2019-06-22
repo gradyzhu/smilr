@@ -80,9 +80,3 @@ export const deleteAlbum = id => dispatch => {
       .fail(error => dispatch(receiveErrors(error.responseJSON)))
   );
 };
-
-// window.fetchAlbums = fetchAlbums;
-// window.fetchAlbum = fetchAlbum;
-// window.createAlbum = createAlbum;
-// window.updateAlbum = updateAlbum;
-// window.deleteAlbum = deleteAlbum;

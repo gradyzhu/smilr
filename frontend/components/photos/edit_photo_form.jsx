@@ -57,10 +57,12 @@ class EditPhotoForm extends React.Component {
     const edit = this.state.editState ? editing() : notEditing();
   
     return(
-      <div className="display-edit-container">
-        <div className="display-edit-wrap">
-          <div className="display-edit">
-            {edit}
+      <div className="photo-details">
+        <div className="display-edit-container">
+          <div className="display-edit-wrap">
+            <div className="display-edit">
+              {edit}
+            </div>
           </div>
         </div>
       </div>

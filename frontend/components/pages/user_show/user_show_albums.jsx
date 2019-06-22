@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { connect } from 'react-redux';
-import { fetchUser } from '../../actions/session_actions';
-import AlbumsIndexContainer from './albums_index_container';
-import AlbumOptionsBar from './album_options_bar';
-import CreateAlbumModalContainer from './create_album_modal_container';
-import UserShowBannerContainer from '../pages/user_show/user_show_banner_container';
-import UserShowOptions from '../pages/user_show/user_show_options';
+import { fetchUser } from '../../../actions/session_actions';
+import AlbumsIndexContainer from '../../albums/albums_index_container';
+import AlbumOptionsBar from '../../albums/album_options_bar';
+import CreateAlbumModalContainer from '../../albums/create_album_modal_container';
+import UserShowBannerContainer from './user_show_banner_container';
+import UserShowOptions from './user_show_options';
 
 const UserShowAlbums = props => {
   const [ showModal, setShowModal ] = useState(false);
