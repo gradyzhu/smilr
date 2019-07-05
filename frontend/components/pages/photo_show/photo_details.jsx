@@ -5,7 +5,7 @@ import CommentsIndexContainer from '../../comments/comments_index_container';
 import CommentsFormContainer from '../../comments/comments_form_container';
 
 const PhotoDetails = props => {
-  const { photo: { id, username, userId } } = props;
+  const { photo: { id, username, userId }} = props;
 
   return (
     <div className="photo-details-container flex-center">

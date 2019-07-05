@@ -30,7 +30,7 @@ const App = () => (
         <Route exact path="/users/:id/albums" component={UserShowAlbumsContainer} />
         <Route exact path="/photos/:id" component={PhotoShowContainer} />
         <Route exact path="/albums/:id" component={AlbumShowContainer} />
-        {/* <Route exact path="/photos" component={Home} /> */}
+        <Route exact path="/photos" component={Home} />
         <AuthRoute exact path="/photos/:id/edit" component={EditFormContainer} />
         <ProtectedRoute exact path="/upload" component={UploadFormContainer} /> */}
         <AuthRoute exact path="/login" component={LogInFormContainer} />

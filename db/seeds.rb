@@ -20,62 +20,145 @@ ActiveRecord::Base.transaction do
   nicole = User.create!(username: "nicole", email: "wong@gmail.com", password: "password")
 
   # photo = Photo.create!({user_id: , title: "", description: "", album_id: , date_taken: ""})
+  josh_photo_1_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/josh_photos/josh-hild-1279580-unsplash.jpg", :raise_on_failure => true)
   josh_photo_1 = Photo.create!(user_id: josh.id, title: "Walking Across the Brooklyn Bridge", 
-    description: "The Brooklyn Bridge is a hybrid cable-stayed/suspension bridge in New York City. It connects the boroughs of Manhattan and Brooklyn, spanning the East River.")
+    description: "The Brooklyn Bridge is a hybrid cable-stayed/suspension bridge in New York City. It connects the boroughs of Manhattan and Brooklyn, spanning the East River.",
+    width: josh_photo_1_size[0],
+    height: josh_photo_1_size[1])
+
+  josh_photo_2_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/josh_photos/josh-hild-1289167-unsplash.jpg", :raise_on_failure => true)    
   josh_photo_2 = Photo.create!(user_id: josh.id, title: "The City of New York", 
-    description: "The City of New York, usually called either New York City (NYC) or simply New York (NY), is the most populous city in the United States.")
+    description: "The City of New York, usually called either New York City (NYC) or simply New York (NY), is the most populous city in the United States.",
+    width: josh_photo_2_size[0],
+    height: josh_photo_2_size[1])
+
+  josh_photo_3_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/josh_photos/josh-hild-1289181-unsplash.jpg", :raise_on_failure => true)    
   josh_photo_3 = Photo.create!(user_id: josh.id, title: "Stunning Cityscape Architecture", 
-    description: "Architecture is both the process and the product of planning, designing, and constructing buildings or any other structures.")
-  josh_photo_4 = Photo.create!(user_id: josh.id, title: "A Ray of Light in a Moment of Darkness", 
-    description: "I have always believed that each man makes his own happiness and is responsible for his own problems. It is a simple philosophy.")
+    description: "Architecture is both the process and the product of planning, designing, and constructing buildings or any other structures.",
+    width: josh_photo_3_size[0],
+    height: josh_photo_3_size[1])
+
+  josh_photo_4_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/josh_photos/josh-hild-1313362-unsplash.jpg", :raise_on_failure => true)
+  josh_photo_4= Photo.create!(user_id: josh.id, title: "A Ray of Light in a Moment of Darkness", 
+    description: "I have always believed that each man makes his own happiness and is responsible for his own problems. It is a simple philosophy.",
+    width: josh_photo_4_size[0],
+    height: josh_photo_4_size[1])
+
+  josh_photo_5_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/josh_photos/josh-hild-1313363-unsplash.jpg", :raise_on_failure => true)
   josh_photo_5 = Photo.create!(user_id: josh.id, title: "Bubble Girl", 
-    description: "You Learn More From Failure Than From Success. Don’t Let It Stop You. Failure Builds Character")
+    description: "You Learn More From Failure Than From Success. Don’t Let It Stop You. Failure Builds Character",
+    width: josh_photo_5_size[0],
+    height: josh_photo_5_size[1])
+
+  josh_photo_6_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/josh_photos/josh-hild-1330241-unsplash.jpg", :raise_on_failure => true)
   josh_photo_6 = Photo.create!(user_id: josh.id, title: "A Moment of Inspiration", 
-    description: "If You Are Working On Something That You Really Care About, You Don’t Have To Be Pushed. The Vision Pulls You.")
+    description: "If You Are Working On Something That You Really Care About, You Don’t Have To Be Pushed. The Vision Pulls You.",
+    width: josh_photo_6_size[0],
+    height: josh_photo_6_size[1])
+
+  josh_photo_7_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/josh_photos/josh-hild-1336479-unsplash.jpg", :raise_on_failure => true)
   josh_photo_7 = Photo.create!(user_id: josh.id, title: "Yosemite National Park", 
-    description: "On average, about 4 million people visit Yosemite each year, and most spend the majority of their time in the 7 square miles (18 km2) of Yosemite Valley.")
+    description: "On average, about 4 million people visit Yosemite each year, and most spend the majority of their time in the 7 square miles (18 km2) of Yosemite Valley.",
+    width: josh_photo_7_size[0],
+    height: josh_photo_7_size[1])
+
+  josh_photo_8_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/josh_photos/josh-hild-1362788-unsplash.jpg", :raise_on_failure => true)
   josh_photo_8 = Photo.create!(user_id: josh.id, title: "Mariposa, California", 
-    description: "Yosemite is one of the largest and least fragmented habitat blocks in the Sierra Nevada, and the park supports a diversity of plants and animals. The park has an elevation range from 2,127 to 13,114 feet (648 to 3,997 m) and contains five major vegetation zones: chaparral and oak woodland, lower montane forest, upper montane forest, subalpine zone, and alpine.")
+    description: "Yosemite is one of the largest and least fragmented habitat blocks in the Sierra Nevada, and the park supports a diversity of plants and animals. The park has an elevation range from 2,127 to 13,
+    114 feet (648 to 3,997 m) and contains five major vegetation zones: chaparral and oak woodland, lower montane forest, upper montane forest, subalpine zone, and alpine.",
+    width: josh_photo_8_size[0],
+    height: josh_photo_8_size[1])
 
-  juice_photo_1 = Photo.create!(user_id: juice.id, title: "juice_photo_1", description: "description")
-  juice_photo_2 = Photo.create!(user_id: juice.id, title: "juice_photo_2", description: "description")
-  juice_photo_3 = Photo.create!(user_id: juice.id, title: "juice_photo_3", description: "description")
-  juice_photo_4 = Photo.create!(user_id: juice.id, title: "juice_photo_4", description: "description")
-  juice_photo_5 = Photo.create!(user_id: juice.id, title: "juice_photo_5", description: "description")
-  juice_photo_6 = Photo.create!(user_id: juice.id, title: "juice_photo_6", description: "description")
-  juice_photo_7 = Photo.create!(user_id: juice.id, title: "juice_photo_7", description: "description")
+    
+  juice_photo_1_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/juice_photos/amogh-manjunath-774717-unsplash.jpg", :raise_on_failure => true)
+  juice_photo_1 = Photo.create!(user_id: juice.id, title: "juice_photo_1", description: "description", width: juice_photo_1_size[0], height: juice_photo_1_size[1])
+  juice_photo_2_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/juice_photos/amogh-manjunath-772472-unsplash.jpg", :raise_on_failure => true)
+  juice_photo_2 = Photo.create!(user_id: juice.id, title: "juice_photo_2", description: "description", width: juice_photo_2_size[0], height: juice_photo_2_size[1])
+  juice_photo_3_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/juice_photos/amogh-manjunath-772463-unsplash.jpg", :raise_on_failure => true)
+  juice_photo_3 = Photo.create!(user_id: juice.id, title: "juice_photo_3", description: "description", width: juice_photo_3_size[0], height: juice_photo_3_size[1])
+  juice_photo_4_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/juice_photos/amogh-manjunath-772475-unsplash.jpg", :raise_on_failure => true)
+  juice_photo_4 = Photo.create!(user_id: juice.id, title: "juice_photo_4", description: "description", width: juice_photo_4_size[0], height: juice_photo_4_size[1])
+  juice_photo_5_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/juice_photos/amogh-manjunath-773461-unsplash.jpg", :raise_on_failure => true)
+  juice_photo_5 = Photo.create!(user_id: juice.id, title: "juice_photo_5", description: "description", width: juice_photo_5_size[0], height: juice_photo_5_size[1])
+  juice_photo_6_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/juice_photos/amogh-manjunath-775985-unsplash.jpg", :raise_on_failure => true)
+  juice_photo_6 = Photo.create!(user_id: juice.id, title: "juice_photo_6", description: "description", width: juice_photo_6_size[0], height: juice_photo_6_size[1])
+  juice_photo_7_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/juice_photos/amogh-manjunath-799398-unsplash.jpg", :raise_on_failure => true)
+  juice_photo_7 = Photo.create!(user_id: juice.id, title: "juice_photo_7", description: "description", width: juice_photo_7_size[0], height: juice_photo_7_size[1])
+  
 
-  tony_photo_1 = Photo.create!(user_id: tony.id, title: "tony_photo_1", description: "description")
-  tony_photo_2 = Photo.create!(user_id: tony.id, title: "tony_photo_2", description: "description")
-  tony_photo_3 = Photo.create!(user_id: tony.id, title: "tony_photo_3", description: "description")
-  tony_photo_4 = Photo.create!(user_id: tony.id, title: "tony_photo_4", description: "description")
-  tony_photo_5 = Photo.create!(user_id: tony.id, title: "tony_photo_5", description: "description")
-  tony_photo_6 = Photo.create!(user_id: tony.id, title: "tony_photo_6", description: "description")
-  tony_photo_7 = Photo.create!(user_id: tony.id, title: "tony_photo_7", description: "description")
-  tony_photo_8 = Photo.create!(user_id: tony.id, title: "tony_photo_8", description: "description")
-  tony_photo_9 = Photo.create!(user_id: tony.id, title: "tony_photo_9", description: "description")
-  tony_photo_10 = Photo.create!(user_id: tony.id, title: "tony_photo_10", description: "description")
-  tony_photo_11 = Photo.create!(user_id: tony.id, title: "tony_photo_11", description: "description")
+  tony_photo_1_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/tony_photos/roberto-nickson-48063-unsplash.jpg", :raise_on_failure => true)
+  tony_photo_1 = Photo.create!(user_id: tony.id, title: "tony_photo_1", description: "description", width: tony_photo_1_size[0], height: tony_photo_1_size[1])
+  tony_photo_2_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/tony_photos/roberto-nickson-495794-unsplash.jpg", :raise_on_failure => true)
+  tony_photo_2 = Photo.create!(user_id: tony.id, title: "tony_photo_2", description: "description", width: tony_photo_2_size[0], height: tony_photo_2_size[1])
+  tony_photo_3_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/tony_photos/roberto-nickson-706404-unsplash.jpg", :raise_on_failure => true)
+  tony_photo_3 = Photo.create!(user_id: tony.id, title: "tony_photo_3", description: "description", width: tony_photo_3_size[0], height: tony_photo_3_size[1])
+  tony_photo_4_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/tony_photos/roberto-nickson-706405-unsplash.jpg", :raise_on_failure => true)
+  tony_photo_4 = Photo.create!(user_id: tony.id, title: "tony_photo_4", description: "description", width: tony_photo_4_size[0], height: tony_photo_4_size[1])
+  tony_photo_5_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/tony_photos/roberto-nickson-1083409-unsplash.jpg", :raise_on_failure => true)
+  tony_photo_5 = Photo.create!(user_id: tony.id, title: "tony_photo_5", description: "description", width: tony_photo_5_size[0], height: tony_photo_5_size[1])
+  tony_photo_6_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/tony_photos/roberto-nickson-1090353-unsplash.jpg", :raise_on_failure => true)
+  tony_photo_6 = Photo.create!(user_id: tony.id, title: "tony_photo_6", description: "description", width: tony_photo_6_size[0], height: tony_photo_6_size[1])
+  tony_photo_7_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/tony_photos/roberto-nickson-1266859-unsplash.jpg", :raise_on_failure => true)
+  tony_photo_7 = Photo.create!(user_id: tony.id, title: "tony_photo_7", description: "description", width: tony_photo_7_size[0], height: tony_photo_7_size[1])
+  tony_photo_8_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/tony_photos/roberto-nickson-1293509-unsplash.jpg", :raise_on_failure => true)
+  tony_photo_8 = Photo.create!(user_id: tony.id, title: "tony_photo_8", description: "description", width: tony_photo_8_size[0], height: tony_photo_8_size[1])
+  tony_photo_9_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/tony_photos/roberto-nickson-415618-unsplash.jpg", :raise_on_failure => true)
+  tony_photo_9 = Photo.create!(user_id: tony.id, title: "tony_photo_9", description: "description", width: tony_photo_9_size[0], height: tony_photo_9_size[1])
+  tony_photo_10_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/tony_photos/roberto-nickson-1385598-unsplash.jpg", :raise_on_failure => true)
+  tony_photo_10 = Photo.create!(user_id: tony.id, title: "tony_photo_10", description: "description", width: tony_photo_10_size[0], height: tony_photo_10_size[1])
+  tony_photo_11_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/tony_photos/roberto-nickson-1413539-unsplash.jpg", :raise_on_failure => true)
+  tony_photo_11 = Photo.create!(user_id: tony.id, title: "tony_photo_11", description: "description", width: tony_photo_11_size[0], height: tony_photo_11_size[1])
 
-  lisa_photo_1 = Photo.create!(user_id: lisa.id, title: "lisa_photo_1", description: "description")
-  lisa_photo_2 = Photo.create!(user_id: lisa.id, title: "lisa_photo_2", description: "description")
-  lisa_photo_3 = Photo.create!(user_id: lisa.id, title: "lisa_photo_3", description: "description")
-  lisa_photo_4 = Photo.create!(user_id: lisa.id, title: "lisa_photo_4", description: "description")
-  lisa_photo_5 = Photo.create!(user_id: lisa.id, title: "lisa_photo_5", description: "description")
-  lisa_photo_6 = Photo.create!(user_id: lisa.id, title: "lisa_photo_6", description: "description")
+  
+  lisa_photo_1_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/lisa_photos/angel-jimenez-166955-unsplash.jpg", :raise_on_failure => true)
+  lisa_photo_1 = Photo.create!(user_id: lisa.id, title: "lisa_photo_1", description: "description", width: lisa_photo_1_size[0], height: lisa_photo_1_size[1])
+  lisa_photo_2_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/lisa_photos/angel-jimenez-168185-unsplash.jpg", :raise_on_failure => true)
+  lisa_photo_2 = Photo.create!(user_id: lisa.id, title: "lisa_photo_2", description: "description", width: lisa_photo_2_size[0], height: lisa_photo_2_size[1])
+  lisa_photo_3_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/lisa_photos/angel-jimenez-168280-unsplash.jpg", :raise_on_failure => true)
+  lisa_photo_3 = Photo.create!(user_id: lisa.id, title: "lisa_photo_3", description: "description", width: lisa_photo_3_size[0], height: lisa_photo_3_size[1])
+  lisa_photo_4_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/lisa_photos/angel-jimenez-178856-unsplash.jpg", :raise_on_failure => true)
+  lisa_photo_4 = Photo.create!(user_id: lisa.id, title: "lisa_photo_4", description: "description", width: lisa_photo_4_size[0], height: lisa_photo_4_size[1])
+  lisa_photo_5_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/lisa_photos/angel-jimenez-181097-unsplash.jpg", :raise_on_failure => true)
+  lisa_photo_5 = Photo.create!(user_id: lisa.id, title: "lisa_photo_5", description: "description", width: lisa_photo_5_size[0], height: lisa_photo_5_size[1])
+  lisa_photo_6_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/lisa_photos/angel-jimenez-204076-unsplash.jpg", :raise_on_failure => true)
+  lisa_photo_6 = Photo.create!(user_id: lisa.id, title: "lisa_photo_6", description: "description", width: lisa_photo_6_size[0], height: lisa_photo_6_size[1])
+  
 
-  nicole_photo_1 = Photo.create!(user_id: nicole.id, title: "nicole_photo_1", description: "description")
-  nicole_photo_2 = Photo.create!(user_id: nicole.id, title: "nicole_photo_2", description: "description")
-  nicole_photo_3 = Photo.create!(user_id: nicole.id, title: "nicole_photo_3", description: "description")
-  nicole_photo_4 = Photo.create!(user_id: nicole.id, title: "nicole_photo_4", description: "description")
-  nicole_photo_5 = Photo.create!(user_id: nicole.id, title: "nicole_photo_5", description: "description")
-  nicole_photo_6 = Photo.create!(user_id: nicole.id, title: "nicole_photo_6", description: "description")
-  nicole_photo_7 = Photo.create!(user_id: nicole.id, title: "nicole_photo_7", description: "description")
-  nicole_photo_8 = Photo.create!(user_id: nicole.id, title: "nicole_photo_8", description: "description")
-  nicole_photo_9 = Photo.create!(user_id: nicole.id, title: "nicole_photo_9", description: "description")
-  nicole_photo_10 = Photo.create!(user_id: nicole.id, title: "nicole_photo_10", description: "description")
-  nicole_photo_11 = Photo.create!(user_id: nicole.id, title: "nicole_photo_11", description: "description")
-  nicole_photo_12 = Photo.create!(user_id: nicole.id, title: "nicole_photo_12", description: "description")
+  nicole_photo_1_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/nicole_photos/oladimeji-odunsi-248781-unsplash.jpg", :raise_on_failure => true)
+  nicole_photo_1 = Photo.create!(user_id: nicole.id, title: "nicole_photo_1", description: "description", width: nicole_photo_1_size[0], height: nicole_photo_1_size[1])
+  
+  nicole_photo_2_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/nicole_photos/oladimeji-odunsi-280940-unsplash.jpg", :raise_on_failure => true)
+  nicole_photo_2 = Photo.create!(user_id: nicole.id, title: "nicole_photo_2", description: "description", width: nicole_photo_2_size[0], height: nicole_photo_2_size[1])
+
+  nicole_photo_3_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/nicole_photos/oladimeji-odunsi-297329-unsplash.jpg", :raise_on_failure => true)
+  nicole_photo_3 = Photo.create!(user_id: nicole.id, title: "nicole_photo_3", description: "description", width: nicole_photo_3_size[0], height: nicole_photo_3_size[1])
+
+  nicole_photo_4_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/nicole_photos/oladimeji-odunsi-297333-unsplash.jpg", :raise_on_failure => true)
+  nicole_photo_4 = Photo.create!(user_id: nicole.id, title: "nicole_photo_4", description: "description", width: nicole_photo_4_size[0], height: nicole_photo_4_size[1])
+
+  nicole_photo_5_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/nicole_photos/oladimeji-odunsi-306172-unsplash.jpg", :raise_on_failure => true)
+  nicole_photo_5 = Photo.create!(user_id: nicole.id, title: "nicole_photo_5", description: "description", width: nicole_photo_5_size[0], height: nicole_photo_5_size[1])
+
+  nicole_photo_6_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/nicole_photos/oladimeji-odunsi-307743-unsplash.jpg", :raise_on_failure => true)
+  nicole_photo_6 = Photo.create!(user_id: nicole.id, title: "nicole_photo_6", description: "description", width: nicole_photo_6_size[0], height: nicole_photo_6_size[1])
+
+  nicole_photo_7_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/nicole_photos/oladimeji-odunsi-367505-unsplash.jpg", :raise_on_failure => true)
+  nicole_photo_7 = Photo.create!(user_id: nicole.id, title: "nicole_photo_7", description: "description", width: nicole_photo_7_size[0], height: nicole_photo_7_size[1])
+
+  nicole_photo_8_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/nicole_photos/oladimeji-odunsi-415606-unsplash.jpg", :raise_on_failure => true)
+  nicole_photo_8 = Photo.create!(user_id: nicole.id, title: "nicole_photo_8", description: "description", width: nicole_photo_8_size[0], height: nicole_photo_8_size[1])
+
+  nicole_photo_9_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/nicole_photos/oladimeji-odunsi-415618-unsplash.jpg", :raise_on_failure => true)
+  nicole_photo_9 = Photo.create!(user_id: nicole.id, title: "nicole_photo_9", description: "description", width: nicole_photo_9_size[0], height: nicole_photo_9_size[1])
+
+  nicole_photo_10_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/nicole_photos/oladimeji-odunsi-558609-unsplash.jpg", :raise_on_failure => true)
+  nicole_photo_10 = Photo.create!(user_id: nicole.id, title: "nicole_photo_10", description: "description", width: nicole_photo_10_size[0], height: nicole_photo_10_size[1])
+
+  nicole_photo_11_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/nicole_photos/oladimeji-odunsi-600457-unsplash.jpg", :raise_on_failure => true)
+  nicole_photo_11 = Photo.create!(user_id: nicole.id, title: "nicole_photo_11", description: "description", width: nicole_photo_11_size[0], height: nicole_photo_11_size[1])
+
+  nicole_photo_12_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/nicole_photos/oladimeji-odunsi-1335501-unsplash.jpg", :raise_on_failure => true)
+  nicole_photo_12 = Photo.create!(user_id: nicole.id, title: "nicole_photo_12", description: "description", width: nicole_photo_12_size[0], height: nicole_photo_12_size[1])
 
   # photoname.image.attach(io: open(""), filename: "")
   # attach url to photos

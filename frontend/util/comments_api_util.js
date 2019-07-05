@@ -25,7 +25,3 @@ export const deleteComment = id => {
     })
   );
 };
-
-window.fetchComments = fetchComments;
-window.createComment = createComment;
-window.deleteComment = deleteComment;

@@ -1,5 +1,3 @@
-//api end points
-
 export const fetchPhotos = (count, userId) => {
   return (
     $.ajax({
