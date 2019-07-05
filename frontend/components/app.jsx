@@ -9,7 +9,7 @@ import Splash from './splash';
 import Home from './pages/home/home';
 import SignUpFormContainer from './session_form/sign_up_form_container';
 import LogInFormContainer from './session_form/log_in_form_container';
-import AlbumShowContainer from "./albums/album_show_container";
+import AlbumShowContainer from "./pages/album_show/album_show_container";
 import UploadFormContainer from "./photos/upload_form_container";
 import EditFormContainer from "./photos/edit_photo_form_container";
 import PhotoShowContainer from "./pages/photo_show/photo_show_container";
@@ -29,7 +29,7 @@ const App = () => (
         <Route path="/users/:id/photos" component={UserShowPhotosContainer} />
         <Route exact path="/users/:id/albums" component={UserShowAlbumsContainer} />
         <Route exact path="/photos/:id" component={PhotoShowContainer} />
-        {/* <Route exact path="/albums/:id" component={AlbumShowContainer} /> */}
+        <Route exact path="/albums/:id" component={AlbumShowContainer} />
         {/* <Route exact path="/photos" component={Home} /> */}
         <AuthRoute exact path="/photos/:id/edit" component={EditFormContainer} />
         <ProtectedRoute exact path="/upload" component={UploadFormContainer} /> */}
