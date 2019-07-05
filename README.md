@@ -31,7 +31,7 @@ User are able to sign-up, browse photos, view users, upload photos, and create a
 
 ### Infinite Scroll
 
-I implemented infinite scroll using a combination of the window API's IntersectionObserver and React's `useEffect()` hook.
+I implemented infinite scroll using a combination of the Intersection Observer API and React's `useEffect()` hook.
 
 After the first render of my PhotosIndex component, I make a call to the back end to fetch an initial batch of 20 photos. Upon reaching the observed element in the DOM, a handler function is called to make subsequent calls for additional photos.
 

@@ -1,35 +1,55 @@
-import React from 'react';
-import UserShowBannerContainer from './user_show_banner_container';
+import React, { useEffect } from 'react';
+import { connect } from 'react-redux';
+import { SyncLoader } from 'react-spinners';
+import UserShowBanner from './user_show_banner';
 import UserShowOptions from './user_show_options';
 import UserShowFilters from './user_show_filters';
 import PhotosIndexContainer from '../../photos/photos_index_container';
 import Footer from '../../footer';
-import { connect } from 'react-redux';
+import { fetchUser, clearUsers } from '../../../actions/session_actions';
 
 const UserShowPhotos = props => {
-  const { userId } = props;
+  const { userId, fetchUser, sessionUser, clearUsers, user } = props;
+  
+  useEffect(() => {
+    fetchUser(userId);
+    return (() => clearUsers(sessionUser));
+  }, [ userId ]);
 
-  return (
-    <div className="index-flex-center-col">
-      <UserShowBannerContainer userId={userId} />
-      <UserShowOptions userId={userId} />
-      <UserShowFilters />
-      <PhotosIndexContainer userId={userId} />
-      <Footer />
-    </div>
-  )
+  if (user) {
+    return (
+      <div className="index-flex-center-col">
+        <UserShowBanner user={user} />
+        <UserShowOptions userId={userId} />
+        <UserShowFilters />
+        <PhotosIndexContainer userId={userId} />
+        <Footer />
+      </div> )
+  } else {
+    return (
+      <div className="user-show-loader">
+        <SyncLoader color={'#919191'} />
+      </div>
+    )
+  }
 }
 
-const mstp = ({ session: { id } }, ownProps) => {
+const mstp = ({ entities: { users }, session: { id }}, ownProps) => {
   let userId = Number(ownProps.match.params.id);
+  let sessionUser = users ? users[id] : null;
+  let user = users[userId];
+
   return ({
-    sessionId: id,
-    userId: userId
+    userId: userId,
+    user: user,
+    sessionUser: sessionUser
   });
 };
 
-const mdtp = (dispatch) => {
+const mdtp = dispatch => { 
   return ({
+    fetchUser: (id) => dispatch(fetchUser(id)),
+    clearUsers: (sessionUser) => dispatch(clearUsers(sessionUser))
   });
 };
 

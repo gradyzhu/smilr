@@ -16,7 +16,7 @@ const receiveUser = user => ({
   type: RECEIVE_USER,
   user
 });
-
+ 
 const logoutCurrentUser = () => ({
   type: LOGOUT_CURRENT_USER,
 });
@@ -30,8 +30,9 @@ export const clearErrors = () => ({
   type: REMOVE_SESSION_ERRORS,
 });
 
-export const clearUsers = () => ({
-  type: REMOVE_USERS
+export const clearUsers = sessionUser => ({
+  type: REMOVE_USERS,
+  sessionUser
 });
 
 export const login = user => dispatch => (

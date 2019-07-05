@@ -1,20 +1,6 @@
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
-import { 
-  fetchUser,
-  clearUsers
- } from '../../../actions/session_actions';
+import React from 'react';
 
-const UserShowBanner = props => {
-  const { user, userId, fetchUser, clearUsers } = props;
-
-  useEffect(() => {
-    fetchUser(userId);
-    return (() => clearUsers());
-  }, [ userId ]);
-
-  if (!user) return null;
-
+const UserShowBanner = ({ user }) => {
   return (
     <div className="user-banner-container index-flex-center-col">
       <div className="user-banner flex-col-bottom">
@@ -51,20 +37,4 @@ const UserShowBanner = props => {
   )
 }
 
-const mstp = ({entities: {users}}, ownProps) => {
-  let userId = ownProps.userId;
-
-  return ({
-    user: users[userId],
-    userId: ownProps.userId
-  });
-};
-
-const mdtp = (dispatch) => {
-  return ({
-    fetchUser: (id) => dispatch(fetchUser(id)),
-    clearUsers: () => dispatch(clearUsers())
-  });
-};
-
-export default connect(mstp, mdtp)(UserShowBanner);
+export default UserShowBanner;

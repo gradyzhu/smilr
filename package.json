@@ -38,7 +38,8 @@
     "test": "test"
   },
   "devDependencies": {
-    "@babel/plugin-proposal-class-properties": "^7.4.4"
+    "@babel/plugin-proposal-class-properties": "^7.4.4",
+    "eslint-plugin-react-hooks": "^1.6.0"
   },
   "keywords": [],
   "author": "",

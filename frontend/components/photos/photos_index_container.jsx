@@ -1,4 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { 
+  useState,
+  useReducer,
+  useEffect } from 'react';
 import PhotosIndexItem from './photos_index_item';
 import LoadMore from './load_more';
 import { connect } from 'react-redux';
@@ -7,6 +10,31 @@ import {
   clearPhotos
  } from '../../actions/photos_actions';
 
+
+const initialState = {
+  offset: 0,
+  loading: true
+};
+
+// const [ state, dispatch ] = useReducer(reducer, initialState);
+
+// const reducer = (state, action) => {
+//   switch (action.type) {
+//     case 'increment_offset':
+//       return { offset: state.offset + 1 };
+//     case 'loading_true':
+//       return { loading: true };
+//     case 'loading_false':
+//       return { loading: false };
+//     default:
+//       return state;
+//   }
+// };
+
+// const incrementOffset = 'increment_offset';
+// const loadingTrue = "loading_true";
+// const loadingFalse = "loading_false";
+    
 const PhotosIndex = props => {
   const [ offset, setOffset ] = useState(0);
   const [ isLoading, setIsLoading ] = useState(true);
@@ -17,15 +45,15 @@ const PhotosIndex = props => {
     return (() => clearPhotos());
   }, []);
 
-  useEffect(() => {
-    fetchPhotos(offset, userId).then(() => setIsLoading(false));
-    return (() => clearPhotos());
-  }, [ userId ]);
+  // useEffect(() => {
+  //   fetchPhotos(offset, userId).then(() => setIsLoading(false));
+  //   return (() => clearPhotos());
+  // }, [ userId ]);
 
   const handleClick = () => {
     setIsLoading(true);
     fetchPhotos(offset + 1, userId)
-      .then(() => setOffset(offset + 1))
+      .then(() => setOffset(c => c + 1))
       .then(() => setIsLoading(false));
   };
 

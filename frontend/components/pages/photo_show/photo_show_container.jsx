@@ -2,10 +2,7 @@ import React, { useEffect } from 'react';
 import PhotoDisplay from './photo_display';
 import PhotoDetails from './photo_details';
 import { connect } from 'react-redux';
-import {
-  fetchPhoto, 
-  clearPhotos 
-} from '../../../actions/photos_actions';
+import { fetchPhoto, clearPhotos } from '../../../actions/photos_actions';
 
 const PhotoShow = props => {
   const { fetchPhoto, clearPhotos, photo, photoId } = props;
