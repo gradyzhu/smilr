@@ -17,17 +17,6 @@ class LogInForm extends React.Component {
     this.props.processForm(user);
   }
 
-  handleDemo = (e) => {
-    e.preventDefault();
-    const user = {
-      username: "josh", 
-      email: "josh@gmail.com", 
-      password: "password"
-    };
-
-    this.props.processForm(user);
-  };
-
   componentWillUnmount = () => {
     this.props.clearErrors();
   };
@@ -68,10 +57,6 @@ class LogInForm extends React.Component {
                     type="submit" 
                     value={formType}
                     className="login-button blue-button"/>
-                  <button
-                    type="submit" 
-                    onClick={this.handleDemo}
-                    className="demo-button blue-button">Demo</button>
                   <h2 className="form-h2">Not a member?&nbsp;
                     <Link to='/signup' className="form-sign-up-link">Sign up here</Link>
                   </h2>

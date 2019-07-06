@@ -58,9 +58,3 @@ export const logout = () => dispatch => (
 export const fetchUser = (id) => dispatch => (
   ApiUtil.fetchUser(id).then(user => dispatch(receiveUser(user)))
 );
-
-
-
-window.login = login;
-window.signup = signup;
-window.logout = logout; 

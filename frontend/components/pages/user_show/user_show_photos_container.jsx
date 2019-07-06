@@ -20,7 +20,9 @@ const UserShowPhotos = props => {
     return (
       <div className="index-flex-center-col">
         <UserShowBanner user={user} />
-        <UserShowOptions userId={userId} />
+        <UserShowOptions 
+          userId={userId} 
+          filter={"photostream"} />
         <UserShowFilters />
         <PhotosIndexContainer userId={userId} />
         <Footer />

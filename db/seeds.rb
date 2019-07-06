@@ -21,25 +21,25 @@ ActiveRecord::Base.transaction do
 
   # photo = Photo.create!({user_id: , title: "", description: "", album_id: , date_taken: ""})
   josh_photo_1_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/josh_photos/josh-hild-1279580-unsplash.jpg", :raise_on_failure => true)
-  josh_photo_1 = Photo.create!(user_id: josh.id, title: "Walking Across the Brooklyn Bridge", 
+  josh_photo_1 = Photo.create!(user_id: josh.id, title: "Brooklyn Bridge", 
     description: "The Brooklyn Bridge is a hybrid cable-stayed/suspension bridge in New York City. It connects the boroughs of Manhattan and Brooklyn, spanning the East River.",
     width: josh_photo_1_size[0],
     height: josh_photo_1_size[1])
 
   josh_photo_2_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/josh_photos/josh-hild-1289167-unsplash.jpg", :raise_on_failure => true)    
-  josh_photo_2 = Photo.create!(user_id: josh.id, title: "The City of New York", 
+  josh_photo_2 = Photo.create!(user_id: josh.id, title: "New York", 
     description: "The City of New York, usually called either New York City (NYC) or simply New York (NY), is the most populous city in the United States.",
     width: josh_photo_2_size[0],
     height: josh_photo_2_size[1])
 
   josh_photo_3_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/josh_photos/josh-hild-1289181-unsplash.jpg", :raise_on_failure => true)    
-  josh_photo_3 = Photo.create!(user_id: josh.id, title: "Stunning Cityscape Architecture", 
+  josh_photo_3 = Photo.create!(user_id: josh.id, title: "Stunning Cityscape", 
     description: "Architecture is both the process and the product of planning, designing, and constructing buildings or any other structures.",
     width: josh_photo_3_size[0],
     height: josh_photo_3_size[1])
 
   josh_photo_4_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/josh_photos/josh-hild-1313362-unsplash.jpg", :raise_on_failure => true)
-  josh_photo_4= Photo.create!(user_id: josh.id, title: "A Ray of Light in a Moment of Darkness", 
+  josh_photo_4= Photo.create!(user_id: josh.id, title: "A Ray of Light", 
     description: "I have always believed that each man makes his own happiness and is responsible for his own problems. It is a simple philosophy.",
     width: josh_photo_4_size[0],
     height: josh_photo_4_size[1])

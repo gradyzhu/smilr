@@ -32,7 +32,7 @@
   letter-spacing: 1px;
 }
 
-.splash-sign-up-button {
+.splash-demo-button {
   font-family: helvetica neue;
   padding: 25px;
   padding-left: 40px;
@@ -45,13 +45,15 @@
   font-weight: bold;
   letter-spacing: 0.5px;
   transition: ease .3s;
+  margin: 0px 8px;
+  cursor: pointer;
 }
 
-.splash-sign-up-button:active {
+.splash-demo-button:active {
   background-color: #ECECEC;
   transition: ease .2s;
 }
 
-.splash-sign-up-button:hover {
+.splash-demo-button:hover {
   box-shadow: 0px 0px 20px -2px white;
 }

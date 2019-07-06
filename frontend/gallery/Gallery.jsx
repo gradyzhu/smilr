@@ -36,7 +36,6 @@ class Gallery extends Component {
 
     componentDidUpdate () {
         if (!this._gallery) return;
-        debugger
         if (this._gallery.clientWidth
             !== this.state.containerWidth){
             this.onResize();

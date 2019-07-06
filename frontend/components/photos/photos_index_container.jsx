@@ -13,7 +13,7 @@ const PhotosIndex = props => {
   useEffect(() => {
     fetchPhotos(offset, userId).then(() => setIsLoading(false));
     return (() => clearPhotos());
-  }, []);
+  }, [ userId ]);
 
   const handleClick = () => {
     setIsLoading(true);

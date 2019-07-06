@@ -32,7 +32,9 @@ const UserShowAlbums = props => {
           userId={userId}
         />
         <UserShowBanner user={user} />
-        <UserShowOptions userId={userId} />
+        <UserShowOptions 
+          userId={userId}
+          filter={"albums"} />
         <AlbumOptionsBar 
           albumOptions={albumOptions}
           handleShowModal={handleShowModal}
