@@ -1,57 +1,25 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { logout } from "../actions/session_actions";
+import { withRouter } from 'react-router-dom';
+import NavBarLoggedIn from './navbar_logged_in';
+import NavBarLoggedOut from './navbar_logged_out';
 
 const Navbar = props => {
-  const { currentUser, logout } = props;
+  const { currentUser, logout, history } = props;
 
-  const loggedInNav = () => {
-    return (
-      <div className="nav-bar-logged-in flex-center">
-        <div className="navbar-container-logged-in">
-          <div className="navbar-left">
-            <Link to="/" className="logo">smilr</Link>
-          </div>
-          <div className="navbar-right-logged-in">
-            <Link to="/upload">
-              <i className="fas fa-cloud-upload-alt nav-bar-icon"></i>
-            </Link>
-            <Link to={`/users/${currentUser.id}/photos`}>
-              <i className="fas fa-user nav-bar-icon"></i>
-            </Link>
-            <button 
-              className="sign-out-link" 
-              onClick={logout}>Logout
-            </button>
-          </div>
-        </div>
-      </div>
-    )
+  const handleLogout = () => {
+    logout();
+    history.push("/");
   };
 
-  const loggedOutNav = () => (
-    <div>
-      <nav className="nav-bar-logged-out flex-center">
-        <div className="navbar-container-logged-out">
-          <div className="navbar-left">
-            <Link to="/" className="logo">smilr</Link>
-          </div>
-          <div className="navbar-right-logged-out">
-            <Link to='/login' className="login-link">Log In</Link>
-            <Link to='/signup' className="signup-link">Sign Up</Link>
-          </div>
-        </div>
-      </nav>
-    </div>
-  );
-
-  return currentUser ? loggedInNav() : loggedOutNav();
+  return currentUser ? <NavBarLoggedIn id={currentUser.id} handleLogout={handleLogout} /> : <NavBarLoggedOut />
 };
 
-const mstp = ({session, entities: {users}}) => {
+const mstp = ({session, entities: {users}}, ownProps) => {
   return ({
-    currentUser: users[session.id]
+    currentUser: users[session.id],
+    history: ownProps.history
   });
 };
 
@@ -61,5 +29,5 @@ const mdtp = (dispatch) => {
   });
 };
 
-export default connect(mstp, mdtp)(Navbar);
+export default withRouter(connect(mstp, mdtp)(Navbar));
 

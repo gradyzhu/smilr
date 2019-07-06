@@ -302,4 +302,48 @@ ActiveRecord::Base.transaction do
   tony_comment_8 = Comment.create!(photo_id: josh_photo_4.id, user_id: tony.id, 
     body: "Don't want to close my eyes I don't want to fall asleep Cause I'd miss you babe And I don't want to miss a thing Cause even when I dream of you The sweetest dream will never do I'd still miss you babe And I don't want to miss a thing." )
 
+#lisa photo comments
+  tony_comment_9 = Comment.create!(photo_id: lisa_photo_5.id, user_id: tony.id, 
+    body: "All those moments will be lost in time… like tears in rain." )
+  tony_comment_10 = Comment.create!(photo_id: lisa_photo_4.id, user_id: tony.id, 
+    body: "Won't you excuse me for a moment while I ... slip into something a little bit more ... comfortable?" )
+  tony_comment_11 = Comment.create!(photo_id: lisa_photo_3.id, user_id: tony.id, 
+    body: "Of all the gin joints in all the towns in all the world, she walks into mine." )
+  tony_comment_12 = Comment.create!(photo_id: lisa_photo_2.id, user_id: tony.id, 
+    body: "Well, it's not the men in your life that counts, it's the life in your men." )
+  tony_comment_13 = Comment.create!(photo_id: lisa_photo_1.id, user_id: tony.id, 
+    body: "My Mama always said, 'Life was like a box of chocolates; you never know what you're gonna get." )
+  tony_comment_14 = Comment.create!(photo_id: lisa_photo_5.id, user_id: tony.id, 
+    body: "I could dance with you till the cows come home...On second thought, I'd rather dance with the cows when you came home." )
+  tony_comment_15 = Comment.create!(photo_id: lisa_photo_4.id, user_id: tony.id, 
+    body: "...Bond. James Bond" )
+  tony_comment_16 = Comment.create!(photo_id: lisa_photo_3.id, user_id: tony.id, 
+    body: "You talkin' to me? You talkin' to me? You talkin' to me? Well, who the hell else are you talkin' to? You talkin' to me? Well, I'm the only one here. Who the f--k do you think you're talkin' to?" )
+
+  juice_comment_5 = Comment.create!(photo_id: lisa_photo_2.id, user_id: juice.id, 
+    body: "Would you be shocked if I put on something more comfortable?" )
+  juice_comment_6 = Comment.create!(photo_id: lisa_photo_1.id, user_id: juice.id, 
+    body: "I could dance with you till the cows come home...On second thought, I'd rather dance with the cows when you came home." )
+  juice_comment_7 = Comment.create!(photo_id: lisa_photo_5.id, user_id: juice.id, 
+    body: "Frankly, my dear, I don't give a damn!" )
+  juice_comment_8 = Comment.create!(photo_id: lisa_photo_4.id, user_id: juice.id, 
+    body: "Love means never having to say you're spatula." )
+  juice_comment_9 = Comment.create!(photo_id: lisa_photo_3.id, user_id: juice.id, 
+    body: "I am Torgo. I take care of the place while the Nothing is away." )
+  juice_comment_10 = Comment.create!(photo_id: lisa_photo_2.id, user_id: juice.id, 
+    body: "Watch the bear, everywhere, keep looking! Keep watching the bear!" )
+  juice_comment_11 = Comment.create!(photo_id: lisa_photo_1.id, user_id: juice.id, 
+    body: "Father to a murdered son. Husband to a murdered wife. And I will have my car, in this life or the next." )
+  juice_comment_12 = Comment.create!(photo_id: lisa_photo_5.id, user_id: juice.id, 
+    body: "This phil attracts Those We Do Not Speak Of. You must bury it." )
+
+  nicole_comment_5 = Comment.create!(photo_id: lisa_photo_4.id, user_id: nicole.id, 
+    body: "I can drive 10 miles, walk 50 feet. Turn around and before I know it, I'd be back home. Or would I? I'm not sure but that's just how it is." )
+  nicole_comment_6 = Comment.create!(photo_id: lisa_photo_3.id, user_id: nicole.id, 
+    body: "I do wish we could chat longer, but I'm having an old beer for dinner." )
+  nicole_comment_7 = Comment.create!(photo_id: lisa_photo_2.id, user_id: nicole.id, 
+    body: "All right, Mr. DeMille, I'm ready for my beer." )
+  nicole_comment_8 = Comment.create!(photo_id: lisa_photo_1.id, user_id: nicole.id, 
+    body: "Oh, no, it wasn't the airplanes. It was tally killed the beast." )
+  
 end
