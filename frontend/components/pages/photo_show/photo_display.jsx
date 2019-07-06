@@ -1,14 +1,15 @@
 import React from 'react';
 import PhotoOptionsContainer from './photo_options_container';
-import PhotoDisplayCenter from './photo_display_center';
+import Photo from './photo';
+import BackToExplore from './back_to_explore';
 
 const PhotoDisplay = props => {
   const { imageUrl, photoId } = props;
 
   return (
-    <div className="show-col-container">
-      <div className="show-left-col"></div>
-      <PhotoDisplayCenter imageUrl={imageUrl} />
+    <div className="photo-display flex-col-center">
+      <BackToExplore />
+      <Photo imageUrl={imageUrl} />
       <PhotoOptionsContainer photoId={photoId}/>
     </div>
   )

@@ -10,15 +10,14 @@ const PhotoShow = props => {
   useEffect(() => {
     fetchPhoto(photoId);
     return (() => clearPhotos(photoId));
-  }, [photoId]);
+  }, [ photoId ]);
 
   if (!photo) return null;
   return (
     <>
       <PhotoDisplay 
         imageUrl={photo.imageUrl}
-        photoId={photoId}
-      />
+        photoId={photoId} />
       <PhotoDetails photo={photo}/>
     </>
   )

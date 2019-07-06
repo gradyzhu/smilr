@@ -1,17 +1,18 @@
 .nav-bar-logged-out {
   position: absolute;
   width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 1;
 }
 
 .nav-bar-logged-in{
   position: relative;
   width: 100%;
+  background-color: #161618;
 }
 .navbar-container-logged-out, .navbar-logout-container {
-  width: 100%;
+  width: 90%;
   height: 64px;
-  background: rgba(0, 0, 0, 0.5);
   font-family: helvetica neue;
   display: flex;
   justify-content: space-between;
@@ -20,9 +21,8 @@
 
 
 .navbar-container-logged-in {
-  width: 100%;
+  width: 70%;
   height: 64px;
-  background: #161618;
   font-family: helvetica neue;
   display: flex;
   justify-content: space-between;
@@ -33,7 +33,6 @@
 }
 
 .navbar-left {
-  margin-left: 40px;
   font-weight: bold;
   font-size: 35px;
   color: white;
@@ -44,11 +43,9 @@
   justify-content: center;
   align-content: center;
   align-items: center;
-  // background-color: blue;
 }
 
 .navbar-right-logged-in, .navbar-right-logged-out {
-  margin-right: 40px;
   font-weight: 500;
   font-size: 13px;
 }

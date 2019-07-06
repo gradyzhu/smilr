@@ -8,7 +8,7 @@ const Navbar = props => {
   
   const loggedInNav = () => {
     return (
-      <div className="nav-bar-logged-in">
+      <div className="nav-bar-logged-in flex-center">
         <div className="navbar-container-logged-in">
           <div className="navbar-left">
             <Link to="/" className="logo">
@@ -34,7 +34,7 @@ const Navbar = props => {
 
   const loggedOutNav = () => (
     <div>
-      <nav className="nav-bar-logged-out">
+      <nav className="nav-bar-logged-out flex-center">
         <div className="navbar-container-logged-out">
           <div className="navbar-left">
             <Link to="/" className="logo">smilr</Link>

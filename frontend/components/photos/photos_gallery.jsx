@@ -26,7 +26,8 @@ const PhotosGallery = ({ photos }) => {
       <Gallery
         images={images}
         enableImageSelection={false}
-        rowHeight={320}
+        rowHeight={250}
+        margin={2}
       />  
     </div>
   )

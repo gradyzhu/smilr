@@ -8,7 +8,7 @@ import { fetchPhotos, clearPhotos } from '../../actions/photos_actions';
 const PhotosIndex = props => {
   const [ offset, setOffset ] = useState(0);
   const [ isLoading, setIsLoading ] = useState(true);
-  const { fetchPhotos, clearPhotos, photos, userId, history: { push } } = props;
+  const { fetchPhotos, clearPhotos, photos, userId } = props;
 
   useEffect(() => {
     fetchPhotos(offset, userId).then(() => setIsLoading(false));
