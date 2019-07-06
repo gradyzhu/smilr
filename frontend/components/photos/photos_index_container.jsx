@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
-import PhotosIndexItem from './photos_index_item';
+import PhotoIndexItemOverlay from './photo_index_item_overlay';
 import LoadMore from './load_more';
 import { connect } from 'react-redux';
 import { fetchPhotos, clearPhotos } from '../../actions/photos_actions';
-    
+import Gallery from '../../gallery/Gallery';
+import { withRouter } from 'react-router';
+
 const PhotosIndex = props => {
   const [ offset, setOffset ] = useState(0);
   const [ isLoading, setIsLoading ] = useState(true);
-  const { fetchPhotos, clearPhotos, photos, userId } = props;
+  const { fetchPhotos, clearPhotos, photos, userId, history: { push } } = props;
 
   useEffect(() => {
     fetchPhotos(offset, userId).then(() => setIsLoading(false));
@@ -21,28 +23,32 @@ const PhotosIndex = props => {
       .then(() => setIsLoading(false));
   };
 
-  let allPhotos = photos.map(photo => {
-    const { id, imageUrl, title, description, username, userId, comments } = photo;
-    return (
-      <PhotosIndexItem
-        key={id}
-        photo={imageUrl}
-        photoId={id}
-        photoTitle={title}
-        photoDescription={description}
-        username={username}
-        userId={userId}
-        commentCount={comments.length} 
-      />
-    )
+  let images = photos.map(photo => {
+    const { title, imageUrl, width, height, username, id, comments } = photo;
+    return {
+      id: id,
+      src: imageUrl,
+      thumbnail: imageUrl,
+      thumbnailWidth: width,
+      thumbnailHeight: height,
+      customOverlay: 
+        <PhotoIndexItemOverlay
+          key={id}
+          username={username}
+          title={title}
+          length={comments.length}
+        />
+    };
   });
 
   return (
     <div className="flex-col-center">
       <ul className="index-ul-container">
-        <div className="index-li-flex">
-          {allPhotos}
-        </div>
+        <Gallery 
+          images={images}
+          enableImageSelection={false}
+          rowHeight={320}
+        />
       </ul>
       <LoadMore 
         isLoading={isLoading}
@@ -67,4 +73,4 @@ const mdtp = (dispatch) => {
   });
 };
 
-export default connect(mstp, mdtp)(PhotosIndex);
+export default withRouter(connect(mstp, mdtp)(PhotosIndex));

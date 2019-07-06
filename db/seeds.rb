@@ -102,7 +102,7 @@ ActiveRecord::Base.transaction do
   tony_photo_7 = Photo.create!(user_id: tony.id, title: "tony_photo_7", description: "description", width: tony_photo_7_size[0], height: tony_photo_7_size[1])
   tony_photo_8_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/tony_photos/roberto-nickson-1293509-unsplash.jpg", :raise_on_failure => true)
   tony_photo_8 = Photo.create!(user_id: tony.id, title: "tony_photo_8", description: "description", width: tony_photo_8_size[0], height: tony_photo_8_size[1])
-  tony_photo_9_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/tony_photos/roberto-nickson-415618-unsplash.jpg", :raise_on_failure => true)
+  tony_photo_9_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/tony_photos/roberto-nickson-1348835-unsplash.jpg", :raise_on_failure => true)
   tony_photo_9 = Photo.create!(user_id: tony.id, title: "tony_photo_9", description: "description", width: tony_photo_9_size[0], height: tony_photo_9_size[1])
   tony_photo_10_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/tony_photos/roberto-nickson-1385598-unsplash.jpg", :raise_on_failure => true)
   tony_photo_10 = Photo.create!(user_id: tony.id, title: "tony_photo_10", description: "description", width: tony_photo_10_size[0], height: tony_photo_10_size[1])
