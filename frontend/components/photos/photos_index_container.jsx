@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import PhotoIndexItemOverlay from './photo_index_item_overlay';
-import LoadMore from './load_more';
-import { connect } from 'react-redux';
-import { fetchPhotos, clearPhotos } from '../../actions/photos_actions';
-import Gallery from '../../gallery/Gallery';
 import { withRouter } from 'react-router';
+import { connect } from 'react-redux';
+import LoadMore from './load_more';
+import Gallery from '../../gallery/Gallery';
+import PhotoIndexItemOverlay from './photo_index_item_overlay';
+import { fetchPhotos, clearPhotos } from '../../actions/photos_actions';
 
 const PhotosIndex = props => {
   const [ offset, setOffset ] = useState(0);
@@ -42,14 +42,14 @@ const PhotosIndex = props => {
   });
 
   return (
-    <div className="flex-col-center">
-      <ul className="index-ul-container">
-        <Gallery 
+    <div className="photo-index">
+      <div className="gallery-size">
+        <Gallery
           images={images}
           enableImageSelection={false}
           rowHeight={320}
         />
-      </ul>
+      </div>
       <LoadMore 
         isLoading={isLoading}
         handleClick={handleClick}

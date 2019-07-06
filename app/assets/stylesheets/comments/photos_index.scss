@@ -1,10 +1,22 @@
 
-
+.home {
+  background-color: F3F5F6;
+}
 .index-flex-left {
   display: flex;
   justify-content: flex-start;
   align-content: center;
   align-items: center;
+}
+
+
+.photo-index {
+  background-color: #F3F5F6;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .index-flex-center-col {
@@ -75,13 +87,12 @@
 .index-page-header-container {
   width: 100%;
   height: 50px;
-  margin-top: 20px;
-  background-color: #F3F5F6;
+  padding-top: 20px;
 }
 
 .index-page-header {
-  width: 1400px;
-  height: 50px;
+  width: 70%;
+  min-width: 500px;
 }
 
 .index-ul-container {
@@ -89,6 +100,12 @@
   margin-bottom: 60px;
 }
 
+.gallery-size {
+  width: 70%;
+  min-width: 500px;
+  margin-bottom: 50px;
+  
+}
 .index-li-flex {
   display: flex;
   justify-content: flex-start;

@@ -155,6 +155,7 @@ class Image extends Component {
         style={{
             pointerEvents: "none",
             opacity: this.state.hover ? 1 : 0,
+            transition: "ease .3s",
             position: "absolute",
             height: "100%",
             width: "100%"}}>
