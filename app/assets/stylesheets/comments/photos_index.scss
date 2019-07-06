@@ -2,6 +2,7 @@
 .home {
   background-color: F3F5F6;
 }
+
 .index-flex-left {
   display: flex;
   justify-content: flex-start;
@@ -11,6 +12,7 @@
 
 
 .photo-index {
+  width: 100%;
   background-color: #F3F5F6;
   display: flex;
   justify-content: center;
@@ -92,17 +94,10 @@
 
 .index-page-header {
   width: 70%;
-  min-width: 500px;
-}
-
-.index-ul-container {
-  width: 1400px;
-  margin-bottom: 60px;
 }
 
 .gallery-size {
   width: 70%;
-  min-width: 500px;
   margin-bottom: 50px;
   
 }
@@ -118,14 +113,4 @@
   max-height: 300px;
   width: auto;
   padding: 0;
-}
-
-@media (max-width: 1200px) {
-  .index-ul-container {
-    width: 900px;
-  }
-
-  .index-page-header {
-    width: 900px
-  }
 }

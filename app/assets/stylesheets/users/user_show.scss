@@ -55,7 +55,6 @@
   background-size: 100%;
   background-position: center;
   background-repeat: no-repeat;
-  // background-color: black;
 
   &:before {
     content: '';
@@ -77,7 +76,6 @@
   height: 60px;
   transition: ease .5s;
   border-bottom: 1px solid #DCDCDC;
-  // background-color: blue;
 }
 
 .option-bar {
@@ -87,7 +85,6 @@
   background-color: red;
 }
 
-
 .photo-filter-bar {
   font-family: helvetica;
   font-size: 16px;
@@ -96,16 +93,14 @@
   color: #202023;
 }
 
-
 .filters-bar-container {
   width: 100%;
   height: 60px;
   background-color: #F3F5F6;
-
 }
 
 .filters-bar {
-  width: 1400px;
+  width: 70%;
   height: 60px;
   margin-left: 2.5px;
 }
@@ -151,15 +146,13 @@
 .user-details-columns {
   z-index: 1;
   height: 150px;
-  width: 1400px;
-  // background-color: green;
+  width: 70%;
 
 }
 .user-avatar {
   width: 125px;
   height: 125px;
   font-size: 50px;
-  // background-color: brown;
 }
 
 .user-avatar-image-well{
@@ -173,31 +166,9 @@
 .user-details-wrap {
   height: 125px;
   width: auto;
-  // background-color: orange;
 }
 
 .border {
   width: auto;
   height: 25px;
-  // outline: 1px solid blue;
 }
-
-@media (max-width: 1200px) {
-  .filters-bar {
-    width: 900px;
-  }
-  .user-details-columns {
-    width: 900px;
-  }
-}
-
-// .overlap {
-//   position: absolute;
-//   left: 0;
-//   right: 0;
-//   top: 0;
-//   bottom: 0;
-//   height: 250px;
-//   width: 100%;
-//   transform-translate
-// }

@@ -10,19 +10,11 @@ class Gallery extends Component {
         this.state = {
             images: this.props.images,
             thumbnails: [],
-            lightboxIsOpen: this.props.isOpen,
             currentImage: this.props.currentImage,
             containerWidth: 0
         };
 
         this.onResize = this.onResize.bind(this);
-        this.closeLightbox = this.closeLightbox.bind(this);
-        this.gotoImage = this.gotoImage.bind(this);
-        this.gotoNext = this.gotoNext.bind(this);
-        this.gotoPrevious = this.gotoPrevious.bind(this);
-        this.onClickImage = this.onClickImage.bind(this);
-        this.openLightbox = this.openLightbox.bind(this);
-        this.onSelectImage = this.onSelectImage.bind(this);
     }
 
     componentDidMount () {
@@ -44,6 +36,7 @@ class Gallery extends Component {
 
     componentDidUpdate () {
         if (!this._gallery) return;
+        debugger
         if (this._gallery.clientWidth
             !== this.state.containerWidth){
             this.onResize();
@@ -54,117 +47,11 @@ class Gallery extends Component {
     }
 
     onResize () {
-        if (!this._gallery) return;
-        this.setState({
-            containerWidth: Math.floor(this._gallery.clientWidth),
-            thumbnails: this.renderThumbs(this._gallery.clientWidth)
-        });
-    }
-
-    openLightbox (index, event) {
-        if (event) {
-            event.preventDefault();
-        }
-        if (this.props.lightboxWillOpen) {
-            this.props.lightboxWillOpen.call(this, index);
-        }
-        if (this.props.currentImageWillChange) {
-            this.props.currentImageWillChange.call(this, index);
-        }
-
-        this.setState({
-            currentImage: index,
-            lightboxIsOpen: true
-        });
-    }
-
-    closeLightbox () {
-        if (this.props.lightboxWillClose) {
-            this.props.lightboxWillClose.call(this);
-        }
-        if (this.props.currentImageWillChange) {
-            this.props.currentImageWillChange.call(this, 0);
-        }
-
-        this.setState({
-            currentImage: 0,
-            lightboxIsOpen: false
-        });
-    }
-
-    gotoPrevious () {
-        if (this.props.currentImageWillChange) {
-            this.props.currentImageWillChange.call(this, this.state.currentImage - 1);
-        }
-        this.setState({
-            currentImage: this.state.currentImage - 1
-        });
-    }
-
-    gotoNext () {
-        if (this.props.currentImageWillChange) {
-            this.props.currentImageWillChange.call(this, this.state.currentImage + 1);
-        }
-        this.setState({
-            currentImage: this.state.currentImage + 1
-        });
-    }
-
-    onClickImage () {
-        if (this.state.currentImage === this.props.images.length - 1)
-            return;
-        this.gotoNext();
-    }
-
-    onSelectImage (index, event) {
-        event.preventDefault();
-        if(this.props.onSelectImage)
-            this.props.onSelectImage.call(this, index, this.state.images[index]);
-    }
-
-    gotoImage (index) {
-        if (this.props.currentImageWillChange) {
-            this.props.currentImageWillChange.call(this, index);
-        }
-        this.setState({
-            currentImage: index
-        });
-    }
-
-    getOnClickThumbnailFn = (id, handleRedirect) => {
-        if(!this.props.onClickThumbnail && this.props.enableLightbox)
-            return this.openLightbox;
-        if(this.props.onClickThumbnail)
-            return () => handleRedirect(id);
-        return null;
-    }
-
-    getOnClickLightboxThumbnailFn () {
-        if(!this.props.onClickLightboxThumbnail
-           && this.props.showLightboxThumbnails)
-            return this.gotoImage;
-        if(this.props.onClickLightboxThumbnail
-           && this.props.showLightboxThumbnails)
-            return this.props.onClickLightboxThumbnail;
-        return null;
-    }
-
-    getOnClickImageFn () {
-        if(this.props.onClickImage)
-            return this.props.onClickImage;
-        return this.onClickImage;
-    }
-
-    getOnClickPrevFn () {
-        if(this.props.onClickPrev)
-            return this.props.onClickPrev;
-        return this.gotoPrevious;
-    }
-
-    getOnClickNextFn () {
-        if(this.props.onClickNext)
-            return this.props.onClickNext;
-        return this.gotoNext;
+      if (!this._gallery) return;
+      this.setState({
+          containerWidth: Math.floor(this._gallery.clientWidth),
+          thumbnails: this.renderThumbs(this._gallery.clientWidth)
+      });
     }
 
     calculateCutOff (len, delta, items) {
@@ -255,10 +142,6 @@ class Gallery extends Component {
         return thumbs;
     }
 
-    nullFunc = () => {
-
-    }
-
     render () {
         var images = this.state.thumbnails.map((item, idx) => {
           return (
@@ -269,7 +152,6 @@ class Gallery extends Component {
                 margin={this.props.margin}
                 height={this.props.rowHeight}
                 isSelectable={this.props.enableImageSelection}
-                onClick={this.nullFunc}
                 onSelectImage={this.onSelectImage}
                 tagStyle={this.props.tagStyle}
                 tileViewportStyle={this.props.tileViewportStyle}

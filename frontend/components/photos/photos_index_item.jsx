@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const PhotosIndexItem = props => {
-  const {photoId, photoTitle, username, commentCount, photo} = props;
+  const { photoId, photoTitle, username, commentCount, photo } = props;
   
   return (
     <div className="photo-container">

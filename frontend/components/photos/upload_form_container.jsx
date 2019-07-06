@@ -2,16 +2,16 @@ import UploadForm from './upload_form';
 import { connect } from 'react-redux';
 import { createPhoto } from '../../actions/photos_actions';
 
-const mapStateToProps = (state, ownProps) => {
+const mstp = (state, ownProps) => {
   return ({
     formType: "Upload"
   });
 };
 
-const mapDispatchToProps = (dispatch) => {
+const mdtp = (dispatch) => {
   return ({
-    createPhoto: (photo) => dispatch(createPhoto(photo)),
+    createPhoto: photo => dispatch(createPhoto(photo)),
   });
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(UploadForm);
+export default connect(mstp, mdtp)(UploadForm);

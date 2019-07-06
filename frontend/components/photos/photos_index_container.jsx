@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import LoadMore from './load_more';
-import Gallery from '../../gallery/Gallery';
-import PhotoIndexItemOverlay from './photo_index_item_overlay';
+import PhotosGallery from './photos_gallery';
 import { fetchPhotos, clearPhotos } from '../../actions/photos_actions';
 
 const PhotosIndex = props => {
@@ -23,37 +22,12 @@ const PhotosIndex = props => {
       .then(() => setIsLoading(false));
   };
 
-  let images = photos.map(photo => {
-    const { title, imageUrl, width, height, username, id, comments } = photo;
-    return {
-      id: id,
-      src: imageUrl,
-      thumbnail: imageUrl,
-      thumbnailWidth: width,
-      thumbnailHeight: height,
-      customOverlay: 
-        <PhotoIndexItemOverlay
-          key={id}
-          username={username}
-          title={title}
-          length={comments.length}
-        />
-    };
-  });
-
   return (
     <div className="photo-index">
-      <div className="gallery-size">
-        <Gallery
-          images={images}
-          enableImageSelection={false}
-          rowHeight={320}
-        />
-      </div>
+      <PhotosGallery photos={photos} />
       <LoadMore 
-        isLoading={isLoading}
-        handleClick={handleClick}
-      />
+        isLoading={isLoading} 
+        handleClick={handleClick} />
     </div>
   )
 };
