@@ -5,10 +5,10 @@ const UserShowBanner = ({ user }) => {
     <div className="user-banner-container index-flex-center-col">
       <div className="user-banner flex-col-bottom">
         <div className="user-details-columns flex-row-left">
-          <div className="user-avatar flex-col-center">
+          {/* <div className="user-avatar flex-col-center">
             <div className="user-avatar-image-well">
             </div>
-          </div>
+          </div> */}
           <div className="user-details-wrap flex-col-center">
             <div className="user-details flex-col-left-text">
               <div className="username">

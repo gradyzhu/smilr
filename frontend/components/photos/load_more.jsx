@@ -3,9 +3,7 @@ import { SyncLoader } from 'react-spinners';
 
 const LoadMore = props => {
   const { isLoading, handleClick } = props;
-
-  let buttonOrLoader;
-
+  
   if (isLoading) {
     return (
       <div className="user-show-loader">
