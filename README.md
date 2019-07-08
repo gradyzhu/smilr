@@ -23,6 +23,55 @@ User are able to sign-up, browse photos, view users, upload photos, and create a
 ## Features
 
 ### Photo Upload
+
+To extract the dimensions of files, I initiated a new Image object and create a slice of state to store the values.
+
+```javascript
+  const handleFile = event => {
+    const file = event.currentTarget.files[0];
+    const fileReader = new FileReader();
+
+    if (file) fileReader.readAsDataURL(file);
+
+    fileReader.onloadend = () => {
+      let image = new Image();
+      image.src = fileReader.result;
+      image.onload = () => {
+        setPhotoFile(file);
+        setPhotoUrl(fileReader.result);
+        setIsUploaded(true);
+        setPhotoWidth(image.width);
+        setPhotoHeight(image.height);
+      };
+    };
+  };
+```
+
+Upon submit, key value pairs are appended to a FormData object.  The FormData is passed into a createPhoto function that carries out the eventual creation of the Photo.
+
+``` javascript
+  const handleInput = field => event => {
+    if (field === "description") setDescription(event.currentTarget.value);
+    if (field === "title") setTitle(event.currentTarget.value);
+  };
+
+  const handleSubmit = event => {
+    event.preventDefault();
+    setIsUploading(true);
+    const formData = new FormData();
+    formData.append('photo[title]', title);
+    formData.append('photo[description]', description);
+    formData.append('photo[width]', photoWidth);
+    formData.append('photo[height]', photoHeight);
+    formData.append('photo[image]', photoFile);
+
+    createPhoto(formData).then(res => {
+      history.push(`/photos/${res.photo.id}`);
+    });
+  };
+```
+
+
 ### Albums
 ### Comments
 ### User Authentication

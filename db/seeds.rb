@@ -111,54 +111,149 @@ ActiveRecord::Base.transaction do
 
   
   lisa_photo_1_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/lisa_photos/angel-jimenez-166955-unsplash.jpg", :raise_on_failure => true)
-  lisa_photo_1 = Photo.create!(user_id: lisa.id, title: "lisa_photo_1", description: "description", width: lisa_photo_1_size[0], height: lisa_photo_1_size[1])
+  lisa_photo_1 = Photo.create!(
+    user_id: lisa.id, 
+    title: "Gargoyles", 
+    width: lisa_photo_1_size[0], 
+    height: lisa_photo_1_size[1],
+    description: "Make no mistake, little human. You are under my protection now, and I protect what is mine.")
+
   lisa_photo_2_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/lisa_photos/angel-jimenez-168185-unsplash.jpg", :raise_on_failure => true)
-  lisa_photo_2 = Photo.create!(user_id: lisa.id, title: "lisa_photo_2", description: "description", width: lisa_photo_2_size[0], height: lisa_photo_2_size[1])
+  lisa_photo_2 = Photo.create!(
+    user_id: lisa.id, 
+    title: "Blueberry Man Group", 
+    width: lisa_photo_2_size[0], 
+    height: lisa_photo_2_size[1],
+    description: "Blueberries are perennial flowering plants with blue– or purple–colored berries. They are classified in the section Cyanococcus within the genus Vaccinium.")
+
   lisa_photo_3_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/lisa_photos/angel-jimenez-168280-unsplash.jpg", :raise_on_failure => true)
-  lisa_photo_3 = Photo.create!(user_id: lisa.id, title: "lisa_photo_3", description: "description", width: lisa_photo_3_size[0], height: lisa_photo_3_size[1])
+  lisa_photo_3 = Photo.create!(
+    user_id: lisa.id, 
+    title: "Brighten Up", 
+    width: lisa_photo_3_size[0], 
+    height: lisa_photo_3_size[1],
+    description: "The best and most beautiful things in the world cannot be seen or even touched - they must be felt with the heart.")
+
   lisa_photo_4_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/lisa_photos/angel-jimenez-178856-unsplash.jpg", :raise_on_failure => true)
-  lisa_photo_4 = Photo.create!(user_id: lisa.id, title: "lisa_photo_4", description: "description", width: lisa_photo_4_size[0], height: lisa_photo_4_size[1])
+  lisa_photo_4 = Photo.create!(
+    user_id: lisa.id, 
+    title: "Aokiji", 
+    width: lisa_photo_4_size[0], 
+    height: lisa_photo_4_size[1],
+    description: "The thing called 'justice' changes its shape... Depending on where you stand.")
+
   lisa_photo_5_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/lisa_photos/angel-jimenez-181097-unsplash.jpg", :raise_on_failure => true)
-  lisa_photo_5 = Photo.create!(user_id: lisa.id, title: "lisa_photo_5", description: "description", width: lisa_photo_5_size[0], height: lisa_photo_5_size[1])
+  lisa_photo_5 = Photo.create!(
+    user_id: lisa.id, 
+    title: "Light Room", 
+    width: lisa_photo_5_size[0], 
+    height: lisa_photo_5_size[1],
+    description: "Their apparent convergence in the sky is a visual illusion from linear perspective.")
+
   lisa_photo_6_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/lisa_photos/angel-jimenez-204076-unsplash.jpg", :raise_on_failure => true)
-  lisa_photo_6 = Photo.create!(user_id: lisa.id, title: "lisa_photo_6", description: "description", width: lisa_photo_6_size[0], height: lisa_photo_6_size[1])
+  lisa_photo_6 = Photo.create!(
+    user_id: lisa.id, 
+    title: "Mr.Photographer", 
+    width: lisa_photo_6_size[0], 
+    height: lisa_photo_6_size[1],
+    description: "Photography is the art, application and practice of creating durable images by recording light or other electromagnetic radiation, either electronically by means of an image sensor, or chemically by means of a light-sensitive material such as photographic film.")
   
 
   nicole_photo_1_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/nicole_photos/oladimeji-odunsi-248781-unsplash.jpg", :raise_on_failure => true)
-  nicole_photo_1 = Photo.create!(user_id: nicole.id, title: "nicole_photo_1", description: "description", width: nicole_photo_1_size[0], height: nicole_photo_1_size[1])
+  nicole_photo_1 = Photo.create!(
+    user_id: nicole.id, 
+    title: "Solar Plexus", 
+    description: "Infuse your life with action. Don't wait for it to happen. Make it happen. Make your own future. Make your own hope. Make your own love. And whatever your beliefs, honor your creator, not by passively waiting for grace to come down from upon high, but by doing what you can to make grace happen... yourself, right now, right down here on Earth.", 
+    width: nicole_photo_1_size[0], 
+    height: nicole_photo_1_size[1])
   
   nicole_photo_2_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/nicole_photos/oladimeji-odunsi-280940-unsplash.jpg", :raise_on_failure => true)
-  nicole_photo_2 = Photo.create!(user_id: nicole.id, title: "nicole_photo_2", description: "description", width: nicole_photo_2_size[0], height: nicole_photo_2_size[1])
+  nicole_photo_2 = Photo.create!(
+    user_id: nicole.id, 
+    title: "SkyLight", 
+    description: "have to think that I think it's always been a horse race between this administration's temporary political acumen and their completely, utterly, totally bankrupt policies. And they're coming home to roost. It was always a question of time. These guys aren't conservative. These guys are radicals.", 
+    width: nicole_photo_2_size[0], 
+    height: nicole_photo_2_size[1])
 
   nicole_photo_3_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/nicole_photos/oladimeji-odunsi-297329-unsplash.jpg", :raise_on_failure => true)
-  nicole_photo_3 = Photo.create!(user_id: nicole.id, title: "nicole_photo_3", description: "description", width: nicole_photo_3_size[0], height: nicole_photo_3_size[1])
+  nicole_photo_3 = Photo.create!(
+    user_id: nicole.id, 
+    title: "Brilliant Builds", 
+    description: "Telling a story in a futuristic world gives you this freedom to explore things that bother you in contemporary times.", 
+    width: nicole_photo_3_size[0], 
+    height: nicole_photo_3_size[1])
 
   nicole_photo_4_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/nicole_photos/oladimeji-odunsi-297333-unsplash.jpg", :raise_on_failure => true)
-  nicole_photo_4 = Photo.create!(user_id: nicole.id, title: "nicole_photo_4", description: "description", width: nicole_photo_4_size[0], height: nicole_photo_4_size[1])
+  nicole_photo_4 = Photo.create!(
+    user_id: nicole.id, 
+    title: "Laying Up", 
+    description: "This was a movement of intellectuals who wanted to replace tradition with the modern world of machinery, speed, violence, and public relations. It proves that we should be careful what intellectuals wish for, because we might get it.  ", 
+    width: nicole_photo_4_size[0], 
+    height: nicole_photo_4_size[1])
 
   nicole_photo_5_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/nicole_photos/oladimeji-odunsi-306172-unsplash.jpg", :raise_on_failure => true)
-  nicole_photo_5 = Photo.create!(user_id: nicole.id, title: "nicole_photo_5", description: "description", width: nicole_photo_5_size[0], height: nicole_photo_5_size[1])
+  nicole_photo_5 = Photo.create!(
+    user_id: nicole.id, 
+    title: "Pure Introspection", 
+    description: "The illiterate of the 21st century will not be those who cannot read and write, but those who cannot learn, unlearn, and relearn.", 
+    width: nicole_photo_5_size[0], 
+    height: nicole_photo_5_size[1])
 
   nicole_photo_6_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/nicole_photos/oladimeji-odunsi-307743-unsplash.jpg", :raise_on_failure => true)
-  nicole_photo_6 = Photo.create!(user_id: nicole.id, title: "nicole_photo_6", description: "description", width: nicole_photo_6_size[0], height: nicole_photo_6_size[1])
+  nicole_photo_6 = Photo.create!(
+    user_id: nicole.id, 
+    title: "Shining Moment", 
+    description: "What is funny is when you do a futuristic movie, you immediately get to be fashionable because you're creating something that doesn't exist.", 
+    width: nicole_photo_6_size[0], 
+    height: nicole_photo_6_size[1])
 
   nicole_photo_7_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/nicole_photos/oladimeji-odunsi-367505-unsplash.jpg", :raise_on_failure => true)
-  nicole_photo_7 = Photo.create!(user_id: nicole.id, title: "nicole_photo_7", description: "description", width: nicole_photo_7_size[0], height: nicole_photo_7_size[1])
+  nicole_photo_7 = Photo.create!(
+    user_id: nicole.id, 
+    title: "Wrists and Face", 
+    description: "The future will look futuristic only because we will be trying to make it look futuristic. ", 
+    width: nicole_photo_7_size[0], 
+    height: nicole_photo_7_size[1])
 
   nicole_photo_8_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/nicole_photos/oladimeji-odunsi-415606-unsplash.jpg", :raise_on_failure => true)
-  nicole_photo_8 = Photo.create!(user_id: nicole.id, title: "nicole_photo_8", description: "description", width: nicole_photo_8_size[0], height: nicole_photo_8_size[1])
+  nicole_photo_8 = Photo.create!(
+    user_id: nicole.id, 
+    title: "Distant Feelings", 
+    description: "If we define Futurism as an exploration beyond accepted limits, then the nature of limiting systems becomes the first object of exploration.", 
+    width: nicole_photo_8_size[0], 
+    height: nicole_photo_8_size[1])
 
   nicole_photo_9_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/nicole_photos/oladimeji-odunsi-415618-unsplash.jpg", :raise_on_failure => true)
-  nicole_photo_9 = Photo.create!(user_id: nicole.id, title: "nicole_photo_9", description: "description", width: nicole_photo_9_size[0], height: nicole_photo_9_size[1])
+  nicole_photo_9 = Photo.create!(
+    user_id: nicole.id, 
+    title: "Kanye Palette", 
+    description: "For time and the world do not stand still. Change is the law of life. And those who look only to the past or the present are certain to miss the future.", 
+    width: nicole_photo_9_size[0], 
+    height: nicole_photo_9_size[1])
 
   nicole_photo_10_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/nicole_photos/oladimeji-odunsi-558609-unsplash.jpg", :raise_on_failure => true)
-  nicole_photo_10 = Photo.create!(user_id: nicole.id, title: "nicole_photo_10", description: "description", width: nicole_photo_10_size[0], height: nicole_photo_10_size[1])
+  nicole_photo_10 = Photo.create!(
+    user_id: nicole.id, 
+    title: "Straight Power", 
+    description: "To be a futurist, in pursuit of improving reality, is not to have your face continually turned upstream, waiting for the future to come. To improve reality is to clearly see where you are, and then wonder how to make that better.", 
+    width: nicole_photo_10_size[0], 
+    height: nicole_photo_10_size[1])
 
   nicole_photo_11_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/nicole_photos/oladimeji-odunsi-600457-unsplash.jpg", :raise_on_failure => true)
-  nicole_photo_11 = Photo.create!(user_id: nicole.id, title: "nicole_photo_11", description: "description", width: nicole_photo_11_size[0], height: nicole_photo_11_size[1])
+  nicole_photo_11 = Photo.create!(
+    user_id: nicole.id, 
+    title: "Yellow Disposition", 
+    description: "The most futuristic aspect of the House of the Future was that it was made almost entirely of plastic.", 
+    width: nicole_photo_11_size[0], 
+    height: nicole_photo_11_size[1])
 
   nicole_photo_12_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/nicole_photos/oladimeji-odunsi-1335501-unsplash.jpg", :raise_on_failure => true)
-  nicole_photo_12 = Photo.create!(user_id: nicole.id, title: "nicole_photo_12", description: "description", width: nicole_photo_12_size[0], height: nicole_photo_12_size[1])
+  nicole_photo_12 = Photo.create!(
+    user_id: nicole.id, 
+    title: "White anD Teal", 
+    description: "Those who speak of progression but are afraid of change are self-repressed and therefore unable to reach any further than their eyes can already see.", 
+    width: nicole_photo_12_size[0], 
+    height: nicole_photo_12_size[1])
 
   # photoname.image.attach(io: open(""), filename: "")
   # attach url to photos
