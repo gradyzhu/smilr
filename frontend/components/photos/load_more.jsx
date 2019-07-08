@@ -4,6 +4,8 @@ import { SyncLoader } from 'react-spinners';
 const LoadMore = props => {
   const { isLoading, handleClick } = props;
 
+  let buttonOrLoader;
+
   if (isLoading) {
     return (
       <div className="user-show-loader">
@@ -12,11 +14,13 @@ const LoadMore = props => {
     ) 
   } else {
     return (
-      <button 
-        className="load-more-button"
-        onClick={handleClick}>
-          Load more
-      </button> 
+      <div className="loader-margin flex-center">
+        <button 
+          className="load-more-button"
+          onClick={handleClick}>
+            Load more
+        </button> 
+      </div>
     )
   }
 };

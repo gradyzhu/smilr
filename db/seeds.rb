@@ -71,45 +71,151 @@ ActiveRecord::Base.transaction do
 
     
   juice_photo_1_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/juice_photos/amogh-manjunath-774717-unsplash.jpg", :raise_on_failure => true)
-  juice_photo_1 = Photo.create!(user_id: juice.id, title: "juice_photo_1", description: "description", width: juice_photo_1_size[0], height: juice_photo_1_size[1])
+  juice_photo_1 = Photo.create!(
+    user_id: juice.id, 
+    title: "Lombard Street", 
+    description: "Lombard Street is an east–west street in San Francisco, California that is famous for a steep, one-block section with eight hairpin turns.", 
+    width: juice_photo_1_size[0], 
+    height: juice_photo_1_size[1])
+
   juice_photo_2_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/juice_photos/amogh-manjunath-772472-unsplash.jpg", :raise_on_failure => true)
-  juice_photo_2 = Photo.create!(user_id: juice.id, title: "juice_photo_2", description: "description", width: juice_photo_2_size[0], height: juice_photo_2_size[1])
+  juice_photo_2 = Photo.create!(
+    user_id: juice.id, 
+    title: "Golden Gate Fence", 
+    description: "At the time of its opening in 1937, it was both the longest and the tallest suspension bridge in the world, with a main span of 4,200 feet (1,280 m) and a total height of 746 feet (227 m).", 
+    width: juice_photo_2_size[0], 
+    height: juice_photo_2_size[1])
+
   juice_photo_3_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/juice_photos/amogh-manjunath-772463-unsplash.jpg", :raise_on_failure => true)
-  juice_photo_3 = Photo.create!(user_id: juice.id, title: "juice_photo_3", description: "description", width: juice_photo_3_size[0], height: juice_photo_3_size[1])
+  juice_photo_3 = Photo.create!(
+    user_id: juice.id, 
+    title: "In the Bay", 
+    description: "description", 
+    width: juice_photo_3_size[0], 
+    height: juice_photo_3_size[1])
+
   juice_photo_4_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/juice_photos/amogh-manjunath-772475-unsplash.jpg", :raise_on_failure => true)
-  juice_photo_4 = Photo.create!(user_id: juice.id, title: "juice_photo_4", description: "description", width: juice_photo_4_size[0], height: juice_photo_4_size[1])
+  juice_photo_4 = Photo.create!(
+    user_id: juice.id, 
+    title: "Aerial Golden Gate", 
+    description: "The Golden Gate Bridge is a suspension bridge spanning the Golden Gate, the one-mile-wide (1.6 km) strait connecting San Francisco Bay and the Pacific Ocean.", 
+    width: juice_photo_4_size[0], 
+    height: juice_photo_4_size[1])
+
   juice_photo_5_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/juice_photos/amogh-manjunath-773461-unsplash.jpg", :raise_on_failure => true)
-  juice_photo_5 = Photo.create!(user_id: juice.id, title: "juice_photo_5", description: "description", width: juice_photo_5_size[0], height: juice_photo_5_size[1])
+  juice_photo_5 = Photo.create!(
+    user_id: juice.id, 
+    title: "Views from the Bay", 
+    description: "The structure links the American city of San Francisco, California – the northern tip of the San Francisco Peninsula – to Marin County, carrying both U.S. Route 101 and California State Route 1 across the strait.", 
+    width: juice_photo_5_size[0], 
+    height: juice_photo_5_size[1])
+
   juice_photo_6_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/juice_photos/amogh-manjunath-775985-unsplash.jpg", :raise_on_failure => true)
-  juice_photo_6 = Photo.create!(user_id: juice.id, title: "juice_photo_6", description: "description", width: juice_photo_6_size[0], height: juice_photo_6_size[1])
+  juice_photo_6 = Photo.create!(
+    user_id: juice.id, 
+    title: "Cable Car", 
+    description: "A cable car (usually known as a cable tram outside North America) is a type of cable railway used for mass transit where rail cars are hauled by a continuously moving cable running at a constant speed.", 
+    width: juice_photo_6_size[0], 
+    height: juice_photo_6_size[1])
+
   juice_photo_7_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/juice_photos/amogh-manjunath-799398-unsplash.jpg", :raise_on_failure => true)
-  juice_photo_7 = Photo.create!(user_id: juice.id, title: "juice_photo_7", description: "description", width: juice_photo_7_size[0], height: juice_photo_7_size[1])
+  juice_photo_7 = Photo.create!(
+    user_id: juice.id, 
+    title: "Socal Chillin'", 
+    description: "Southern California (colloquially and locally known as SoCal) is a geographic and cultural region that generally comprises California's southernmost counties, and is the second most populous urban agglomeration in the United States.", 
+    width: juice_photo_7_size[0], 
+    height: juice_photo_7_size[1])
   
 
   tony_photo_1_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/tony_photos/roberto-nickson-48063-unsplash.jpg", :raise_on_failure => true)
-  tony_photo_1 = Photo.create!(user_id: tony.id, title: "tony_photo_1", description: "description", width: tony_photo_1_size[0], height: tony_photo_1_size[1])
-  tony_photo_2_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/tony_photos/roberto-nickson-495794-unsplash.jpg", :raise_on_failure => true)
-  tony_photo_2 = Photo.create!(user_id: tony.id, title: "tony_photo_2", description: "description", width: tony_photo_2_size[0], height: tony_photo_2_size[1])
-  tony_photo_3_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/tony_photos/roberto-nickson-706404-unsplash.jpg", :raise_on_failure => true)
-  tony_photo_3 = Photo.create!(user_id: tony.id, title: "tony_photo_3", description: "description", width: tony_photo_3_size[0], height: tony_photo_3_size[1])
-  tony_photo_4_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/tony_photos/roberto-nickson-706405-unsplash.jpg", :raise_on_failure => true)
-  tony_photo_4 = Photo.create!(user_id: tony.id, title: "tony_photo_4", description: "description", width: tony_photo_4_size[0], height: tony_photo_4_size[1])
-  tony_photo_5_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/tony_photos/roberto-nickson-1083409-unsplash.jpg", :raise_on_failure => true)
-  tony_photo_5 = Photo.create!(user_id: tony.id, title: "tony_photo_5", description: "description", width: tony_photo_5_size[0], height: tony_photo_5_size[1])
-  tony_photo_6_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/tony_photos/roberto-nickson-1090353-unsplash.jpg", :raise_on_failure => true)
-  tony_photo_6 = Photo.create!(user_id: tony.id, title: "tony_photo_6", description: "description", width: tony_photo_6_size[0], height: tony_photo_6_size[1])
-  tony_photo_7_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/tony_photos/roberto-nickson-1266859-unsplash.jpg", :raise_on_failure => true)
-  tony_photo_7 = Photo.create!(user_id: tony.id, title: "tony_photo_7", description: "description", width: tony_photo_7_size[0], height: tony_photo_7_size[1])
-  tony_photo_8_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/tony_photos/roberto-nickson-1293509-unsplash.jpg", :raise_on_failure => true)
-  tony_photo_8 = Photo.create!(user_id: tony.id, title: "tony_photo_8", description: "description", width: tony_photo_8_size[0], height: tony_photo_8_size[1])
-  tony_photo_9_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/tony_photos/roberto-nickson-1348835-unsplash.jpg", :raise_on_failure => true)
-  tony_photo_9 = Photo.create!(user_id: tony.id, title: "tony_photo_9", description: "description", width: tony_photo_9_size[0], height: tony_photo_9_size[1])
-  tony_photo_10_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/tony_photos/roberto-nickson-1385598-unsplash.jpg", :raise_on_failure => true)
-  tony_photo_10 = Photo.create!(user_id: tony.id, title: "tony_photo_10", description: "description", width: tony_photo_10_size[0], height: tony_photo_10_size[1])
-  tony_photo_11_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/tony_photos/roberto-nickson-1413539-unsplash.jpg", :raise_on_failure => true)
-  tony_photo_11 = Photo.create!(user_id: tony.id, title: "tony_photo_11", description: "description", width: tony_photo_11_size[0], height: tony_photo_11_size[1])
+  tony_photo_1 = Photo.create!(
+    user_id: tony.id, 
+    title: "Kayaking", 
+    description: "Life was meant for GOod Friends & Great Adventure", 
+    width: tony_photo_1_size[0], 
+    height: tony_photo_1_size[1])
 
-  
+  tony_photo_2_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/tony_photos/roberto-nickson-495794-unsplash.jpg", :raise_on_failure => true)
+  tony_photo_2 = Photo.create!(
+    user_id: tony.id, 
+    title: "Wheat Fields", 
+    description: "Always do your best. What you plant now, will harvest later.", 
+    width: tony_photo_2_size[0], 
+    height: tony_photo_2_size[1])
+
+  tony_photo_3_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/tony_photos/roberto-nickson-706404-unsplash.jpg", :raise_on_failure => true)
+  tony_photo_3 = Photo.create!(
+    user_id: tony.id, 
+    title: "Desert Skies", 
+    description: "True friendship multiplies the good in life and divides its evils.", 
+    width: tony_photo_3_size[0], 
+    height: tony_photo_3_size[1])
+
+  tony_photo_4_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/tony_photos/roberto-nickson-706405-unsplash.jpg", :raise_on_failure => true)
+  tony_photo_4 = Photo.create!(
+    user_id: tony.id, 
+    title: "Red Rock Canyon", 
+    description: "Red Rock Island is an uninhabited, 5.8-acre (2.3 ha) island in the San Francisco Bay located just south of the Richmond–San Rafael Bridge.", 
+    width: tony_photo_4_size[0], 
+    height: tony_photo_4_size[1])
+
+  tony_photo_5_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/tony_photos/roberto-nickson-1083409-unsplash.jpg", :raise_on_failure => true)
+  tony_photo_5 = Photo.create!(
+    user_id: tony.id, 
+    title: "Industrial Sunset", 
+    description: "U.S. Route 101, or U.S. Highway 101 (US 101) is a north–south United States Numbered Highway that runs through the states of California, Oregon", 
+    width: tony_photo_5_size[0], 
+    height: tony_photo_5_size[1])
+
+  tony_photo_6_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/tony_photos/roberto-nickson-1090353-unsplash.jpg", :raise_on_failure => true)
+  tony_photo_6 = Photo.create!(
+    user_id: tony.id, 
+    title: "Crusing down the 101", 
+    description: "description", 
+    width: tony_photo_6_size[0], 
+    height: tony_photo_6_size[1])
+
+  tony_photo_7_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/tony_photos/roberto-nickson-1266859-unsplash.jpg", :raise_on_failure => true)
+  tony_photo_7 = Photo.create!(
+    user_id: tony.id, 
+    title: "Fluffy Dog", 
+    description: "The domestic dog is a member of the genus Canis (canines), which forms part of the wolf-like canids, and is the most widely abundant terrestrial carnivore.", 
+    width: tony_photo_7_size[0], 
+    height: tony_photo_7_size[1])
+
+  tony_photo_8_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/tony_photos/roberto-nickson-1293509-unsplash.jpg", :raise_on_failure => true)
+  tony_photo_8 = Photo.create!(
+    user_id: tony.id, 
+    title: "Christmas House", 
+    description: "A feast central to the Christian liturgical year, it is preceded by the season of Advent or the Nativity Fast and initiates the season of Christmastide, which historically in the West lasts twelve days and culminates on Twelfth Night", 
+    width: tony_photo_8_size[0], 
+    height: tony_photo_8_size[1])
+
+  tony_photo_9_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/tony_photos/roberto-nickson-1348835-unsplash.jpg", :raise_on_failure => true)
+  tony_photo_9 = Photo.create!(
+    user_id: tony.id, 
+    title: "Miami Vibes", 
+    description: "Miami, officially the City of Miami, is the cultural, economic and financial center of South Florida and the seat of Miami-Dade County, the most populous county in Florida.", 
+    width: tony_photo_9_size[0], 
+    height: tony_photo_9_size[1])
+
+  tony_photo_10_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/tony_photos/roberto-nickson-1385598-unsplash.jpg", :raise_on_failure => true)
+  tony_photo_10 = Photo.create!(
+    user_id: tony.id, 
+    title: "LACMA'", 
+    description: "The Los Angeles County Museum of Art (LACMA) is an art museum located on Wilshire Boulevard in the Miracle Mile vicinity of Los Angeles.", 
+    width: tony_photo_10_size[0], 
+    height: tony_photo_10_size[1])
+
+  tony_photo_11_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/tony_photos/roberto-nickson-1413539-unsplash.jpg", :raise_on_failure => true)
+  tony_photo_11 = Photo.create!(
+    user_id: tony.id, 
+    title: "Old Car, Old Soul", 
+    description: "Old souls have no interest in things that can break or be taken away from them.", 
+    width: tony_photo_11_size[0], 
+    height: tony_photo_11_size[1])
+
+
   lisa_photo_1_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/lisa_photos/angel-jimenez-166955-unsplash.jpg", :raise_on_failure => true)
   lisa_photo_1 = Photo.create!(
     user_id: lisa.id, 
