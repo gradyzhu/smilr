@@ -10,12 +10,12 @@ import Home from './pages/home/home';
 import SignUpFormContainer from './session_form/sign_up_form_container';
 import LogInFormContainer from './session_form/log_in_form_container';
 import AlbumShowContainer from "./pages/album_show/album_show_container";
-import UploadFormContainer from "./photos/upload_form_container";
+import UploadFormContainer from "./photos/upload_form";
 import EditFormContainer from "./photos/edit_photo_form_container";
 import PhotoShowContainer from "./pages/photo_show/photo_show_container";
 import UserShowPhotosContainer from "./pages/user_show/user_show_photos_container";
 import UserShowAlbumsContainer from "./pages/user_show/user_show_albums";
-
+import Footer from "./footer";
 import SplashRoute from '../reducers/splash_auth_route';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
 
@@ -39,6 +39,7 @@ const App = () => (
         <Redirect to="/"/>
       </Switch>
     </section>
+    <Footer />
   </>
 )
 

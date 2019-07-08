@@ -1,5 +1,5 @@
 import React from 'react';
-import Gallery from '../../gallery/Gallery';
+import Gallery from '../gallery/Gallery';
 import PhotoIndexItemOverlay from './photo_index_item_overlay';
 
 const PhotosGallery = ({ photos }) => {

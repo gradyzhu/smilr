@@ -20,7 +20,7 @@ class CreateAlbumModal extends React.Component {
   handleClick = event => {
     const newPhotoId = parseInt(event.currentTarget.id, 10);
     const photoIds = this.state.photo_ids;
-
+    
     if (photoIds.includes(newPhotoId)) {
       let index = photoIds.indexOf(newPhotoId);
       photoIds.splice(index, 1);

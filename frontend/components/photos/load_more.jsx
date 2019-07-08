@@ -13,7 +13,7 @@ const LoadMore = props => {
     </button> 
 
   return (
-    <div className="flex-center">
+    <div className="loader-margin flex-center">
       {buttonOrLoader}
     </div>
   )

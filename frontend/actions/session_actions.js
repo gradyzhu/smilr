@@ -52,7 +52,7 @@ export const signup = user => dispatch => (
 );
 
 export const logout = () => dispatch => (
-  ApiUtil.logout().then(user => dispatch(logoutCurrentUser()))
+  ApiUtil.logout().then(() => dispatch(logoutCurrentUser()))
 );
 
 export const fetchUser = (id) => dispatch => (

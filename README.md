@@ -29,11 +29,15 @@ User are able to sign-up, browse photos, view users, upload photos, and create a
 
 ## Special Features 
 
+### Justfied Grid Gallery
+
+I utilized a popular [React library](https://benhowell.github.io/react-grid-gallery/) to square up any photos index displayed on the application. With several tweaks to the source code, I altered the on-click functionality of each displayed image to match Flickr's functionality.
+
 ### Infinite Scroll
 
 I implemented infinite scroll using a combination of the Intersection Observer API and React's `useEffect()` hook.
 
-After the first render of my PhotosIndex component, I make a call to the back end to fetch an initial batch of 20 photos. Upon reaching the observed element in the DOM, a handler function is called to make subsequent calls for additional photos.
+A side effect to fetch an initial batch of 20 photos is triggered upon first render of the PhotosIndex component. Upon reaching the observed element in the DOM, a handler function is invoked to fetch additional photos.
 
 ### Modals
 
@@ -44,6 +48,6 @@ For the applications Albums page, I implemented a modal to handle the creation o
 * Tags
 * User Search
 * Photo Search
-* Grid using React Gallery 
+* User Follows
 * Optimized images using AWS Lambda
 

@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import CheckButton from './CheckButton.jsx';
+import CheckButton from './CheckButton';
 
 class Image extends Component {
     constructor (props) {

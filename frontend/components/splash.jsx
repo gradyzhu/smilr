@@ -1,5 +1,6 @@
 import React from 'react';
 import DemoButton from './session_form/demo_button';
+
 const Splash = () => {
   return (
     <div className="center">

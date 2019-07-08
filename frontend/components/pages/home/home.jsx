@@ -10,7 +10,6 @@ const Home = props => {
       <HomeOptions />
       <HomeTitleBar />
       <HomeIndexes />
-      <Footer />
     </>
   )
 }
