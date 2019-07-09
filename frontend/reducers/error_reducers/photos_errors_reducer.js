@@ -4,7 +4,7 @@ import {
   RECEIVE_PHOTO_ERRORS,
   REMOVE_PHOTO_ERRORS,
 }
-  from '../actions/photos_actions';
+  from '../../actions/photos_actions';
 
 const photosErrorsReducer = (oldState = {}, action) => {
   Object.freeze(oldState);

@@ -7,8 +7,9 @@ class Photo < ApplicationRecord
   has_many :comments
   has_many :album_photos
   has_many :albums, through: :album_photos
-  has_one_attached :image
+  has_many :photo_tags
   has_many :tags, through: :photo_tags
+  has_one_attached :image
   # def ensure_image
   #   unless self.image.attached?
   #     errors[:image] << "Must be attached"

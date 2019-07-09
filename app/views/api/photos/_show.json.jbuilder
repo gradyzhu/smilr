@@ -6,5 +6,7 @@ if photo.image.attached?
 else
   json.imageUrl ""
 end
+
 json.extract! photo.user, :username
-json.comments photo.comments
+# json.comments photo.comments
+# json.tags photo.tags

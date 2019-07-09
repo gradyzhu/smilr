@@ -27,7 +27,6 @@ class Api::AlbumsController < ApplicationController
     photo_ids = params[:album][:photo_ids]
 
     if @album.save! && photo_ids && !photo_ids.empty?
-
       photo_ids.each do |id|
         album_photo_params = {
           album_id: @album.id,

@@ -25,7 +25,6 @@ const UserShowPhotos = props => {
           filter={"photostream"} />
         <UserShowFilters />
         <PhotosIndexContainer userId={userId} />
-        {/* <Footer /> */}
       </div> )
   } else {
     return (

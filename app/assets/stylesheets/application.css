@@ -137,6 +137,11 @@ textarea:focus, input:focus{
   justify-content: flex-end;
   align-items: center;
 }
+.flex-align-top {
+  display:flex;
+  justify-content: center;
+  align-items: flex-start;
+}
 
 /* flex wrap */
 .flex-wrap {

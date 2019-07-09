@@ -7,7 +7,7 @@ const PhotoDisplay = props => {
   const { imageUrl, photoId } = props;
 
   return (
-    <div className="photo-display flex-col-center">
+    <div className="photo-display">
       <BackToExplore />
       <Photo imageUrl={imageUrl} />
       <PhotoOptionsContainer photoId={photoId}/>

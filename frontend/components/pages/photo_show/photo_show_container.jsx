@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { fetchPhoto, clearPhotos } from '../../../actions/photos_actions';
 
 const PhotoShow = props => {
-  const { fetchPhoto, clearPhotos, photo, photoId } = props;
+  const { fetchPhoto, clearPhotos, photo, photoId, tags } = props;
 
   useEffect(() => {
     fetchPhoto(photoId);
@@ -14,21 +14,21 @@ const PhotoShow = props => {
 
   if (!photo) return null;
   return (
-    <>
+    <div className="photo-show">
       <PhotoDisplay 
         imageUrl={photo.imageUrl}
         photoId={photoId} />
       <PhotoDetails photo={photo}/>
-    </>
+    </div>
   )
 };
 
-const mstp = ({ entities: { photos } }, ownProps) => {
+const mstp = ({ entities: { photos }}, ownProps) => {
   let photoId = Number(ownProps.match.params.id);
   let photo = photos[photoId];
   return {
     photoId: photoId,
-    photo: photo
+    photo: photo,
   };
 };
 

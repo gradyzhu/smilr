@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React, { Component } from 'react';
-import Image from './Image.jsx';
+import Image from './Image';
 import { Link } from 'react-router-dom';
 
 class Gallery extends Component {
