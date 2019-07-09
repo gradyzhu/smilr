@@ -1,8 +1,7 @@
 class Api::TagsController < ApplicationController
   
   def index
-    photo_id = params[:photo_id]
-    @tags = Tag.joins(:photo_tags).where('photo_tags.photo_id = photo_id')
+    @tags = Tag.joins(:photo_tags).where("photo_tags.photo_id = #{params[:photo_id]}")
     render "api/tags/index"
   end
 

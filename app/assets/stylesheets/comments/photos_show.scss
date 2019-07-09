@@ -172,3 +172,15 @@ hr {
   flex-direction: column;
   align-items: center;
 }
+
+.photo-details-container {
+  display:flex;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100vw;
+}
+
+.photo-user-comments {
+  width: 100wv;
+  background-color: #F3F5F6;
+}

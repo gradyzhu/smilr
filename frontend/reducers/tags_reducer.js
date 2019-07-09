@@ -1,6 +1,7 @@
 import {
   RECEIVE_TAGS,
-  RECEIVE_TAG
+  RECEIVE_TAG,
+  REMOVE_TAGS
 } from '../actions/tags_actions';
 
 const tagsReducer = (oldState = {}, action) => {
@@ -14,6 +15,8 @@ const tagsReducer = (oldState = {}, action) => {
       let newTag = {[action.payload.id]: action.payload};
       newState = Object.assign({}, oldState, newTag);
       return newState;
+    case REMOVE_TAGS:
+      return {};
     default:
       return oldState;
   }

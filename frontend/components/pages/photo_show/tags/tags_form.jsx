@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
-import { createTag } from '../../../actions/tags_actions';
+import { createTag } from '../../../../actions/tags_actions';
 
 const TagForm = props => {
   const { createTag, photoId } = props;
@@ -14,10 +14,13 @@ const TagForm = props => {
     event.preventDefault();
     let tag = { name: tagName, photo_id: photoId };
     createTag(tag);
+    setTagName("");
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form 
+      className="tag-form"
+      onSubmit={handleSubmit}>
       <input 
         className="tag-input"
         type="text" 

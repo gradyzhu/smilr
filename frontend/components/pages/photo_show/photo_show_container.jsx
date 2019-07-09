@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { fetchPhoto, clearPhotos } from '../../../actions/photos_actions';
 
 const PhotoShow = props => {
-  const { fetchPhoto, clearPhotos, photo, photoId, tags } = props;
+  const { fetchPhoto, clearPhotos, photo, photoId } = props;
 
   useEffect(() => {
     fetchPhoto(photoId);
