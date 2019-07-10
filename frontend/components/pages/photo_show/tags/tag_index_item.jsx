@@ -1,12 +1,13 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const TagIndexItem = props => {
-  const { name } = props;
+  const { name, tagId } = props;
 
   return (
-    <div className="tag-index-item">
+    <Link className="tag-index-item" to={`/tags/${tagId}`}>
       {name}
-    </div>
+    </Link>
   )
 };
 

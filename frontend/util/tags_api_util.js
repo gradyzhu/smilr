@@ -1,3 +1,12 @@
+export const fetchTag = tag_id => {
+  return (
+    $.ajax({
+      method: 'GET',
+      url: `api/tags/${tag_id}`
+      })
+  );
+};
+
 export const fetchTags = photo_id => {
   return (
     $.ajax({

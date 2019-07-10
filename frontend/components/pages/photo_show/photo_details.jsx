@@ -4,7 +4,7 @@ import PhotoDetailsUser from './photo_details_user';
 import PhotoTags from './tags/photo_tags';
 
 const PhotoDetails = props => {
-  const { photo: { id, username, userId }} = props;
+  const { photo: { id, username, userId, sessionId }} = props;
 
   return (
     <div className="photo-details-container">
@@ -14,7 +14,10 @@ const PhotoDetails = props => {
           username={username} />
         <PhotoDetailsComments photoId={id}/>
       </div>
-      <PhotoTags photoId={id}/>
+      <PhotoTags 
+        userId={userId}
+        photoId={id}
+        sessionId={sessionId}/>
     </div>
   )
 }

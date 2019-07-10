@@ -1,12 +1,14 @@
 class Api::PhotosController < ApplicationController
 
-  def index   
-    if params[:user_id] != nil
-      is_initial_load = params[:count].to_i == 0
-      initial_count = 10
-      batch_count = 5
-      offset_count = initial_count - batch_count + params[:count].to_i * batch_count
-
+  def index
+    is_initial_load = params[:count].to_i == 0
+    initial_count = 20
+    batch_count = 10
+    offset_count = initial_count - batch_count + params[:count].to_i * batch_count
+ 
+    if params[:tag_id] && params[:user_id].to_i == 0
+      @photos = Photo.joins(:photo_tags).where("photo_tags.tag_id = #{params[:tag_id]}")
+    elsif params[:user_id] != nil
       if is_initial_load
         @photos = Photo.where("user_id = #{params[:user_id]}")
         .order('created_at ASC')
@@ -18,11 +20,6 @@ class Api::PhotosController < ApplicationController
         .limit(batch_count)
       end
     else
-      is_initial_load = params[:count].to_i == 0
-      initial_count = 20
-      batch_count = 10
-      offset_count = initial_count - batch_count + params[:count].to_i * batch_count
-
       if is_initial_load
         @photos = Photo.order('created_at ASC').limit(initial_count)
       else

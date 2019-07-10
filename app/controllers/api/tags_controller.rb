@@ -5,19 +5,40 @@ class Api::TagsController < ApplicationController
     render "api/tags/index"
   end
 
+  def show 
+    @tag = Tag.find(params[:id])
+    if @tag 
+      render "api/tags/_show"
+    else
+      render json ['could not find tag'], status: 404
+    end
+  end
+
   def create
-    @tag = Tag.new({name: tag_params[:name]});
-    if @tag.save!
+    @tag = Tag.find_by(name: tag_params[:name])
+    if @tag 
       photo_tag_params = {
         photo_id: tag_params[:photo_id],
         tag_id: @tag.id
       }
-      @photo_tag = PhotoTag.new(photo_tag_params);
+      @photo_tag = PhotoTag.new(photo_tag_params)
       if @photo_tag.save!
         render "api/tags/_show"
       end
-    else
-      render json: ['tag requires name'], status: 404
+    else 
+      @tag = Tag.new({name: tag_params[:name]});
+      if @tag.save!
+        photo_tag_params = {
+          photo_id: tag_params[:photo_id],
+          tag_id: @tag.id
+        }
+        @photo_tag = PhotoTag.new(photo_tag_params);
+        if @photo_tag.save!
+          render "api/tags/_show"
+        end
+      else
+        render json: ['tag requires name'], status: 404
+      end
     end
   end
 

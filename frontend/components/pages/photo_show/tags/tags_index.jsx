@@ -14,7 +14,11 @@ const TagsIndex = props => {
   if (!tags.length) return null;
 
   let allTags = tags.map(tag => {
-    return <TagIndexItem key={tag.id} name={tag.name} />
+    return <TagIndexItem 
+              key={tag.id} 
+              name={tag.name} 
+              tagId={tag.id} 
+            />
   });
   
   return (

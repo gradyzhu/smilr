@@ -6,6 +6,8 @@
   border-radius: 4px;
   font-size: 14px;
   transition: ease .1s;
+  text-decoration: none;
+  color: black;
 }
 
 .tag-index-item:hover {
@@ -52,6 +54,10 @@
   box-shadow: inset 0 0 0 1px rgb(205, 205, 205);
 }
 
+.tag-input:focus {
+  border: none;
+  box-shadow: inset 0 0 0 1px #008FDA;
+}
 .tag-index {
   display: flex;
   justify-content: flex-start;

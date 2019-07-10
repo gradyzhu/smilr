@@ -1,11 +1,12 @@
-export const fetchPhotos = (count, userId) => {
+export const fetchPhotos = (count, userId, tagId) => {
   return (
     $.ajax({
       method: 'GET',
       url: `api/photos`,
       data: { 
-        count,
-        user_id: userId
+        count: count,
+        user_id: userId,
+        tag_id: tagId
       }
     })
   );

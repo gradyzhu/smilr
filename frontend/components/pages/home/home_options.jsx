@@ -9,6 +9,9 @@ const HomeOptions = props => {
           <Link to="/" className='options-tabs-font-style'>
             Explore
           </Link>
+          <Link to="/tags" className='options-tabs-font-style'>
+            Tags
+          </Link>
         </div>
       </div>
     </div>

@@ -42,9 +42,9 @@ export const clearPhotos = () => ({
   type: REMOVE_PHOTOS,
 });
 
-export const fetchPhotos = (count, id) => dispatch => {
+export const fetchPhotos = (count, id, tagId) => dispatch => {
   return(
-    ApiUtil.fetchPhotos(count, id)
+    ApiUtil.fetchPhotos(count, id, tagId)
       .then( photos => dispatch(receivePhotos(photos)))
       .fail( error => dispatch(receiveErrors(error.responseJSON)))
   );

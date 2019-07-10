@@ -15,6 +15,7 @@ import EditFormContainer from "./photos/edit_photo_form_container";
 import PhotoShowContainer from "./pages/photo_show/photo_show_container";
 import UserShowPhotosContainer from "./pages/user_show/user_show_photos_container";
 import UserShowAlbumsContainer from "./pages/user_show/user_show_albums";
+import TagPhotosShow from "./pages/tag_show/tag_photos_show";
 import Footer from "./footer";
 import SplashRoute from '../reducers/splash_auth_route';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
@@ -30,6 +31,7 @@ const App = () => (
         <Route exact path="/users/:id/albums" component={UserShowAlbumsContainer} />
         <Route exact path="/photos/:id" component={PhotoShowContainer} />
         <Route exact path="/albums/:id" component={AlbumShowContainer} />
+        <Route exact path="/tags/:id" component={TagPhotosShow} />
         <Route exact path="/photos" component={Home} />
         <AuthRoute exact path="/photos/:id/edit" component={EditFormContainer} />
         <ProtectedRoute exact path="/upload" component={UploadFormContainer} /> */}

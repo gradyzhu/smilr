@@ -41,6 +41,14 @@ export const fetchTags = photoId => dispatch => {
   );
 };
 
+export const fetchTag = tagId => dispatch => {
+  return (
+    ApiUtils.fetchTag(tagId)
+      .then( tag => dispatch(receiveTag(tag)))
+      .fail( error => dispatch(receiveErrors(error.responseJSON)))
+  );
+};
+
 export const createTag = tag => dispatch => {
   return (
     ApiUtils.createTag(tag)

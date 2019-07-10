@@ -30,6 +30,7 @@ class CommentsForm extends React.Component {
         className="add-comment-form flex-end-col">
         <textarea
           type="text"
+          placeholder="Write a comment"
           value={this.state.body}
           onChange={this.handleInput("body")}
           className="add-comment-textarea"/>
