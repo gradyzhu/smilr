@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import HomeOptions from '../home/home_options';
+import TagOptions from './tag_options';
 import HomeIndexes from '../home/home_indexes';
 import HomeTitleBar from '../home/home_title_bar';
 import { SyncLoader } from 'react-spinners';
@@ -7,7 +7,6 @@ import { withRouter } from 'react-router';
 import { connect } from 'react-redux';
 import { clearPhotos } from '../../../actions/photos_actions';
 import { clearTags, fetchTag } from '../../../actions/tags_actions';
-
 
 const TagPhotosShow = (props) => {
   const { tag, tagId, fetchTag, clearPhotos, clearTags } = props;
@@ -23,7 +22,7 @@ const TagPhotosShow = (props) => {
   if (tag) {
     return (
       <>
-        <HomeOptions />
+        <TagOptions />
         <HomeTitleBar title={`Photos tagged with "${tag.name}"`} />
         <HomeIndexes 
           indexType={"tags"}

@@ -4,13 +4,13 @@ import Photo from './photo';
 import BackToExplore from './back_to_explore';
 
 const PhotoDisplay = props => {
-  const { imageUrl, photoId } = props;
+  const { imageUrl, photoId, photoUserId } = props;
 
   return (
     <div className="photo-display">
       <BackToExplore />
       <Photo imageUrl={imageUrl} />
-      <PhotoOptionsContainer photoId={photoId}/>
+      <PhotoOptionsContainer photoUserId={photoUserId} photoId={photoId}/>
     </div>
   )
 };

@@ -14,7 +14,7 @@ class CommentsIndex extends React.Component {
   }
 
   render() {
-    const { comments, photoId, deleteComment } = this.props;
+    const { comments, photoId, deleteComment, sessionId } = this.props;
     if (Object.keys(comments).length === 0) return null;
     
     let allComments = comments.map(comment => {
@@ -25,6 +25,7 @@ class CommentsIndex extends React.Component {
             body={comment.body}
             commenterId={comment.userId}
             username={comment.username}
+            sessionId={sessionId}
             deleteComment={deleteComment}
             photoId={photoId}/>
         </div>
@@ -37,10 +38,11 @@ class CommentsIndex extends React.Component {
   }
 }
  
-const mstp = ({entities: {comments}}, ownProps) => {
+const mstp = ({session: {id}, entities: {comments}}, ownProps) => {
   return ({
     photoId: ownProps.match.params.id,
-    comments: Object.values(comments)
+    comments: Object.values(comments),
+    sessionId: Number(id)
   });
 };
 

@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const HomeOptions = props => {
+const TagOptions = props => {
   return (
     <div className="options-bar-container index-flex-center-col">
       <div className="options-bar index-flex-center-row">
         <div className="option-tab-explore index-flex-center-row">
-          <Link to="/" className='options-tabs-font-style'>
-            Explore
+          <Link to="/tags" className='options-tabs-font-style'>
+            Tags
           </Link>
         </div>
       </div>
@@ -15,4 +15,4 @@ const HomeOptions = props => {
   )
 };
 
-export default HomeOptions;
+export default TagOptions;

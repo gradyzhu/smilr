@@ -6,6 +6,7 @@ import { SyncLoader } from 'react-spinners';
 
 const TagPhotosIndex = props => {
   const { photos, fetchPhotos, tagId } = props;
+
   useEffect(() => {
     fetchPhotos(0, 0, tagId);
   }, [ tagId ]);

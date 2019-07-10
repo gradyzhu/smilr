@@ -17,7 +17,8 @@ const PhotoShow = props => {
     <div className="photo-show">
       <PhotoDisplay 
         imageUrl={photo.imageUrl}
-        photoId={photoId} />
+        photoId={photoId}
+        photoUserId={photo.userId} />
       <PhotoDetails 
         photo={photo}
         sessionId={sessionId}/>
