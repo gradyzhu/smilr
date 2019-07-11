@@ -8,12 +8,8 @@ const AlbumsIndex = props => {
 
   useEffect(() => {
     fetchAlbums(userId);
-    return (() => clearAlbums());
-  }, []);
-
-  useEffect(() => {
-    fetchAlbums(userId);
-  }, [ userId ]);
+    return () => clearAlbums();
+  }, [userId]);
 
   let userAlbums = albums.map(album => {
     return(
@@ -47,7 +43,7 @@ const mstp = ({ entities: { albums }}, ownProps) => {
 
 const mdtp = dispatch => {
   return ({
-    fetchAlbums: id => dispatch(fetchAlbums(id)),
+    fetchAlbums: userId => dispatch(fetchAlbums(userId)),
     clearAlbums: () => dispatch(clearAlbums())
   })
 }

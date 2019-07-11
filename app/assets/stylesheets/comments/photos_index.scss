@@ -13,9 +13,10 @@
 
 .photo-index {
   width: 100%;
+  min-height: 75vh;
   background-color: #F3F5F6;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-content: center;
   align-items: center;
   flex-direction: column;

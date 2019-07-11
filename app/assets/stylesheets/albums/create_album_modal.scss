@@ -1,7 +1,3 @@
-.display-none {
-  display: none;
-}
-
 .modal {
   position: fixed;
   top: 0;
@@ -131,4 +127,12 @@
   left: 70px;
   border: 1px solid white;
   position: absolute;
+}
+
+.show-modal {
+  display: block;
+}
+
+.dont-show-modal {
+  display: none;
 }

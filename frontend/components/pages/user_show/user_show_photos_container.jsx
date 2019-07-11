@@ -5,7 +5,6 @@ import UserShowBanner from './user_show_banner';
 import UserShowOptions from './user_show_options';
 import UserShowFilters from './user_show_filters';
 import PhotosIndexContainer from '../../photos/photos_index_container';
-import Footer from '../../footer';
 import { fetchUser, clearUsers } from '../../../actions/session_actions';
 
 const UserShowPhotos = props => {

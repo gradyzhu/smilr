@@ -10,7 +10,9 @@ const PhotoDisplay = props => {
     <div className="photo-display">
       <BackToExplore />
       <Photo imageUrl={imageUrl} />
-      <PhotoOptionsContainer photoUserId={photoUserId} photoId={photoId}/>
+      <PhotoOptionsContainer 
+        photoUserId={photoUserId} 
+        photoId={photoId}/>
     </div>
   )
 };

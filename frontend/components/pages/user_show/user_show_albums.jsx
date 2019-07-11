@@ -3,43 +3,58 @@ import { connect } from 'react-redux';
 import { SyncLoader } from 'react-spinners';
 import AlbumsIndexContainer from '../../albums/albums_index_container';
 import AlbumOptionsBar from '../../albums/album_options_bar';
-import CreateAlbumModalContainer from '../../albums/create_album_modal_container';
+import AlbumModalContainer from '../../albums/album_modal_container';
 import UserShowBanner from './user_show_banner';
 import UserShowOptions from './user_show_options';
 import { fetchUser, clearUsers } from '../../../actions/session_actions';
+import { fetchPhotos, clearPhotos } from '../../../actions/photos_actions';
 
 const UserShowAlbums = props => {
+  const { userId, sessionId, fetchUser, sessionUser, 
+          user, clearUsers, photos, fetchPhotos } = props;
+
   const [ showModal, setShowModal ] = useState(false);
-  const { userId, sessionId, fetchUser, sessionUser, user, clearUsers } = props;
 
   useEffect(() => {
     fetchUser(userId);
-    return (() => clearUsers(sessionUser));
+    return (() => {
+      clearUsers(sessionUser);
+      clearPhotos();
+    });
   }, [ userId ]);
 
-  const handleShowModal = () => setShowModal(true);
-  const handleCloseModal = () => setShowModal(false);
-
+  const handleShowModal = (() => {
+    fetchPhotos(0, userId, null);
+    setShowModal(true);
+  });
+  
+  const handleCloseModal = (() => {
+    setShowModal(false);
+  });
+  
+  let modal;
   let loggedIn = sessionId === userId;
-  let albumOptions = loggedIn ? "display-block" : "display-none";
+  if (showModal) {
+    modal = <AlbumModalContainer
+              photos={photos}
+              closeModal={handleCloseModal}
+              userId={userId} />
+  } else {
+    modal = null;
+  }
 
   if (user) {
     return (
       <>
-        <CreateAlbumModalContainer
-          show={showModal}
-          closeModal={handleCloseModal}
-          userId={userId}
-        />
+        {modal}
         <UserShowBanner user={user} />
         <UserShowOptions 
           userId={userId}
           filter={"albums"} />
         <AlbumOptionsBar 
-          albumOptions={albumOptions}
           handleShowModal={handleShowModal}
-        />
-        <AlbumsIndexContainer userId={userId}/>
+          loggedIn={loggedIn} />
+        <AlbumsIndexContainer userId={userId} />
       </>
     )
   } else {
@@ -51,21 +66,25 @@ const UserShowAlbums = props => {
   }
 }
 
-const mstp = ({ entities: { users }, session: { id }}, ownProps) => {
+const mstp = ({ entities: { users, photos }, session: { id }}, ownProps) => {
   let userId = Number(ownProps.match.params.id);
   let sessionUser = users ? users[id] : null;
   let user = users[userId];
+  let userPhotos = Object.values(photos).length ? Object.values(photos) : [];
+
   return({
     userId: userId,
     user: user,
     sessionId: id,
-    sessionUser: sessionUser
+    sessionUser: sessionUser,
+    photos: userPhotos
   });
 };
 
 const mdtp = dispatch => {
   return({
     fetchUser: id => dispatch(fetchUser(id)),
+    fetchPhotos: (count, userId, tagId) => dispatch(fetchPhotos(count, userId, tagId)),
     clearUsers: sessionUser => dispatch(clearUsers(sessionUser))
   });
 };

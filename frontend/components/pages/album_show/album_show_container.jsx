@@ -1,20 +1,25 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { fetchAlbum } from '../../../actions/albums_actions';
+import { fetchAlbum, clearAlbums } from '../../../actions/albums_actions';
 import { SyncLoader } from 'react-spinners';
 import BackToAlbums from './back_to_albums';
 import AlbumShowBanner from './album_show_banner';
 import AlbumPhotoIndex from './album_show_photos_index';
 
 const AlbumShow = props => {
-  const { fetchAlbum, album, albumId } = props;
+  const { fetchAlbum, album, albumId, clearAlbums } = props;
 
   useEffect(() => {
     fetchAlbum(albumId);
+    return () => clearAlbums();
   }, [ albumId ]);
 
   if (album) {
     const { photos, name, description, userId } = album;
+    
+    if (!album.photos.length) {
+      return <div>No photos</div>
+    }
     return (
       <div className="album-show-container flex-col-center">
         <BackToAlbums userId={userId} />
@@ -23,8 +28,7 @@ const AlbumShow = props => {
           description={description}
           length={photos.length}
           bannerImage={photos[0].imageUrl}
-          length={photos.length}
-        />
+          length={photos.length} />
         <AlbumPhotoIndex photos={photos} />
       </div>
     )
@@ -48,7 +52,8 @@ const mstp = ({ entities: { albums }}, ownProps) => {
 
 const mdtp = dispatch => {
   return({
-    fetchAlbum: id => dispatch(fetchAlbum(id))
+    fetchAlbum: id => dispatch(fetchAlbum(id)),
+    clearAlbums: () => dispatch(clearAlbums())
   });
 };
 

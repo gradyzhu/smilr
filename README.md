@@ -49,32 +49,10 @@ To extract the dimensions of files, I initiated a new Image object and create a 
 
 Upon submit, key value pairs are appended to a FormData object.  The FormData is passed into a createPhoto function that carries out the eventual creation of the Photo.
 
-``` javascript
-  const handleInput = field => event => {
-    if (field === "description") setDescription(event.currentTarget.value);
-    if (field === "title") setTitle(event.currentTarget.value);
-  };
-
-  const handleSubmit = event => {
-    event.preventDefault();
-    setIsUploading(true);
-    const formData = new FormData();
-    formData.append('photo[title]', title);
-    formData.append('photo[description]', description);
-    formData.append('photo[width]', photoWidth);
-    formData.append('photo[height]', photoHeight);
-    formData.append('photo[image]', photoFile);
-
-    createPhoto(formData).then(res => {
-      history.push(`/photos/${res.photo.id}`);
-    });
-  };
-```
-
-
 ### Albums
 ### Comments
 ### User Authentication
+### Tags
 
 ## Special Features 
 
@@ -94,7 +72,6 @@ For the applications Albums page, I implemented a modal to handle the creation o
 
 ## Future Features
 
-* Tags
 * User Search
 * Photo Search
 * User Follows

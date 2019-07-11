@@ -1,5 +1,4 @@
 class Api::AlbumsController < ApplicationController
-
   def index 
     if params[:user_id] != nil
       @albums = Album.all.select { |album| album.user_id === params[:user_id].to_i }
