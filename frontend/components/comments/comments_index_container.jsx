@@ -27,13 +27,13 @@ class CommentsIndex extends React.Component {
             username={comment.username}
             sessionId={sessionId}
             deleteComment={deleteComment}
-            photoId={photoId}/>
+            photoId={photoId} />
         </div>
       )
     });
 
     return(
-      <>{ allComments }</>
+      <>{allComments}</>
     )
   }
 }

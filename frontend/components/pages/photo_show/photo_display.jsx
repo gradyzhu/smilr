@@ -12,7 +12,7 @@ const PhotoDisplay = props => {
       <Photo imageUrl={imageUrl} />
       <PhotoOptionsContainer 
         photoUserId={photoUserId} 
-        photoId={photoId}/>
+        photoId={photoId} />
     </div>
   )
 };

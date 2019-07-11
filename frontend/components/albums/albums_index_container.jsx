@@ -18,7 +18,7 @@ const AlbumsIndex = props => {
         albumId={album.id}
         name={album.name}
         description={album.description}
-        photos={album.photos}/>
+        photos={album.photos} />
       );
   });
   

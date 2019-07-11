@@ -17,8 +17,7 @@ const TagsIndex = props => {
     return <TagIndexItem 
               key={tag.id} 
               name={tag.name} 
-              tagId={tag.id} 
-            />
+              tagId={tag.id} />
   });
   
   return (

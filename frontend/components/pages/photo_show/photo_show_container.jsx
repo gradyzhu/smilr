@@ -21,7 +21,7 @@ const PhotoShow = props => {
         photoUserId={photo.userId} />
       <PhotoDetails 
         photo={photo}
-        sessionId={sessionId}/>
+        sessionId={sessionId} />
     </div>
   )
 };

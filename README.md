@@ -49,10 +49,13 @@ To extract the dimensions of files, I initiated a new Image object and create a 
 
 Upon submit, key value pairs are appended to a FormData object.  The FormData is passed into a createPhoto function that carries out the eventual creation of the Photo.
 
+### Tags
+
+To handle the many-to-many relationship between Photos and Tags, I created a joins a PhotoTags resource.  By adding uniqueness constraints to a `photo_id` and `tag_id` pairing, I am able to ensure users cannot add the same tag to the same photo more than once.
+
 ### Albums
 ### Comments
 ### User Authentication
-### Tags
 
 ## Special Features 
 
