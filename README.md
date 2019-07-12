@@ -83,8 +83,8 @@ For the applications Albums page, I implemented a modal to handle the creation o
 
 ## Future Features
 
-* User Search
-* Photo Search
 * User Follows
-* Optimized images using AWS Lambda
+* User Search
+* Photo Search (by title)
+* Photo Search (by tag)
 
