@@ -59,6 +59,8 @@ To handle the many-to-many relationship between Photos and Tags, I created a joi
 
 ### Comments
 
+Comments and Users have a one to many relationship.  The CreateCommentForm component is conditionally rendered when a user is logged in.  This protects against anonymous comments on the photos.  User are able to delete their own comments, but not the comments of other users.
+
 ![alt text](https://smilr-seed.s3-us-west-1.amazonaws.com/misc/smilr_comments.png)
 
 ## Special Features 
