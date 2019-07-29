@@ -41,7 +41,7 @@ ActiveRecord::Base.transaction do
     height: josh_photo_3_size[1])
 
   josh_photo_4_size = FastImage.size("https://s3-us-west-1.amazonaws.com/smilr-seed/josh_photos/josh-hild-1313362-unsplash.jpg", :raise_on_failure => true)
-  josh_photo_4= Photo.create!(user_id: josh.id, title: "A Ray of Light", 
+  josh_photo_4 = Photo.create!(user_id: josh.id, title: "A Ray of Light", 
     description: "I have always believed that each man makes his own happiness and is responsible for his own problems. It is a simple philosophy.",
     width: josh_photo_4_size[0],
     height: josh_photo_4_size[1])

@@ -18,7 +18,7 @@ const AlbumShowPhotosIndex = ({ photos }) => {
   return (
     <ul className="index-ul-container-1 index-items-flex">
       <div className="index-li-flex">
-        {albumPhotos}
+        {/* {albumPhotos} */}
       </div>
     </ul>
   )

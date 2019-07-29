@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const AlbumsIndexItem = props => {
   const { photos, name, albumId } = props;
-  if (props.photos.length == 0) {
+  if (photos.length == 0) {
     return(
       <div className="album-index-item-empty">
         <Link to={`/albums/${albumId}`}>

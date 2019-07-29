@@ -16,7 +16,7 @@ const PhotosGallery = ({ photos }) => {
           key={id}
           username={username}
           title={title}
-          length={comments.length}
+          comments={comments}
         />
     };
   });

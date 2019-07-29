@@ -53,7 +53,7 @@ const UserShowAlbums = props => {
           filter={"albums"} />
         <AlbumOptionsBar 
           handleShowModal={handleShowModal}
-          loggedIn={loggedIn} />
+    loggedIn={loggedIn} />
         <AlbumsIndexContainer userId={userId} />
       </>
     )

@@ -7,10 +7,13 @@ class Api::PhotosController < ApplicationController
     offset_count = initial_count - batch_count + params[:count].to_i * batch_count
  
     if params[:tag_id] && params[:user_id].to_i == 0
-      @photos = Photo.joins(:photo_tags).where("photo_tags.tag_id = #{params[:tag_id]}")
+      @photos = Photo.includes(:comments, :user, :image_attachment => :blob)
+      .joins(:photo_tags)
+      .where("photo_tags.tag_id = #{params[:tag_id]}")
     elsif params[:user_id] != nil
       if is_initial_load
-        @photos = Photo.where("user_id = #{params[:user_id]}")
+        @photos = Photo.includes(:comments, :user, :image_attachment => :blob)
+        .where("user_id = #{params[:user_id]}")
         .order('created_at ASC')
         .limit(initial_count)
       else
@@ -21,9 +24,12 @@ class Api::PhotosController < ApplicationController
       end
     else
       if is_initial_load
-        @photos = Photo.order('created_at ASC').limit(initial_count)
+        @photos = Photo.includes(:comments, :user, :image_attachment => :blob)
+        .order('created_at ASC')
+        .limit(initial_count)
       else
-        @photos = Photo.offset(offset_count)
+        @photos = Photo.includes(:comments, :user, :image_attachment => :blob)
+        .offset(offset_count)
         .order('created_at ASC')
         .limit(batch_count)
       end
@@ -33,7 +39,7 @@ class Api::PhotosController < ApplicationController
   end
 
   def show 
-    @photo = Photo.find(params[:id])
+    @photo = Photo.includes(:comments, :user, :image_attachment => :blob).find(params[:id])
     if @photo
       render "api/photos/_show"
     else

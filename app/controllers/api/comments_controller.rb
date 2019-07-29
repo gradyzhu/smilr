@@ -1,7 +1,7 @@
 class Api::CommentsController < ApplicationController
   def index
     if params[:photo_id] != nil
-      @comments = Comment.all.select { |comment| comment.photo_id === params[:photo_id].to_i }
+      @comments = Comment.includes(:user).where("photo_id = #{params[:photo_id].to_i}")
       render "api/comments/index"
     else
       render json: ["no photo_id found"], status: 404

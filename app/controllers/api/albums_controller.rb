@@ -1,9 +1,10 @@
 class Api::AlbumsController < ApplicationController
   def index 
     if params[:user_id] != nil
-      @albums = Album.all.select { |album| album.user_id === params[:user_id].to_i }
+      @albums = Album.includes(photos: [{image_attachment: :blob}, {comments: :user}, :user])
+      .where("user_id = #{params[:user_id].to_i}")
     else
-      @albums = Album.all
+      render json: ["no albums"]
     end
     render "api/albums/index"
   end

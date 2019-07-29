@@ -34,7 +34,6 @@ class User < ApplicationRecord
       end
   end
 
-  # associations uncomment later
   has_many :albums
   has_many :photos
   has_many :comments
