@@ -22,6 +22,8 @@ User are able to sign-up, browse photos, view users, upload photos, and create a
 
 ## Features
 
+### Albums
+### User Authentication
 ### Photo Upload
 
 To extract the dimensions of files, I initiated a new Image object and create a slice of state to store the values.
@@ -53,15 +55,21 @@ Upon submit, key value pairs are appended to a FormData object.  The FormData is
 
 To handle the many-to-many relationship between Photos and Tags, I created a joins a PhotoTags resource.  By adding uniqueness constraints to a `photo_id` and `tag_id` pairing, I am able to ensure users cannot add the same tag to the same photo more than once.
 
-### Albums
+![alt text](https://smilr-seed.s3-us-west-1.amazonaws.com/misc/smilr_tags_gallery.png)
+
 ### Comments
-### User Authentication
+
+Comments and Users have a one to many relationship.  The CreateCommentForm component is conditionally rendered when a user is logged in.  This protects against anonymous comments on the photos.  User are able to delete their own comments, but not the comments of other users.
+
+![alt text](https://smilr-seed.s3-us-west-1.amazonaws.com/misc/smilr_comments.png)
 
 ## Special Features 
 
 ### Justfied Grid Gallery
 
 I utilized a popular [React library](https://benhowell.github.io/react-grid-gallery/) to square up any photos index displayed on the application. With several tweaks to the source code, I altered the on-click functionality of each displayed image to match Flickr's functionality.
+
+![alt text](https://smilr-seed.s3-us-west-1.amazonaws.com/misc/smilr_justified.png)
 
 ### Infinite Scroll
 
@@ -75,8 +83,8 @@ For the applications Albums page, I implemented a modal to handle the creation o
 
 ## Future Features
 
-* User Search
-* Photo Search
 * User Follows
-* Optimized images using AWS Lambda
+* User Search
+* Photo Search (by title)
+* Photo Search (by tag)
 
